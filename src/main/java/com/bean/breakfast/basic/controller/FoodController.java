@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping("/basic")
-public class MobileController {
+public class FoodController {
     @RequestMapping(value = "/")
     public ModelAndView welcome(final HttpServletRequest request){
         ModelAndView model = new ModelAndView("index");
