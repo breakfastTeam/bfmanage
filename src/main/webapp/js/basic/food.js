@@ -8,7 +8,7 @@ var BelCookBook = function () {
                 "bLengthChange":false,
                 "bPaginate":false,
                 "oLanguage": {
-                	"sEmptyTable":EMTPY_CONENT
+                	"sEmptyTable":EMPTY_CONTENT
 			     }
             });
 			oTable.fnDraw();

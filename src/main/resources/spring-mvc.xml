@@ -49,22 +49,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
     <!-- 国际化 start -->
     <bean id="messageSource"
-          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basenames">
-            <list></list>
-        </property>
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames" value="messages"/>
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
-    <bean id="localeResolver"
-          class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-        <property name="defaultLocale" value="zh_CN" />
-    </bean>
-    <mvc:interceptors>
-        <bean id="localeChangeInterceptor"
-              class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-            <property name="paramName" value="lang" />
-        </bean>
-    </mvc:interceptors>
     <!-- 国际化 end -->
 
 </beans>

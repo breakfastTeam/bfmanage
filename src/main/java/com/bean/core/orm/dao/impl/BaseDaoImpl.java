@@ -22,6 +22,7 @@ import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.persister.entity.AbstractEntityPersister;
 import org.hibernate.transform.ResultTransformer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
 import com.bean.core.orm.dao.BaseDao;
@@ -39,6 +40,7 @@ import com.bean.core.utils.IReflectionUtil;
 public class BaseDaoImpl<T, PK extends Serializable> implements BaseDao<T, PK> {
 
 	private Class<T> entityClass;
+	@Autowired
 	protected SessionFactory sessionFactory;
 	protected AbstractEntityPersister classMetadata;
 	

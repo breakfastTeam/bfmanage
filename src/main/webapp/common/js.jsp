@@ -1,6 +1,6 @@
 <script type="text/javascript">
  	var TIPS='<spring:message code="TIPS"/>';
- 	var EMTPY_CONENT='<spring:message code="EMTPY_CONENT"/>';
+ 	var EMPTY_CONTENT='<spring:message code="EMPTY_CONTENT"/>';
  	var CONFIRM='<spring:message code="CONFIRM"/>';
  	var CLOSE='<spring:message code="CLOSE"/>';
  	var IMAGE_CROP='<spring:message code="IMAGE_CROP"/>';

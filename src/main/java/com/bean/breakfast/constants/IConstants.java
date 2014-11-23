@@ -17,7 +17,7 @@ public class IConstants {
 	public static final String SUCCESS = "success";
 	
 	/**************搜索*************/
-	public static int DEFAULT_PAGE_SIZE = constants.getInteger("DEFAULT_PAGE_SIZE");
+	public static int DEFAULT_PAGE_SIZE = 20;
 	
 	/***********公共消息************/
 	public static final String DESC = "desc";
@@ -26,8 +26,8 @@ public class IConstants {
 	public static final String OPERATE_ERROR = "error";
 	public static final String SERVER_EXCEPTION = "exception";
 	public static final String INFO = "info";
-	public static final String VALID = "1";
-	public static final String INVALID  = "0";
+	public static final String VALID = "VALID";
+	public static final String INVALID  = "INVALID";
 	public static final String FORBIDDEN  = "0";
 	public static final String ACTIVE  = "1";
 	public static final String ACCESS_CODE = "accessCode";
@@ -78,7 +78,7 @@ public class IConstants {
 		return props; 
 	}
 	private String getString(String key){
-		return loadProperties("sysconfig.properties").getProperty(key); 
+		return loadProperties("config.properties").getProperty(key);
 	}
 	
 	private Integer getInteger(String key){
