@@ -11,7 +11,7 @@ import org.apache.commons.lang.time.DateUtils;
 import org.springframework.expression.ParseException;
 
 public class IDateUtil extends DateUtils{
-	private static String[] dateFormat = null;//{ "yyyy-MM-dd HH:mm:ss", "yyyy/MM/dd HH:mm:ss", "yyyy年MM月dd日HH时mm分ss秒", "yyyy-MM-dd", "yyyy/MM/dd", "yy-MM-dd", "yy/MM/dd", "yyyy年MM月dd日", "HH:mm:ss", "yyyyMMddHHmmss", "yyyyMMdd", "yyyy.MM.dd", "yy.MM.dd", "MM月dd日HH时mm分","mm:ss" };
+	private static String[] dateFormat = { "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd", "yy-MM-dd","HH:mm:ss"};
 
 	public static Timestamp convUtilCalendarToSqlTimestamp(Calendar date)
 	{
@@ -62,7 +62,7 @@ public class IDateUtil extends DateUtils{
 	{
 		if (date == null)
 			return null;
-		return new SimpleDateFormat(dateFormat[3]).format(date.getTime());
+		return new SimpleDateFormat(dateFormat[0]).format(date.getTime());
 	}
 
 	public static String toDateStrByFormatIndex(Calendar date, int formatIndex) {
@@ -171,7 +171,7 @@ public class IDateUtil extends DateUtils{
 		 if (date == null)
 			 return null;
 
-		 return new SimpleDateFormat(dateFormat[3]).format(date);
+		 return new SimpleDateFormat(dateFormat[1]).format(date);
 	 }
 
 	 public static Timestamp convUtilDateToSqlTimestamp(Date date)
@@ -213,7 +213,7 @@ public class IDateUtil extends DateUtils{
 	 {
 		 DateFormat df = null;
 		 try {
-			 df = new SimpleDateFormat(dateFormat[3]);
+			 df = new SimpleDateFormat(dateFormat[0]);
 			 try {
 				 return new Timestamp(df.parse(dateStr).getTime());
 			 } catch (java.text.ParseException e) {

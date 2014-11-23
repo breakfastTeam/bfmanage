@@ -13,8 +13,8 @@ var BelCookBook = function () {
             });
 			oTable.fnDraw();
 			
-			$("#toAddCookBookFood").click(function(){
-        		openNewUrl('basic/toAddCookBook.do')
+			$("#toAddFood").click(function(){
+        		openNewUrl('basic/toAddFood.do')
         	});
         }
     };

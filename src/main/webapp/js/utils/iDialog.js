@@ -11,7 +11,7 @@
                                              '<button class="close" idialog-data-dismiss="modal" aria-hidden="true">&times;</button>'+
                                              '<h4 class="modal-title">'+TIPS+'</h4>'+
                                         '</div>'+
-                                        '<div class="modal-body">'+EMTPY_CONENT+'</div>'+
+                                        '<div class="modal-body">'+EMPTY_CONTENT+'</div>'+
                                           '<div class="modal-footer">'+
                                               '<button idialog-data-dismiss="modal" class="btn btn-success">'+CONFIRM+'</button>'+
                                           '</div>'+
@@ -25,7 +25,7 @@
                                              '<button class="close" idialog-data-dismiss="modal" aria-hidden="true">&times;</button>'+
                                              '<h4 class="modal-title">'+TIPS+'</h4>'+
                                         '</div>'+
-                                        '<div class="modal-body">'+EMTPY_CONENT+'</div>'+
+                                        '<div class="modal-body">'+EMPTY_CONTENT+'</div>'+
                                           '<div class="modal-footer">'+
                                           	  '<button idialog-data-dismiss="modal" class="btn btn-danger">'+CLOSE+'</button>'+
                                               '<button idialog-data-dismiss="modal-ok" class="btn btn-success">'+CONFIRM+'</button>'+

@@ -11218,3 +11218,1193 @@ Caused by: java.lang.NumberFormatException: null
 [INFO][2014-11-23 22:38:50,160][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
 [INFO][2014-11-23 22:38:50,228][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 1719 ms
 [WARN][2014-11-23 22:38:58,446][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[INFO][2014-11-23 22:54:13,718][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-23 22:54:13,844][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Sun Nov 23 22:54:13 CST 2014]; root of context hierarchy
+[INFO][2014-11-23 22:54:13,922][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-23 22:54:14,231][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-23 22:54:14,514][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-23 22:54:14,968][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-23 22:54:15,529][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-23 22:54:15,923][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-23 22:54:15,932][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-23 22:54:15,935][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-23 22:54:15,937][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-23 22:54:16,313][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pcys8w1vorz4l|cf37ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pcys8w1vorz4l|cf37ab, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-23 22:54:16,744][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-23 22:54:16,759][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-23 22:54:17,133][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-23 22:54:17,141][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-23 22:54:17,661][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-23 22:54:17,661][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-23 22:54:17,666][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-23 22:54:17,697][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-23 22:54:17,697][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-23 22:54:17,698][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,698][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-23 22:54:17,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-23 22:54:17,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,727][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,738][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-23 22:54:17,739][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-23 22:54:17,739][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,739][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,749][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-23 22:54:17,750][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-23 22:54:17,750][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,750][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,761][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-23 22:54:17,761][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-23 22:54:17,762][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,762][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,773][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-23 22:54:17,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-23 22:54:17,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,774][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-23 22:54:17,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-23 22:54:17,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,797][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-23 22:54:17,798][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-23 22:54:17,798][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,798][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,809][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-23 22:54:17,809][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-23 22:54:17,809][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,809][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,820][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-23 22:54:17,820][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-23 22:54:17,820][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,821][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,831][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-23 22:54:17,832][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-23 22:54:17,835][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,835][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,892][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-23 22:54:17,892][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-23 22:54:17,892][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,892][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,904][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-23 22:54:17,905][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-23 22:54:17,905][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,905][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 22:54:17,919][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-23 22:54:17,919][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-23 22:54:17,919][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,920][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,931][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-23 22:54:17,931][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-23 22:54:17,931][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,931][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,943][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-23 22:54:17,943][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-23 22:54:17,943][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,943][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,955][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-23 22:54:17,956][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-23 22:54:17,956][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,956][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 22:54:17,970][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-23 22:54:17,971][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-23 22:54:17,971][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,971][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:17,998][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-23 22:54:17,998][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-23 22:54:17,998][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:17,998][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:18,020][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-23 22:54:18,020][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-23 22:54:18,020][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:18,020][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:18,033][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-23 22:54:18,033][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-23 22:54:18,033][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:18,033][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:18,044][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-23 22:54:18,045][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-23 22:54:18,045][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:18,045][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:18,056][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-23 22:54:18,056][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-23 22:54:18,056][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:18,056][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:18,070][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-23 22:54:18,070][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-23 22:54:18,071][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:54:18,071][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:54:18,072][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-23 22:54:18,334][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pcys8w1vorz4l|cf37ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pcys8w1vorz4l|cf37ab, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-23 22:54:18,414][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4695 ms
+[INFO][2014-11-23 22:54:18,517][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-23 22:54:18,526][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Sun Nov 23 22:54:18 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-23 22:54:18,527][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-23 22:54:19,230][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,230][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,230][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,230][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,230][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,230][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,230][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,231][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,231][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,231][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,231][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,231][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,231][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-23 22:54:19,231][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook.*] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook/] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,232][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-23 22:54:19,328][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 811 ms
+[WARN][2014-11-23 22:54:36,131][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 22:56:05,926][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/bfmanage/basic/toAddCookBook.do] in DispatcherServlet with name 'springMvc'
+[INFO][2014-11-23 22:58:15,143][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-23 22:58:15,272][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Sun Nov 23 22:58:15 CST 2014]; root of context hierarchy
+[INFO][2014-11-23 22:58:15,329][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-23 22:58:15,574][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-23 22:58:15,857][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-23 22:58:16,316][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-23 22:58:16,447][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-23 22:58:16,834][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-23 22:58:16,843][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-23 22:58:16,846][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-23 22:58:16,848][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-23 22:58:17,170][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pd3y5d1bhl7ki|186a583, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pd3y5d1bhl7ki|186a583, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-23 22:58:17,555][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-23 22:58:17,572][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-23 22:58:17,953][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-23 22:58:17,960][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-23 22:58:18,522][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-23 22:58:18,522][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-23 22:58:18,528][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-23 22:58:18,561][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-23 22:58:18,561][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-23 22:58:18,561][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,561][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,577][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-23 22:58:18,577][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-23 22:58:18,577][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,577][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,592][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-23 22:58:18,593][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-23 22:58:18,593][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,593][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,607][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-23 22:58:18,607][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-23 22:58:18,607][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,608][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,622][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-23 22:58:18,622][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-23 22:58:18,623][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,623][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,637][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-23 22:58:18,637][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-23 22:58:18,637][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,637][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,651][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-23 22:58:18,651][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-23 22:58:18,651][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,652][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,666][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-23 22:58:18,666][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-23 22:58:18,666][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,666][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,680][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-23 22:58:18,680][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-23 22:58:18,681][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,681][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,694][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-23 22:58:18,694][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-23 22:58:18,695][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,695][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,710][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-23 22:58:18,713][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-23 22:58:18,713][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,714][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,725][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-23 22:58:18,725][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-23 22:58:18,725][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,725][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,738][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-23 22:58:18,738][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-23 22:58:18,738][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,738][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 22:58:18,751][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-23 22:58:18,752][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-23 22:58:18,752][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,752][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,763][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-23 22:58:18,763][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-23 22:58:18,764][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,764][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,775][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-23 22:58:18,775][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-23 22:58:18,775][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,775][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-23 22:58:18,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-23 22:58:18,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,786][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 22:58:18,798][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-23 22:58:18,798][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-23 22:58:18,798][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,798][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,811][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-23 22:58:18,811][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-23 22:58:18,811][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,811][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,822][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-23 22:58:18,823][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-23 22:58:18,823][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,823][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,834][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-23 22:58:18,834][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-23 22:58:18,834][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,834][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,846][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-23 22:58:18,846][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-23 22:58:18,846][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,846][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-23 22:58:18,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-23 22:58:18,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,868][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-23 22:58:18,868][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-23 22:58:18,868][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 22:58:18,868][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 22:58:18,869][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-23 22:58:19,077][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pd3y5d1bhl7ki|186a583, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pd3y5d1bhl7ki|186a583, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-23 22:58:19,147][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4003 ms
+[INFO][2014-11-23 22:58:19,259][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-23 22:58:19,262][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Sun Nov 23 22:58:19 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-23 22:58:19,263][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,934][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook.*] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook/] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,935][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,936][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,936][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,936][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,936][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-23 22:58:19,999][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 740 ms
+[WARN][2014-11-23 22:58:55,123][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[INFO][2014-11-23 23:03:00,681][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-23 23:03:00,813][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Sun Nov 23 23:03:00 CST 2014]; root of context hierarchy
+[INFO][2014-11-23 23:03:00,914][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-23 23:03:01,181][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-23 23:03:01,477][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-23 23:03:01,948][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-23 23:03:02,078][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-23 23:03:02,490][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-23 23:03:02,500][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-23 23:03:02,503][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-23 23:03:02,505][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-23 23:03:02,850][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pda2jo12kyss7|cf37ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pda2jo12kyss7|cf37ab, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-23 23:03:03,222][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-23 23:03:03,236][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-23 23:03:03,611][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-23 23:03:03,618][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-23 23:03:04,158][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-23 23:03:04,158][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-23 23:03:04,167][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-23 23:03:04,244][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-23 23:03:04,244][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-23 23:03:04,245][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,245][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,272][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-23 23:03:04,273][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-23 23:03:04,273][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,273][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,295][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-23 23:03:04,295][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-23 23:03:04,296][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,296][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,307][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-23 23:03:04,307][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-23 23:03:04,307][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,307][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-23 23:03:04,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-23 23:03:04,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,333][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-23 23:03:04,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-23 23:03:04,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,334][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,346][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-23 23:03:04,346][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-23 23:03:04,346][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,346][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,358][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-23 23:03:04,358][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-23 23:03:04,359][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,359][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-23 23:03:04,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-23 23:03:04,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,374][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,385][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-23 23:03:04,386][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-23 23:03:04,386][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,386][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,421][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-23 23:03:04,421][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-23 23:03:04,421][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,421][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,484][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-23 23:03:04,484][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-23 23:03:04,484][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,484][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,496][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-23 23:03:04,496][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-23 23:03:04,496][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,496][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 23:03:04,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-23 23:03:04,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-23 23:03:04,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,518][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-23 23:03:04,518][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-23 23:03:04,518][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,518][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,529][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-23 23:03:04,529][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-23 23:03:04,529][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,529][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,540][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-23 23:03:04,540][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-23 23:03:04,540][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,540][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 23:03:04,553][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-23 23:03:04,553][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-23 23:03:04,553][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,553][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,564][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-23 23:03:04,564][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-23 23:03:04,564][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,565][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,580][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-23 23:03:04,581][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-23 23:03:04,581][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,581][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,594][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-23 23:03:04,594][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-23 23:03:04,594][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,594][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,606][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-23 23:03:04,606][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-23 23:03:04,606][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,607][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,618][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-23 23:03:04,618][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-23 23:03:04,619][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,619][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,631][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-23 23:03:04,631][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-23 23:03:04,631][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:03:04,631][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:03:04,633][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-23 23:03:04,856][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pda2jo12kyss7|cf37ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pda2jo12kyss7|cf37ab, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-23 23:03:04,930][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4248 ms
+[INFO][2014-11-23 23:03:05,034][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-23 23:03:05,037][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Sun Nov 23 23:03:05 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-23 23:03:05,037][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-23 23:03:05,731][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,731][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,731][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,731][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,731][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,731][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,731][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,732][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,732][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,732][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,732][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,732][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,732][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook.*] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook/] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,733][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-23 23:03:05,795][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 761 ms
+[WARN][2014-11-23 23:03:10,767][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:03:15,057][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:03:15,057][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:03:15,067][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:03:15,068][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[INFO][2014-11-23 23:25:49,525][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-23 23:25:49,677][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Sun Nov 23 23:25:49 CST 2014]; root of context hierarchy
+[INFO][2014-11-23 23:25:49,733][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-23 23:25:50,116][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-23 23:25:50,386][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-23 23:25:50,835][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-23 23:25:50,978][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-23 23:25:51,357][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-23 23:25:51,367][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-23 23:25:51,370][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-23 23:25:51,371][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-23 23:25:51,687][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pe3es74hx4i2|cf37ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pe3es74hx4i2|cf37ab, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-23 23:25:52,093][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-23 23:25:52,112][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-23 23:25:52,499][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-23 23:25:52,506][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-23 23:25:53,033][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-23 23:25:53,033][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-23 23:25:53,038][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-23 23:25:53,065][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-23 23:25:53,065][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-23 23:25:53,065][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,066][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,078][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-23 23:25:53,078][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-23 23:25:53,078][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,079][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,090][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-23 23:25:53,091][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-23 23:25:53,091][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,091][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,102][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-23 23:25:53,102][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-23 23:25:53,102][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,102][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,114][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-23 23:25:53,114][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-23 23:25:53,114][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,115][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,125][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-23 23:25:53,126][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-23 23:25:53,126][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,126][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,137][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-23 23:25:53,137][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-23 23:25:53,137][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,137][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,149][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-23 23:25:53,149][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-23 23:25:53,150][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,150][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,161][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-23 23:25:53,161][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-23 23:25:53,161][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,161][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,172][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-23 23:25:53,172][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-23 23:25:53,172][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,173][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,184][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-23 23:25:53,184][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-23 23:25:53,184][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,184][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,197][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-23 23:25:53,197][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-23 23:25:53,197][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,197][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,208][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-23 23:25:53,208][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-23 23:25:53,208][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,209][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 23:25:53,219][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-23 23:25:53,219][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-23 23:25:53,219][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,219][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,230][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-23 23:25:53,230][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-23 23:25:53,230][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,230][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,242][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-23 23:25:53,242][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-23 23:25:53,242][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,242][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,253][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-23 23:25:53,253][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-23 23:25:53,253][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,253][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 23:25:53,265][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-23 23:25:53,265][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-23 23:25:53,265][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,265][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,278][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-23 23:25:53,279][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-23 23:25:53,279][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,279][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,296][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-23 23:25:53,296][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-23 23:25:53,296][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,297][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,308][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-23 23:25:53,308][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-23 23:25:53,308][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,308][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,320][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-23 23:25:53,320][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-23 23:25:53,320][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,320][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-23 23:25:53,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-23 23:25:53,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,344][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-23 23:25:53,345][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-23 23:25:53,345][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:25:53,345][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:25:53,346][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-23 23:25:53,583][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pe3es74hx4i2|cf37ab, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pe3es74hx4i2|cf37ab, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-23 23:25:53,687][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4160 ms
+[INFO][2014-11-23 23:25:53,824][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-23 23:25:53,828][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Sun Nov 23 23:25:53 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-23 23:25:53,829][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,736][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,737][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,737][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,737][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-23 23:25:54,737][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,737][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook.*] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,738][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook/] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,738][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,738][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,738][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,738][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,738][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,738][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-23 23:25:54,805][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 981 ms
+[WARN][2014-11-23 23:26:05,658][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:26:09,992][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:26:09,992][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:26:10,001][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:26:10,001][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[INFO][2014-11-23 23:58:09,684][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-23 23:58:09,808][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Sun Nov 23 23:58:09 CST 2014]; root of context hierarchy
+[INFO][2014-11-23 23:58:09,863][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-23 23:58:10,103][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-23 23:58:10,412][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-23 23:58:10,940][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-23 23:58:11,076][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-23 23:58:11,502][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-23 23:58:11,515][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-23 23:58:11,518][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-23 23:58:11,520][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-23 23:58:11,858][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pf8zs31lziw2s|1b4efef, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pf8zs31lziw2s|1b4efef, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-23 23:58:12,228][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-23 23:58:12,245][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-23 23:58:12,646][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-23 23:58:12,653][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-23 23:58:13,202][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-23 23:58:13,202][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-23 23:58:13,207][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-23 23:58:13,247][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-23 23:58:13,248][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-23 23:58:13,248][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,248][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,260][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-23 23:58:13,260][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-23 23:58:13,261][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,261][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,273][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-23 23:58:13,273][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-23 23:58:13,274][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,274][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-23 23:58:13,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-23 23:58:13,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,285][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,297][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-23 23:58:13,297][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-23 23:58:13,297][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,297][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,310][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-23 23:58:13,310][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-23 23:58:13,310][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,310][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-23 23:58:13,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-23 23:58:13,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,321][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,333][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-23 23:58:13,333][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-23 23:58:13,333][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,333][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,345][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-23 23:58:13,345][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-23 23:58:13,346][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,346][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-23 23:58:13,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-23 23:58:13,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,378][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-23 23:58:13,379][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-23 23:58:13,379][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,379][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,393][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-23 23:58:13,394][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-23 23:58:13,394][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,394][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,405][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-23 23:58:13,405][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-23 23:58:13,405][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,405][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 23:58:13,418][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-23 23:58:13,418][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-23 23:58:13,418][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,418][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,433][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-23 23:58:13,434][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-23 23:58:13,434][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,434][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,449][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-23 23:58:13,449][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-23 23:58:13,449][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,449][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,462][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-23 23:58:13,462][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-23 23:58:13,463][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,463][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-23 23:58:13,475][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-23 23:58:13,476][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-23 23:58:13,476][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,476][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,487][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-23 23:58:13,488][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-23 23:58:13,488][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,488][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,501][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-23 23:58:13,501][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-23 23:58:13,501][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,502][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,514][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-23 23:58:13,514][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-23 23:58:13,514][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,515][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,526][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-23 23:58:13,526][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-23 23:58:13,526][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,526][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,556][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-23 23:58:13,556][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-23 23:58:13,556][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,556][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,568][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-23 23:58:13,568][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-23 23:58:13,568][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-23 23:58:13,568][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-23 23:58:13,569][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-23 23:58:13,796][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pf8zs31lziw2s|1b4efef, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pf8zs31lziw2s|1b4efef, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-23 23:58:13,877][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4191 ms
+[INFO][2014-11-23 23:58:13,988][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-23 23:58:13,998][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Sun Nov 23 23:58:13 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-23 23:58:13,999][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-23 23:58:14,674][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,675][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook.*] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveCookBook/] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,676][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-23 23:58:14,739][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 751 ms
+[WARN][2014-11-23 23:58:19,691][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:58:23,995][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:58:23,996][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:58:24,005][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-23 23:58:24,006][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-24 00:05:47,389][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/bfmanage/basic/uploadFoodPic.do] in DispatcherServlet with name 'springMvc'
+[INFO][2014-11-24 00:11:48,289][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-24 00:11:48,414][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Mon Nov 24 00:11:48 CST 2014]; root of context hierarchy
+[INFO][2014-11-24 00:11:48,468][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-24 00:11:48,714][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-24 00:11:49,016][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-24 00:11:49,499][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-24 00:11:49,637][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-24 00:11:50,037][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-24 00:11:50,048][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-24 00:11:50,050][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-24 00:11:50,053][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-24 00:11:50,382][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pfqjduca7trr|1f46b27, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pfqjduca7trr|1f46b27, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-24 00:11:50,787][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-24 00:11:50,800][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-24 00:11:51,183][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-24 00:11:51,191][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-24 00:11:51,717][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-24 00:11:51,717][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-24 00:11:51,722][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-24 00:11:51,783][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-24 00:11:51,783][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-24 00:11:51,784][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,784][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,805][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-24 00:11:51,806][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-24 00:11:51,806][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,806][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,831][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-24 00:11:51,832][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-24 00:11:51,832][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,832][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,843][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-24 00:11:51,844][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-24 00:11:51,844][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,844][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-24 00:11:51,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-24 00:11:51,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,857][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,870][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-24 00:11:51,870][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-24 00:11:51,870][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,871][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,885][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-24 00:11:51,885][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-24 00:11:51,885][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,885][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,898][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-24 00:11:51,898][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-24 00:11:51,898][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,898][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-24 00:11:51,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-24 00:11:51,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,910][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,920][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-24 00:11:51,921][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-24 00:11:51,921][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,921][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-24 00:11:51,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-24 00:11:51,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,935][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,965][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-24 00:11:51,966][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-24 00:11:51,966][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,966][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:51,977][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-24 00:11:51,977][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-24 00:11:51,977][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,977][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-24 00:11:51,990][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-24 00:11:51,991][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-24 00:11:51,991][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:51,991][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,002][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-24 00:11:52,002][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-24 00:11:52,002][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,002][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,014][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-24 00:11:52,014][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-24 00:11:52,014][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,014][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,027][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-24 00:11:52,027][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-24 00:11:52,027][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,027][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-24 00:11:52,038][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-24 00:11:52,038][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-24 00:11:52,038][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,038][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,053][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-24 00:11:52,053][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-24 00:11:52,053][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,053][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,066][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-24 00:11:52,066][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-24 00:11:52,066][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,066][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,079][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-24 00:11:52,079][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-24 00:11:52,079][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,079][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,091][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-24 00:11:52,091][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-24 00:11:52,091][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,091][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,102][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-24 00:11:52,102][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-24 00:11:52,103][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,103][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,115][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-24 00:11:52,115][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-24 00:11:52,115][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:11:52,115][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:11:52,116][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-24 00:11:52,357][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pfqjduca7trr|1f46b27, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pfqjduca7trr|1f46b27, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-24 00:11:52,434][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4144 ms
+[INFO][2014-11-24 00:11:52,538][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-24 00:11:52,542][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Mon Nov 24 00:11:52 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-24 00:11:52,542][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-24 00:11:53,235][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,235][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,235][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,235][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,235][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,235][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,235][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,236][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,236][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,236][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,236][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,236][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,236][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/uploadFoodPic.do] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,238][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,239][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:11:53,310][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 771 ms
+[WARN][2014-11-24 00:12:15,088][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[INFO][2014-11-24 00:15:45,819][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-24 00:15:45,946][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Mon Nov 24 00:15:45 CST 2014]; root of context hierarchy
+[INFO][2014-11-24 00:15:46,015][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-24 00:15:46,298][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-24 00:15:46,787][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-24 00:15:47,533][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-24 00:15:47,697][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-24 00:15:48,085][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-24 00:15:48,095][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-24 00:15:48,100][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-24 00:15:48,102][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-24 00:15:48,433][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pfvn1z1hvxsff|dc51c8, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pfvn1z1hvxsff|dc51c8, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-24 00:15:48,810][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-24 00:15:48,825][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-24 00:15:49,208][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-24 00:15:49,216][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-24 00:15:50,262][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-24 00:15:50,263][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-24 00:15:50,271][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-24 00:15:50,309][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-24 00:15:50,310][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-24 00:15:50,310][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,310][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,327][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-24 00:15:50,328][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-24 00:15:50,328][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,328][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,352][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-24 00:15:50,352][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-24 00:15:50,352][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,353][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-24 00:15:50,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-24 00:15:50,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,367][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,382][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-24 00:15:50,382][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-24 00:15:50,382][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,382][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,394][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-24 00:15:50,505][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-24 00:15:50,505][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,505][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,520][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-24 00:15:50,521][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-24 00:15:50,521][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,521][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,534][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-24 00:15:50,534][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-24 00:15:50,534][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,535][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,547][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-24 00:15:50,548][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-24 00:15:50,548][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,548][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,560][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-24 00:15:50,560][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-24 00:15:50,560][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,560][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,574][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-24 00:15:50,575][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-24 00:15:50,575][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,575][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,591][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-24 00:15:50,591][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-24 00:15:50,591][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,591][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,602][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-24 00:15:50,603][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-24 00:15:50,603][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,603][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-24 00:15:50,614][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-24 00:15:50,614][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-24 00:15:50,614][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,614][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,625][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-24 00:15:50,625][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-24 00:15:50,625][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,625][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,636][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-24 00:15:50,636][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-24 00:15:50,636][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,636][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,652][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-24 00:15:50,653][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-24 00:15:50,655][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,655][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-24 00:15:50,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-24 00:15:50,717][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-24 00:15:50,718][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,718][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,737][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-24 00:15:50,737][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-24 00:15:50,737][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,738][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,753][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-24 00:15:50,753][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-24 00:15:50,754][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,754][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,768][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-24 00:15:50,768][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-24 00:15:50,768][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,769][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-24 00:15:50,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-24 00:15:50,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,785][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,803][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-24 00:15:50,803][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-24 00:15:50,803][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,803][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,818][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-24 00:15:50,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-24 00:15:50,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:15:50,819][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:15:50,820][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-24 00:15:51,119][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pfvn1z1hvxsff|dc51c8, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pfvn1z1hvxsff|dc51c8, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-24 00:15:51,207][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 5387 ms
+[INFO][2014-11-24 00:15:51,387][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-24 00:15:51,403][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Mon Nov 24 00:15:51 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-24 00:15:51,404][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-24 00:15:52,298][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,298][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,299][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,300][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,301][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,302][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,302][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/uploadFoodPic.do] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,302][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,302][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,302][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:15:52,416][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 1029 ms
+[WARN][2014-11-24 00:16:12,185][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[INFO][2014-11-24 00:18:41,859][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2014-11-24 00:18:41,988][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Mon Nov 24 00:18:41 CST 2014]; root of context hierarchy
+[INFO][2014-11-24 00:18:42,043][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring.xml]
+[INFO][2014-11-24 00:18:42,273][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-hibernate.xml]
+[INFO][2014-11-24 00:18:42,566][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO][2014-11-24 00:18:43,018][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO][2014-11-24 00:18:43,139][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO][2014-11-24 00:18:43,549][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+[INFO][2014-11-24 00:18:43,560][org.hibernate.Version]HHH000412: Hibernate Core {4.3.4.Final}
+[INFO][2014-11-24 00:18:43,562][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO][2014-11-24 00:18:43,564][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO][2014-11-24 00:18:43,889][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pfzegd1yjhwub|4fe606, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pfzegd1yjhwub|4fe606, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO][2014-11-24 00:18:44,279][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO][2014-11-24 00:18:44,294][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[INFO][2014-11-24 00:18:44,688][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO][2014-11-24 00:18:44,696][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO][2014-11-24 00:18:45,238][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO][2014-11-24 00:18:45,238][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO][2014-11-24 00:18:45,244][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO][2014-11-24 00:18:45,271][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_address
+[INFO][2014-11-24 00:18:45,271][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, address, address_name, adddress_id]
+[INFO][2014-11-24 00:18:45,271][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,272][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_coupon
+[INFO][2014-11-24 00:18:45,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, price, source, status, end_time, coupon_id, create_time, user_id]
+[INFO][2014-11-24 00:18:45,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,332][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,379][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_custom_order_detail
+[INFO][2014-11-24 00:18:45,379][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, food_custom_id]
+[INFO][2014-11-24 00:18:45,379][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,379][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,390][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_customer_service
+[INFO][2014-11-24 00:18:45,391][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_id]
+[INFO][2014-11-24 00:18:45,391][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,391][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_express
+[INFO][2014-11-24 00:18:45,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, finish_time, courier_id, start_time, longitude, latitude, order_id, express_id]
+[INFO][2014-11-24 00:18:45,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,403][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,416][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_feedback
+[INFO][2014-11-24 00:18:45,416][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, object_id, last_modify_time, create_time, user_id, feedback_id, target_type]
+[INFO][2014-11-24 00:18:45,416][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,416][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,428][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_file
+[INFO][2014-11-24 00:18:45,428][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, create_by, file_path, file_id, create_time]
+[INFO][2014-11-24 00:18:45,428][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,428][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,440][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food
+[INFO][2014-11-24 00:18:45,440][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [brief_intro, food_name, real_food_count, orgin_pic_id, status, food_count, exchange_count, cost, support_exchange, unit, support_snap_up, price, small_pic_id, food_id]
+[INFO][2014-11-24 00:18:45,440][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,440][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,456][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_custom
+[INFO][2014-11-24 00:18:45,457][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, status, food_count, create_time, custom_order_name, food_id, food_custom_id, customer_id]
+[INFO][2014-11-24 00:18:45,457][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,457][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,475][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_food_detail
+[INFO][2014-11-24 00:18:45,475][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [count, detail_id, food_id, raw_material_id]
+[INFO][2014-11-24 00:18:45,476][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,476][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,490][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_grade
+[INFO][2014-11-24 00:18:45,490][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, object_id, last_modify_time, create_time, grade, user_id, grade_id, target_type]
+[INFO][2014-11-24 00:18:45,493][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,494][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_information
+[INFO][2014-11-24 00:18:45,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, title, status, create_by, create_time, type, infomation_id]
+[INFO][2014-11-24 00:18:45,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,507][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,520][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_message
+[INFO][2014-11-24 00:18:45,520][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [content, status, create_time, customer_service_id, message_id, user_id]
+[INFO][2014-11-24 00:18:45,520][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,520][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-24 00:18:45,533][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order
+[INFO][2014-11-24 00:18:45,534][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [consignee_name, status, exccreadit_count, consignee_address, type, order_id, order_price, used_coupons, consignee_mobile, customer_id]
+[INFO][2014-11-24 00:18:45,534][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,534][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,546][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_order_detail
+[INFO][2014-11-24 00:18:45,546][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [detail_id, food_count, food_id, order_id]
+[INFO][2014-11-24 00:18:45,546][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,546][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,558][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_photo_show
+[INFO][2014-11-24 00:18:45,559][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [status, orgin_file_id, createby, create_time, valid_date, small_file_id, photo_id]
+[INFO][2014-11-24 00:18:45,559][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,559][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,570][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_provider
+[INFO][2014-11-24 00:18:45,570][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [phone, status, address, provider_id, alternative_phone, intro, provider_name]
+[INFO][2014-11-24 00:18:45,570][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,570][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: []
+[INFO][2014-11-24 00:18:45,582][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_raw_material
+[INFO][2014-11-24 00:18:45,582][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [unit, price, status, provider_id, raw_material_id, raw_material_name]
+[INFO][2014-11-24 00:18:45,582][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,582][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,595][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_foods
+[INFO][2014-11-24 00:18:45,595][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [set_foods_id, food_count, set_meal_id, food_id]
+[INFO][2014-11-24 00:18:45,596][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,596][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,608][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_set_meal
+[INFO][2014-11-24 00:18:45,608][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [price, orgin_pic_id, small_pic_id, real_food_count, status, end_time, set_name, food_count, privilege, set_meal_id, introduce, star_time]
+[INFO][2014-11-24 00:18:45,608][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,609][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,620][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_share
+[INFO][2014-11-24 00:18:45,620][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [share_id, status, share_info, create_time, target, user_id, code]
+[INFO][2014-11-24 00:18:45,620][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,621][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,633][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user
+[INFO][2014-11-24 00:18:45,633][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [user_name, weixin, status, login_name, create_time, user_id, create_way, password, qq, mobile]
+[INFO][2014-11-24 00:18:45,633][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,634][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,646][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_bf_user_customer
+[INFO][2014-11-24 00:18:45,646][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [referrer, recommend_time, address1, credits, customer_level, address2, user_id, address3]
+[INFO][2014-11-24 00:18:45,646][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,647][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: breakfast.t_br_user_courier
+[INFO][2014-11-24 00:18:45,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [source, user_id]
+[INFO][2014-11-24 00:18:45,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO][2014-11-24 00:18:45,661][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO][2014-11-24 00:18:45,662][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO][2014-11-24 00:18:45,893][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 5, acquireRetryAttempts -> 30, acquireRetryDelay -> 100, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15z951pfzegd1yjhwub|4fe606, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15z951pfzegd1yjhwub|4fe606, idleConnectionTestPeriod -> 20, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/chisha?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 600, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 200, maxStatements -> 0, maxStatementsPerConnection -> 100, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO][2014-11-24 00:18:45,963][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4103 ms
+[INFO][2014-11-24 00:18:46,064][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization started
+[INFO][2014-11-24 00:18:46,074][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMvc-servlet': startup date [Mon Nov 24 00:18:46 CST 2014]; parent: Root WebApplicationContext
+[INFO][2014-11-24 00:18:46,075][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2014-11-24 00:18:46,818][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop.*] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//openImageCrop/] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home.*] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//home/] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500.*] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//500/] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,819][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404.*] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,820][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [//404/] onto handler 'basicController'
+[INFO][2014-11-24 00:18:46,820][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/uploadFoodPic.do] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,820][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,820][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/deleteFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/saveFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toAddFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood.*] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,821][org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping]Mapped URL path [/basic/toFood/] onto handler 'foodController'
+[INFO][2014-11-24 00:18:46,885][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMvc': initialization completed in 821 ms
+[WARN][2014-11-24 00:19:00,566][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 62.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-24 00:19:06,142][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-24 00:19:06,143][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-24 00:19:06,150][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 85.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+[WARN][2014-11-24 00:19:06,151][org.hibernate.hql.internal.ast.HqlSqlWalker][DEPRECATION] Encountered positional parameter near line 1, column 99.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.

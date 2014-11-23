@@ -28,7 +28,7 @@ public class IConstants {
 	public static final String INFO = "info";
 	public static final String VALID = "VALID";
 	public static final String INVALID  = "INVALID";
-	public static final String FORBIDDEN  = "0";
+	public static final String FORBIDDEN  = "FORBIDDEN";
 	public static final String ACTIVE  = "1";
 	public static final String ACCESS_CODE = "accessCode";
 	public static final String ON = "on";
@@ -38,12 +38,12 @@ public class IConstants {
 	public static final String PUBLISH="1";
 	
 	/***********上传信息配置*************/
-	public static final String MEDIA_URL = constants.getString("MEDIA_URL");
-    public static final String COOK_BOOK_PIC_PATH = "upload\\\\cookbook";
-    public static final int COOK_BOOK_BIG_PIC_WIDTH = 320;
-    public static final int COOK_BOOK_BIG_PIC_HEIGHT = 200;
-    public static final int COOK_BOOK_SMALL_PIC_WIDTH = 160;
-    public static final int COOK_BOOK_SMALL_PIC_HEIGHT = 100;
+	public static final String MEDIA_URL = "http://127.0.0.1:8080//bfmanage//";
+    public static final String FOOD_PIC_PATH = "upload\\\\cookbook";
+    public static final int FOOD_BIG_PIC_WIDTH = 320;
+    public static final int FOOD_BIG_PIC_HEIGHT = 200;
+    public static final int FOOD_SMALL_PIC_WIDTH = 160;
+    public static final int FOOD_SMALL_PIC_HEIGHT = 100;
     public static final double HALF = 0.5;
     
     
