@@ -62,11 +62,11 @@ var BelAddFood = function() {
                 url: "uploadFoodPic.do",
                 dataType: 'json',
                 done: function(e, data) {
-                    console.log(data.result.body);
-                    var fileName = data.result.body.fileName;
-                    var filePath = data.result.body.filePath;
-                    var saveDiskPath = data.result.body.saveDiskPath;
-                    var cropFileName = data.result.body.cropFileName;
+                    var result = $.parseJSON(data.result);
+                    var fileName = result.body.fileName;
+                    var filePath = result.body.filePath;
+                    var saveDiskPath = result.body.saveDiskPath;
+                    var cropFileName = result.body.cropFileName;
                     $("#fileName").val(fileName);
                     $("#filePath").val(filePath);
                     $("#saveDiskPath").val(saveDiskPath);

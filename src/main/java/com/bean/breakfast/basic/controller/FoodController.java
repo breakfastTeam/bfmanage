@@ -48,6 +48,50 @@ public class FoodController {
      */
     @RequestMapping(value = "/saveFood", method = RequestMethod.POST)
     public ModelAndView saveCookBook(final HttpServletRequest request) {
+        String paths[] = dealThePic(request);
+        String smallPicPath = paths[0];
+        String bigPicPath = paths[1];
+
+        String foodName = request.getParameter("foodName");
+        String priceStr = request.getParameter("price");
+        Double price = Double.parseDouble(priceStr);
+        String costStr = request.getParameter("cost");
+        Double cost = Double.parseDouble(costStr);
+        String unit = request.getParameter("unit");
+        String foodCountStr = request.getParameter("foodCount");
+        int foodCount = Integer.parseInt(foodCountStr);
+        String realFoodCountStr = request.getParameter("realFoodCount");
+        int realFoodCount = Integer.parseInt(foodCountStr);
+
+        String isSupportSnapUpStr = request.getParameter("isSupportSnapUp");
+        String isSupportSnapUp = IStringUtil.equals(IConstants.ON, isSupportSnapUpStr) ? IConstants.YES : IConstants.NO;
+        String snapUpPriceStr = request.getParameter("snapUpPrice");
+        Double snapUpPrice = IStringUtil.isNotBlank(snapUpPriceStr) ? Double.parseDouble(snapUpPriceStr):0;
+        String isSupportExchangeStr = request.getParameter("isSupportExchange");
+        String isSupportExchange = IStringUtil.equals(IConstants.ON, isSupportExchangeStr) ? IConstants.YES : IConstants.NO;
+        String exchangePriceStr = request.getParameter("exchangePrice");
+        int exchangePrice =  IStringUtil.isNotBlank(exchangePriceStr) ? Integer.parseInt(exchangePriceStr):0;
+        String orderNumStr = request.getParameter("orderNum");
+        int orderNum = Integer.parseInt(orderNumStr);
+        String briefIntro = request.getParameter("briefIntro");
+
+        TBfFood food = new TBfFood();
+        food.setFoodName(foodName);
+        food.setCost(cost);
+        food.setPrice(price);
+        food.setUnit(unit);
+        food.setFoodCount(foodCount);
+        food.setRealFoodCount(realFoodCount);
+//        food.setSupportSnapUp();
+//        food.setSupportExchange();
+        food.setExchangeCount(exchangePrice);
+//        food.setOrderNum(orderNum);排序号
+        food.setBriefIntro(briefIntro);
+        foodService.save(food, smallPicPath, bigPicPath);
+
+        return toFood(request);
+    }
+    public String[] dealThePic(final HttpServletRequest request){
         String xs = request.getParameter("x");
         String ys = request.getParameter("y");
         int x = IStringUtil.isNotBlank(xs) ? Integer.parseInt(xs) : 0;
@@ -63,35 +107,15 @@ public class FoodController {
             scale = IImageUtil.getScale(size[0], size[0], IConstants.FOOD_BIG_PIC_WIDTH, IConstants.FOOD_BIG_PIC_HEIGHT);
         }
         IImageUtil.scaleImage(realFilePath, scaleFilePath, scale);
-        String smallFilePath = filePath + "\\" + "small\\";
-        String bigFilePath = filePath + "\\" + "big\\";
+        String smallFilePath = filePath + "small/";
+        String bigFilePath = filePath + "big/";
         IImageUtil.cutImage(scaleFilePath + cropFileName, request.getSession().getServletContext().getRealPath(bigFilePath), x, y, IConstants.FOOD_BIG_PIC_WIDTH, IConstants.FOOD_BIG_PIC_HEIGHT);
-        IImageUtil.scaleImage(request.getSession().getServletContext().getRealPath(bigFilePath) + "\\" + cropFileName, request.getSession().getServletContext().getRealPath(smallFilePath), IConstants.HALF);
+        IImageUtil.scaleImage(request.getSession().getServletContext().getRealPath(bigFilePath) + "/" + cropFileName, request.getSession().getServletContext().getRealPath(smallFilePath), IConstants.HALF);
         smallFilePath = smallFilePath + cropFileName;
         bigFilePath = bigFilePath + cropFileName;
-
-        String foodName = request.getParameter("foodName");
-        String priceStr = request.getParameter("price");
-        Double price = Double.parseDouble(priceStr);
-        String validTime = request.getParameter("validTime");
-        String invalidTime = request.getParameter("invalidTime");
-        String isTimeLimitBuyStr = request.getParameter("isTimeLimitBuy");
-        String isTimeLimitBuy = IStringUtil.equals(IConstants.ON, isTimeLimitBuyStr) ? IConstants.YES : IConstants.NO;
-        String exchangeMoneyStr = request.getParameter("exchangeMoney");
-        Double exchangeMoney = IStringUtil.isNotBlank(exchangeMoneyStr) ? Double.parseDouble(exchangeMoneyStr) : price;
-        String orderNumStr = request.getParameter("orderNum");
-        int orderNum = Integer.parseInt(orderNumStr);
-        String briefIntro = request.getParameter("briefIntro");
-
-        TBfFood food = new TBfFood();
-        food.setFoodName(foodName);
-        food.setPrice(price);
-        food.setBriefIntro(briefIntro);
-        foodService.save(food);
-
-        return toFood(request);
+        String paths[] = {smallFilePath, bigFilePath};
+        return paths;
     }
-
     /**
      * 将菜谱的图片上传到后台
      *
@@ -102,25 +126,25 @@ public class FoodController {
      */
     @ResponseBody
     @RequestMapping(value = "/uploadFoodPic.do")
-    public String uploadCookBookPic(@RequestParam(value = "files", required = false) MultipartFile file, final HttpServletRequest request) {
+    public String uploadFoodPic(@RequestParam(value = "files", required = false) MultipartFile file, final HttpServletRequest request) {
         MsgUtil msgUtil = new MsgUtil();//声明报文工具类
         Calendar cal = Calendar.getInstance();//使用日历类
         int year = cal.get(Calendar.YEAR);//得到年
         int month = cal.get(Calendar.MONTH) + 1;//得到月，因为从搜索0开始的，所以要加1
         int day = cal.get(Calendar.DAY_OF_MONTH);//得到天
         String time = year + "-" + month + "-" + day;
-        String cookBookPath = request.getSession().getServletContext().getRealPath(IConstants.FOOD_PIC_PATH) + "\\" + time;
+        String foodPath = request.getSession().getServletContext().getRealPath(IConstants.FOOD_PIC_PATH) + "\\" + time;
         String originalFileName = file.getOriginalFilename();
         int length = originalFileName.split("\\.").length;
         String suffix = originalFileName.split("\\.")[length - 1];
         String fileName = cal.getTimeInMillis() + "." + suffix;
-        boolean isCreate = IFileUtil.createUploadFile(cookBookPath, fileName, file);
+        boolean isCreate = IFileUtil.createUploadFile(foodPath, fileName, file);
         Map<String, Object> map = new HashMap<String, Object>();
         if (isCreate) {
             map.put("fileName", originalFileName);
-            map.put("filePath", IConstants.FOOD_PIC_PATH + "\\\\" + time + "\\\\");
+            map.put("filePath", IConstants.FOOD_PIC_PATH + "/" + time + "/");
             map.put("cropFileName", fileName);
-            map.put("saveDiskPath", time + "\\\\" + fileName);
+            map.put("saveDiskPath", time + "\\" + fileName);
         } else {
             map.put("fileName", IConstants.ERROR);
             map.put("filePath", IConstants.ERROR);
