@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ include file="/common/taglibs.jsp"%>
-<%@ include file="/common/meta.jsp"%>
-<%@ include file="/common/js.jsp"%>
+<%@ include file="/manage/common/taglibs.jsp"%>
+<%@ include file="/manage/common/meta.jsp"%>
+<%@ include file="/manage/common/js.jsp"%>
 
 <html>
 	<head>

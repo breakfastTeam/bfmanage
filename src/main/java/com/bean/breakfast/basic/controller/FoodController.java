@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSONObject;
+import com.bean.breakfast.basic.dto.TBfFoodDTO;
 import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.service.FoodService;
 import com.bean.core.utils.IDateUtil;
@@ -37,7 +38,7 @@ public class FoodController {
     private FoodService foodService;
 
     Page<TBfFood> page = new Page<TBfFood>(IConstants.DEFAULT_PAGE_SIZE);
-
+    Page<TBfFoodDTO> pageDTO = new Page<TBfFoodDTO>(IConstants.DEFAULT_PAGE_SIZE);
     /**
      * 保存菜谱信息
      *
@@ -228,7 +229,7 @@ public class FoodController {
         if (IStringUtil.isNotBlank(pageSizeStr) && IStringUtil.isNotBlank(pageNoStr)) {
             page.setPageNo(Integer.parseInt(pageNoStr));
         }
-        page = foodService.findFood(page, food);
+        pageDTO = foodService.findFood(page, food);
         model.addObject("page", page);
         model.addObject("setName", food);
         return model;
