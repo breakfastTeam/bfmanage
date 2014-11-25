@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bean.breakfast.basic.dto.TBfFoodDTO;
+import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.service.FoodService;
 import com.bean.core.utils.IDateUtil;
@@ -23,8 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bean.breakfast.basic.model.TBfSetMeal;
-import com.bean.breakfast.basic.service.SetMealService;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.breakfast.utils.MsgUtil;
 import com.bean.core.page.Page;
@@ -38,7 +36,7 @@ public class FoodController {
     private FoodService foodService;
 
     Page<TBfFood> page = new Page<TBfFood>(IConstants.DEFAULT_PAGE_SIZE);
-    Page<TBfFoodDTO> pageDTO = new Page<TBfFoodDTO>(IConstants.DEFAULT_PAGE_SIZE);
+    Page<FoodDTO> pageDTO = new Page<FoodDTO>(IConstants.DEFAULT_PAGE_SIZE);
     /**
      * 保存菜谱信息
      *
@@ -75,6 +73,7 @@ public class FoodController {
         String orderNumStr = request.getParameter("orderNum");
         int orderNum = Integer.parseInt(orderNumStr);
         String briefIntro = request.getParameter("briefIntro");
+
 
         TBfFood food = new TBfFood();
         food.setFoodName(foodName);
