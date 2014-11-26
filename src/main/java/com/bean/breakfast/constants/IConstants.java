@@ -36,6 +36,8 @@ public class IConstants {
 	public static final String NO = "0";
 	public static final String NOT_PUBLISH="0";
 	public static final String PUBLISH="1";
+
+	public static final String WEIXIN_USER_NOT_EXIST = "User Not Exist";
 	
 	/***********上传信息配置*************/
 	public static final String MEDIA_URL = "http://127.0.0.1:8080/bfmanage/";

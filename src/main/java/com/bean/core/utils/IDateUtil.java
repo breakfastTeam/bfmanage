@@ -173,7 +173,13 @@ public class IDateUtil extends DateUtils{
 
 		 return new SimpleDateFormat(dateFormat[1]).format(date);
 	 }
+	public static String dateTimeToString(Date date)
+	{
+		if (date == null)
+			return null;
 
+		return new SimpleDateFormat(dateFormat[0]).format(date);
+	}
 	 public static Timestamp convUtilDateToSqlTimestamp(Date date)
 	 {
 		 if (date == null)
