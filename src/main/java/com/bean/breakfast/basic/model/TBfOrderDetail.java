@@ -10,8 +10,7 @@ import javax.persistence.*;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity
-@Table(name = "t_bf_order_detail", catalog = "breakfast", uniqueConstraints = {})
+@Entity(name = "t_bf_order_detail")
 public class TBfOrderDetail implements java.io.Serializable {
 
 	// Fields

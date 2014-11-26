@@ -13,8 +13,7 @@ import javax.persistence.TemporalType;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity
-@Table(name = "t_bf_coupon", catalog = "breakfast", uniqueConstraints = {})
+@Entity(name = "t_bf_coupon")
 public class TBfCoupon implements java.io.Serializable {
 
 	// Fields
