@@ -99,7 +99,28 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="SALE_TIME"/>：</label>
 
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="saleTime" name="saleTime"
+                                               class="form-control default-date-picker" value="${saleTime }">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="ORDER_NUM"/>：</label>
+
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="orderNum" name="orderNum"
+                                               class="form-control" value="${orderNum }">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
@@ -166,18 +187,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label class="col-lg-6 control-label"><spring:message code="ORDER_NUM"/>：</label>
 
-                                    <div class="col-lg-18">
-                                        <input type="text" placeholder="" id="orderNum" name="orderNum"
-                                               class="form-control" value="${orderNum }">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-lg-24">
                                 <div class="form-group">
@@ -223,9 +233,7 @@
 
                                     <div class="col-lg-21">
                                         <!--style给定宽度可以影响编辑器的最终宽度-->
-                                        <script type="text/plain" id="briefIntroEditor" style="width:99%;height:100px;">
-
-                                        </script>
+                                        <script type="text/plain" id="briefIntroEditor" style="width:99%;height:100px;"></script>
                                         <textarea rows="0" cols="0" class="form-control" id="briefIntro"
                                                   name="briefIntro" style="display:none;"></textarea>
                                         <textarea rows="0" cols="0" class="form-control" id="briefIntroContent"

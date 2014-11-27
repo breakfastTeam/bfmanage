@@ -22,9 +22,11 @@ var BelMyOrder = function() {
 					dataType: "json",
 					contentType: "text/plain",
 					success: function (data) {
-						data = jQuery.parseJSON(data);
 						var results = data.body.results;
-						console.log(results);
+						if(results.length<=0){
+							$("#iForm").append("<p style='text-align: center'>暂无订单信息</p>");
+							return false;
+						}
 						for(var i = 0; i < results.length; i++){
 							var info = '<div class="row border-bottom">'+
 								         '<label class="col-lg-16 control-label">'+

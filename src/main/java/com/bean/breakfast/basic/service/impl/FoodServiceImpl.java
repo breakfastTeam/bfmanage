@@ -68,7 +68,8 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 			foodDTO.setSupportExchange(true);
 			foodDTO.setSupportExchange(true);
 			foodDTO.setPrice(f.getPrice());
-			foodDTO.setSaleTime(IDateUtil.dateToString(f.getSaleTime()));
+			String saleTime = IDateUtil.dateToString(f.getSaleTime());
+			foodDTO.setSaleTime(saleTime.substring(5, saleTime.length()));
 			try {
 				foodDTO.setOrginPicPath(fileDao.get(f.getOrginPicId()).getFilePath());
 				foodDTO.setSmallPicPath(fileDao.get(f.getSmallPicId()).getFilePath());

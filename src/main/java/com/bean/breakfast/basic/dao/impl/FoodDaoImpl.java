@@ -33,4 +33,11 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 //		hql = hql + " order by orderNum desc, createTime desc";
 		return this.findByHql(page, hql, params);
 	}
+
+	@Override
+	public void minusFoodCount(String foodId, int foodCount, int realFoodCount) {
+		String hql = "update TBfFood t set t.foodCount = t.foodCount -"+ foodCount +", t.realFoodCount = t.realFoodCount - "+realFoodCount +" where t.foodId='"+foodId+"'";
+		Query query = getSession().createQuery(hql);
+		query.executeUpdate();
+	}
 }

@@ -65,12 +65,12 @@ var BelFoodDetail = function() {
 			});
 			function checkFoodIsAvailable(){
 				var d = new Date();
-				var now = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+				var now = (d.getMonth()+1)+"-"+d.getDate();
 				var saleTime = localStorage.getItem("saleTime");
 				var foodCount = parseInt(localStorage.getItem("foodCount"));
 				if(saleTime != now) {
-					$("#buyNowButton").text(saleTime+"开启预定");
-					$("#buyNowButton").text(saleTime+"开始预定");
+					$("#buyNowButton").text("("+saleTime+")开始预定");
+					$("#buyNowButton").text("("+saleTime+")开始预定");
 					$("#buyNowButton").attr("disable", true);
 					$("#shopCartButton").hide("disable", true);
 				}else{

@@ -63,17 +63,17 @@ public class FoodController {
         int realFoodCount = Integer.parseInt(foodCountStr);
 
         String isSupportSnapUpStr = request.getParameter("isSupportSnapUp");
-        String isSupportSnapUp = IStringUtil.equals(IConstants.ON, isSupportSnapUpStr) ? IConstants.YES : IConstants.NO;
+        byte isSupportSnapUp = IStringUtil.equals(IConstants.ON, isSupportSnapUpStr) ? IConstants.YES : IConstants.NO;
         String snapUpPriceStr = request.getParameter("snapUpPrice");
         Double snapUpPrice = IStringUtil.isNotBlank(snapUpPriceStr) ? Double.parseDouble(snapUpPriceStr):0;
         String isSupportExchangeStr = request.getParameter("isSupportExchange");
-        String isSupportExchange = IStringUtil.equals(IConstants.ON, isSupportExchangeStr) ? IConstants.YES : IConstants.NO;
+        byte isSupportExchange = IStringUtil.equals(IConstants.ON, isSupportExchangeStr) ? IConstants.YES : IConstants.NO;
         String exchangePriceStr = request.getParameter("exchangePrice");
         int exchangePrice =  IStringUtil.isNotBlank(exchangePriceStr) ? Integer.parseInt(exchangePriceStr):0;
         String orderNumStr = request.getParameter("orderNum");
         int orderNum = Integer.parseInt(orderNumStr);
         String briefIntro = request.getParameter("briefIntro");
-
+        String saleTime = request.getParameter("saleTime");
 
         TBfFood food = new TBfFood();
         food.setFoodName(foodName);
@@ -82,14 +82,16 @@ public class FoodController {
         food.setUnit(unit);
         food.setFoodCount(foodCount);
         food.setRealFoodCount(realFoodCount);
-//        food.setSupportSnapUp();
-//        food.setSupportExchange();
+        food.setSupportSnapUp(isSupportSnapUp);
+        food.setSupportExchange(isSupportExchange);
         food.setExchangeCount(exchangePrice);
-//        food.setOrderNum(orderNum);排序号
+        food.setShowOrder(orderNum);//排序号
         food.setBriefIntro(briefIntro);
-        foodService.save(food, smallPicPath, bigPicPath);
+        food.setCreateTime(IDateUtil.getCurrentTimeDate());
+        food.setSaleTime(IDateUtil.parseDate(saleTime, 1));
 
-        return toFood(request);
+        foodService.save(food, smallPicPath, bigPicPath);
+        return jumpToFood();
     }
     public String[] dealThePic(final HttpServletRequest request){
         String xs = request.getParameter("x");
@@ -231,6 +233,22 @@ public class FoodController {
         pageDTO = foodService.findFood(page, food);
         model.addObject("page", page);
         model.addObject("setName", food);
+        return model;
+    }
+    /**
+     * 跳转到菜谱管理页面
+     *
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+
+    public ModelAndView jumpToFood() {
+        ModelAndView model = new ModelAndView("basic/food");
+        TBfFood food = new TBfFood();
+        pageDTO = foodService.findFood(page, food);
+        model.addObject("page", page);
         return model;
     }
 }

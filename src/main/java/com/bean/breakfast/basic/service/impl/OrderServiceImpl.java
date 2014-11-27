@@ -57,6 +57,8 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 			orderDetail.setFoodId(foodDTO.getFoodId());
 			orderDetail.setFoodCount(foodDTO.getFoodNum());
 			orderDetailDao.save(orderDetail);
+
+			foodDao.minusFoodCount(foodDTO.getFoodId(), foodDTO.getFoodNum(), foodDTO.getFoodNum());
 		}
 		return orderDao.save(order);
 	}

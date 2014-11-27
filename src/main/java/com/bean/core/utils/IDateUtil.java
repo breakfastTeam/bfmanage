@@ -11,7 +11,7 @@ import org.apache.commons.lang.time.DateUtils;
 import org.springframework.expression.ParseException;
 
 public class IDateUtil extends DateUtils{
-	private static String[] dateFormat = { "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd", "yy-MM-dd","HH:mm:ss"};
+	private static String[] dateFormat = { "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd", "yy-MM-dd","HH:mm:ss", "MM-dd"};
 
 	public static Timestamp convUtilCalendarToSqlTimestamp(Calendar date)
 	{

@@ -33,12 +33,16 @@ var BelAddFood = function() {
                             },
                             briefIntroContent: {
                                 maxlength: 400
+                            },
+                            saleTime:{
+                                required: true
                             }
                         },
                         messages: {
                             foodName: "请输入菜谱名称",
                             cost: "请输入数字",
                             price: "开始时间不能为空",
+                            saleTime:"请输入销售日期",
                             foodCount: {
                                 required: "请输入库存数",
                                 number: "库存要求输入数字"
@@ -62,7 +66,7 @@ var BelAddFood = function() {
                 url: "uploadFoodPic.do",
                 dataType: 'json',
                 done: function(e, data) {
-                    var result = $.parseJSON(data.result);
+                    var result = data.result;
                     var fileName = result.body.fileName;
                     var filePath = result.body.filePath;
                     var saveDiskPath = result.body.saveDiskPath;

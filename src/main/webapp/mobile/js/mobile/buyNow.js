@@ -80,7 +80,6 @@ var BelOrderNow = function() {
 							dataType: "json",
 							contentType: "text/plain",
 							success: function (data) {
-								data = jQuery.parseJSON(data);
 								var rtnCode = data.head.rtnCode;
 								if(rtnCode == "888888"){
 									iDialog.iTip("订单成功，等待享受美食吧！");

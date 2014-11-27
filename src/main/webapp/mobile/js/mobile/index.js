@@ -40,7 +40,6 @@ $(function(){
 			dataType: "json",
 			contentType: "text/plain",
 			success: function (data) {
-				data = jQuery.parseJSON(data);
 				if(data.head.rtnCode == "888888"){
 					var userId = data.body.userId;
 					var userName = data.body.userName;

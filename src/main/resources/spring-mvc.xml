@@ -6,7 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/mvc
-http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
     <context:component-scan base-package="com.bean.breakfast.*.controller"/>
@@ -36,6 +36,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     </bean>
     <!--<mvc:resources mapping="/upload/**" location="/upload/"/>-->
     <!-- control层传递数据格式的配置，暂定为json类型的数据 -->
+    <mvc:annotation-driven />
     <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
@@ -43,12 +44,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
             </list>
         </property>
     </bean>
-    <bean id = "stringHttpMessageConverter" class = "org.springframework.http.converter.StringHttpMessageConverter"/>
+
+
+
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <ref bean="jsonConverter" />
-                <ref bean="stringHttpMessageConverter" />
             </list>
         </property>
     </bean>

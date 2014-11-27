@@ -32,8 +32,8 @@ public class IConstants {
 	public static final String ACTIVE  = "1";
 	public static final String ACCESS_CODE = "accessCode";
 	public static final String ON = "on";
-	public static final String YES = "1";
-	public static final String NO = "0";
+	public static final byte YES = 1;
+	public static final byte NO = 0;
 	public static final String NOT_PUBLISH="0";
 	public static final String PUBLISH="1";
 

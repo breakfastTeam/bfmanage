@@ -9,4 +9,5 @@ import com.bean.core.page.Page;
 public interface FoodDao extends BaseDao<TBfFood, String> {
 	public int getOrderNum();
 	public Page<TBfFood> findFood(Page<TBfFood> page, TBfFood food);
+	public void minusFoodCount(String foodId, int foodCount, int realFoodCount);
 }
