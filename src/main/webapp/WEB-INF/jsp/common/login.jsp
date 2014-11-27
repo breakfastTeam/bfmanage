@@ -16,7 +16,7 @@
 	</span>
 <div class="container">
 	<div class="form-signin">
-		<h2 class="form-signin-heading"><spring:message code="LOGIN"/></h2>
+		<h2 class="form-signin-heading"><spring:message code="TITLE"/></h2>
 		<div class="login-wrap">
 			<div class="form-group">
 				<input type="text" class="form-control small" id="loginName" name = "loginName" placeholder="<spring:message code='LOGIN_ACCOUNT'/>"  minlength="2" autofocus>

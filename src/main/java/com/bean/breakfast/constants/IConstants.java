@@ -40,8 +40,7 @@ public class IConstants {
 	public static final String WEIXIN_USER_NOT_EXIST = "User Not Exist";
 	
 	/***********上传信息配置*************/
-	public static final String MEDIA_URL = "http://127.0.0.1:8080/bfmanage/";
-    public static final String FOOD_PIC_PATH = "upload/cookbook";
+    public static final String FOOD_PIC_PATH = "upload/food";
     public static final int FOOD_BIG_PIC_WIDTH = 320;
     public static final int FOOD_BIG_PIC_HEIGHT = 200;
     public static final int FOOD_SMALL_PIC_WIDTH = 160;
