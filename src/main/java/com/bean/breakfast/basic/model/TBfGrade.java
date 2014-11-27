@@ -13,7 +13,8 @@ import javax.persistence.TemporalType;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_bf_grade")
+@Entity
+@Table(name = "t_bf_grade")
 public class TBfGrade implements java.io.Serializable {
 
 	// Fields

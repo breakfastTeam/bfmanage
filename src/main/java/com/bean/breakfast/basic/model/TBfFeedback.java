@@ -13,7 +13,8 @@ import javax.persistence.TemporalType;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_bf_feedback")
+@Entity
+@Table(name = "t_bf_feedback")
 public class TBfFeedback implements java.io.Serializable {
 
 	// Fields

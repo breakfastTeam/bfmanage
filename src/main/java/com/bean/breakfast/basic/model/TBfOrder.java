@@ -10,7 +10,8 @@ import javax.persistence.*;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_bf_order")
+@Entity
+@Table(name = "t_bf_order")
 public class TBfOrder implements java.io.Serializable {
 
 	// Fields

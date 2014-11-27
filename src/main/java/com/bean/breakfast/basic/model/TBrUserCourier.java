@@ -13,7 +13,8 @@ import javax.persistence.TemporalType;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_br_user_courier")
+@Entity
+@Table(name = "t_br_user_courier")
 public class TBrUserCourier implements java.io.Serializable {
 
 	// Fields

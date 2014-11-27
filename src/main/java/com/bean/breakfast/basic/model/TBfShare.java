@@ -13,7 +13,8 @@ import javax.persistence.TemporalType;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_bf_share")
+@Entity
+@Table(name = "t_bf_share")
 public class TBfShare implements java.io.Serializable {
 
 	// Fields

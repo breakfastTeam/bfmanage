@@ -13,7 +13,8 @@ import javax.persistence.TemporalType;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_bf_raw_material")
+@Entity
+@Table(name = "t_bf_raw_material")
 public class TBfRawMaterial implements java.io.Serializable {
 
 	// Fields

@@ -10,7 +10,8 @@ import javax.persistence.*;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_bf_file")
+@Entity
+@Table(name = "t_bf_file")
 public class TBfFile implements java.io.Serializable {
 
 	// Fields

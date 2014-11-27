@@ -10,7 +10,8 @@ import javax.persistence.*;
  * 
  * @author MyEclipse Persistence Tools
  */
-@Entity(name = "t_bf_food")
+@Entity
+@Table(name = "t_bf_food")
 public class TBfFood implements java.io.Serializable {
 
 	// Fields
