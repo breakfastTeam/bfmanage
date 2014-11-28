@@ -66,20 +66,22 @@ var BelAddFood = function() {
                 url: "uploadFoodPic.do",
                 dataType: 'json',
                 done: function(e, data) {
-                    var result = data.result;
-                    var fileName = result.body.fileName;
-                    var filePath = result.body.filePath;
-                    var saveDiskPath = result.body.saveDiskPath;
-                    var cropFileName = result.body.cropFileName;
-                    $("#fileName").val(fileName);
-                    $("#filePath").val(filePath);
-                    $("#saveDiskPath").val(saveDiskPath);
-                    $("#cropFileName").val(cropFileName);
+                    if(data.result.head.rtnCode=="888888") {
+                        var result = data.result;
+                        var fileName = result.body.fileName;
+                        var filePath = result.body.filePath;
+                        var scaleFilePath = result.body.scaleFilePath;
+                        $("#fileName").val(fileName);
+                        $("#filePath").val(filePath);
+                        $("#scaleFilePath").val(scaleFilePath);
 
-                    $('<p/>').text(fileName).appendTo('#foodPicName');
-                    $("#foodPicDelButton").removeClass("display-none");
-                    $("#foodPicEditButton").removeClass("display-none");
-                    openImageCrop(filePath, cropFileName);
+                        $('<p/>').text(fileName).appendTo('#foodPicName');
+                        $("#foodPicDelButton").removeClass("display-none");
+                        $("#foodPicEditButton").removeClass("display-none");
+                        openImageCrop(filePath, scaleFilePath);
+                    }else{
+                        iDialog.iAlert("图片尺寸不符合要求，尺寸长宽为：320*200");
+                    }
                 },
                 progressall: function(e, data) {
                     var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -159,8 +161,8 @@ var BelAddFood = function() {
                 });
             });
 
-            function openImageCrop(path, cropFileName) {
-                iDialog.iWindow("../openImageCrop.do?path=" + path + "&cropFileName=" + cropFileName, IMAGE_CROP);
+            function openImageCrop(path, scaleFileName) {
+                iDialog.iWindow("../openImageCrop.do?filePath=" + path + "&scaleFileName=" + scaleFileName, IMAGE_CROP);
             }
         }
     };

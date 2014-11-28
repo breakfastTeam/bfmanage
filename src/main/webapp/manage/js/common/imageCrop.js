@@ -51,8 +51,6 @@ var BelImageCrop = function () {
 	        	}
 	        }
 	        $("#cropImg").click(function(){
-	        	$("#x").val(x);
-	        	$("#y").val(y);
 	        	iDialog.iHide();
 	        });
         }

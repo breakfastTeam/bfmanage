@@ -83,10 +83,10 @@ public class BasicController {
     @RequestMapping(value = "/openImageCrop")
     public ModelAndView openImageCrop(final HttpServletRequest request){
         ModelAndView model = new ModelAndView("/common/imageCrop");
-        String path = request.getParameter("path");
-        String cropFileName= request.getParameter("cropFileName");
-        model.addObject("path", path);
-        model.addObject("cropFileName",cropFileName);
+        String filePath = request.getParameter("filePath");
+        String scaleFileName= request.getParameter("scaleFileName");
+        model.addObject("filePath", filePath);
+        model.addObject("scaleFileName",scaleFileName);
         return model;
     }
 }

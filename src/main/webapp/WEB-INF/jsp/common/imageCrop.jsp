@@ -7,18 +7,18 @@
 		<section class="wrapper">
 		<div class="panel-body">
 			<div class="row">
-				<img class = "col-md-24" src="../${path }${cropFileName }"
+				<img class = "col-md-24" src="${filePath }"
 						id="showImg" style="max-width: 400px;max-height:300px;" />
 				<div class="col-md-6">
 					<div id="preview-pane">
 						<div class="preview-container">
-							<img src="../${path }${cropFileName }"
+							<img src="${scaleFileName }"
 								class="jcrop-preview" />
 						</div>
 					</div>
 				</div>
 			</div>
-			<img class = "col-md-24" src="../${path }${cropFileName }"
+			<img class = "col-md-24" src="${scaleFileName }"
 						id="orginImg" style="display:none;" />
 			<div class="row">
 				<div class="col-lg-24">

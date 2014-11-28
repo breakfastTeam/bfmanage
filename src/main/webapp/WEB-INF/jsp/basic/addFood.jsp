@@ -191,9 +191,9 @@
                         <div class="row">
                             <div class="col-lg-24">
                                 <div class="form-group">
-                                    <label class="col-lg-3 control-label"><spring:message code="PIC"/>：</label>
+                                    <label class="col-lg-3 control-label"><spring:message code="PIC"/>(320*200)：</label>
 
-                                    <div class="col-lg-21">
+                                    <div class="col-lg-20">
 			                                      		<span class="btn btn-success fileinput-button pull-left">
 										       				<i class="glyphicon glyphicon-plus"></i>
 										       				<span><spring:message code="SELECT_FILE"/></span>
@@ -206,7 +206,7 @@
                                         <input id="fileName" name="fileName" type="hidden"/>
                                         <input id="filePath" name="filePath" type="hidden"/>
                                         <input id="saveDiskPath" name="saveDiskPath" type="hidden"/>
-                                        <input id="cropFileName" name="cropFileName" type="hidden"/>
+                                        <input id="scaleFilePath" name="scaleFilePath" type="hidden"/>
                                         <input type = "hidden" id = "x" name = "x">
                                         <input type = "hidden" id = "y" name = "y">
                                         <button id="foodPicDelButton" type="button"

@@ -9,7 +9,7 @@ var BelFoodDetail = function() {
 			var price = localStorage.getItem("price");
 			var unit = localStorage.getItem("unit");
 			var saleTime = localStorage.getItem("saleTime");
-			$("#originPicPath").attr("src", "../"+originPicPath);
+			$("#originPicPath").attr("src", originPicPath);
 			$("#foodName").text(foodName);
 			$("#price").text(price+""+unit);
 
