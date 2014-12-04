@@ -3,7 +3,7 @@ var BelFoodList = function() {
 		//主模块初始化
 		init: function() {
 			function resetImgScrollLoading(){
-				$("img[original]").lazyload({
+				$("#foodList img[original]").lazyload({
 					effect:"fadeIn"
 				});
 			}
@@ -23,24 +23,17 @@ var BelFoodList = function() {
 					var results = data.body.results;
 					localStorage.setItem("foodList", JSON.stringify(results));
 					var lgh = results.length;
+					var $foodList = $("#foodList");
 					if(lgh<=0){
-						$("#foodList").append("美食马上回来，敬请期待！");
+						$foodList.append("美食马上回来，敬请期待！");
 					}else{
-						$(results).each(function(i) {
-							var smallPic = results[i].smallPicPath;
-							var foodName = results[i].foodName;
-							var price = results[i].price;
-							var foodId = results[i].foodId;
-							var originPicPath = results[i].orginPicPath;
-							var briefIntro = results[i].briefIntro;
-							var unit = results[i].unit;
-							var saleTime = results[i].saleTime;
-							var foodCount = results[i].foodCount;
-							var lis = '<li>' + '<div class="sprocket-mosaic-item">' + '<div class="sprocket-padding">' + '<div class="sprocket-mosaic-image-container">' + '<a href="javascript:void(0)" id = "'+foodId+'" foodName = "'+foodName+'"  originPicPath = "'+originPicPath+'" price = "'+price+'" unit = "'+unit+'" saleTime = "'+saleTime+'", foodCount = "'+foodCount+'"><textarea id = "briefIntro" style = "display:none">"'+briefIntro+'"</textarea><img original = "'+smallPic+'" src="skin/default/images/input-spinner.gif" alt=""	class="sprocket-mosaic-image" /> </a>' + '</div>' + '<div class="sprocket-mosaic-head">' + '<div class="sprocket-mosaic-title">' + '<a href="#">'+saleTime+'</a>' + '<a href="#" style = "padding-left:5px;float:right;">' + foodName + '</a>' + '</div>' + '</div>' + '</div>' + '</div>' + '</li>';
-							$("#foodList").append(lis);
-						});
+						var lis = "";
+						for(var i = 0; i<lgh; i++){
+							lis += '<li>' + '<div class="sprocket-mosaic-item">' + '<div class="sprocket-padding">' + '<div class="sprocket-mosaic-image-container">' + '<a href="javascript:void(0)" id = "'+results[i].foodId+'" foodName = "'+results[i].foodName+'"  originPicPath = "'+results[i].orginPicPath+'" price = "'+results[i].price+'" unit = "'+results[i].unit+'" saleTime = "'+results[i].saleTime+'", foodCount = "'+results[i].foodCount+'"><textarea id = "briefIntro" style = "display:none">"'+results[i].briefIntro+'"</textarea><img original = "'+results[i].smallPicPath+'" src="skin/default/images/input-spinner.gif" alt=""	class="sprocket-mosaic-image" /> </a>' + '</div>' + '<div class="sprocket-mosaic-head">' + '<div class="sprocket-mosaic-title">' + '<a href="#">'+results[i].saleTime+'</a>' + '<a href="#" style = "padding-left:5px;float:right;">' + results[i].foodName + '</a>' + '</div>' + '</div>' + '</div>' + '</div>' + '</li>';
+						}
+						$foodList.append(lis);
 						resetImgScrollLoading();
-						$("#foodList").find("a").click(function(){
+						$foodList.find("a").click(function(){
 							localStorage.setItem("currentFoodId", $(this).attr("id"));
 							localStorage.setItem("currentFoodName", $(this).attr("foodName"));
 							localStorage.setItem("currentOriginPicPath", $(this).attr("originPicPath"));

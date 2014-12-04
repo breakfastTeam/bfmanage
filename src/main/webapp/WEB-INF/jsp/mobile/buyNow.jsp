@@ -15,7 +15,7 @@
                  满满的一车子美食
              </label>
              <label class="col-lg-8 control-label">
-                    总计：<a id = "sumMoney" style = "font-weight: bold;font-size: large;color: red">0</a>元
+                    共：<a id = "sumMoney" style = "font-weight: bold;font-size: large;color: red">0</a>元
              </label>
     </div>
 

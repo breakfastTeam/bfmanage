@@ -223,8 +223,9 @@ var BelOrderNow = function() {
 						loadUrl("foodList.do");
 					},3000);
 				}else{
+					var info = "";
 					for(var i = 0; i < shopCartInfos.length; i++){
-						var info = '<div class="row border-bottom">'+
+						info += '<div class="row border-bottom">'+
 							'<div class="col-lg-24">'+
 							'<div class="form-group">'+
 							'<label class="col-lg-6 control-label">'+
@@ -242,9 +243,9 @@ var BelOrderNow = function() {
 							'</div>'+
 							'</div>'+
 							'</div>';
-						$("#shopCartList").append(info);
 						sumMoney = sumMoney + parseInt(shopCartInfos[i].count)*parseFloat(shopCartInfos[i].price);
 					}
+					$("#shopCartList").append(info);
 					$("#sumMoney").text(sumMoney);
 				}
 			}
@@ -257,34 +258,17 @@ var BelOrderNow = function() {
 				var seven = 7*60;
 				var fiftyAndHalf = 15*60+30;
 				var twentySecond = 22*60;
+				var preSendTimeObj = $("#preSendTime");
 				if(now<seven){
 					$("#buyNowButton").val("未开张");
 				}else if(now >= seven && now <fiftyAndHalf){
-					$("#preSendTime").empty();
-					$("#preSendTime").append('<option value = "-1">请选择</option>');
-					$("#preSendTime").append('<option value = "17:30-18:00">17:30-18:00</option>');
-					$("#preSendTime").append('<option value = "18:00-18:30">18:00-18:30</option>');
-					$("#preSendTime").append('<option value = "18:30-19:00">18:30-19:00</option>');
-					$("#preSendTime").append('<option value = "19:00-19:30">19:00-19:30</option>');
-					$("#preSendTime").append('<option value = "19:30-20:00">19:30-20:00</option>');
-
-					$("#preSendTime").append('<option value = "07:00-07:30">07:00-07:30(次日)</option>');
-					$("#preSendTime").append('<option value = "07:30-08:00">07:30-08:00(次日)</option>');
-					$("#preSendTime").append('<option value = "08:00-08:30">08:00-08:30(次日)</option>');
-					$("#preSendTime").append('<option value = "08:30-09:00">08:30-09:00(次日)</option>');
-					$("#preSendTime").append('<option value = "09:00-09:30">09:00-09:30(次日)</option>');
-					$("#preSendTime").append('<option value = "09:30-10:00">09:30-10:00(次日)</option>');
-
-
+					preSendTimeObj.empty();
+					var info = '<option value = "-1">请选择</option><option value = "17:30-18:00">17:30-18:00</option><option value = "18:00-18:30">18:00-18:30</option><option value = "18:30-19:00">18:30-19:00</option><option value = "19:00-19:30">19:00-19:30</option><option value = "19:30-20:00">19:30-20:00</option><option value = "07:00-07:30">07:00-07:30(次日)</option><option value = "07:30-08:00">07:30-08:00(次日)</option><option value = "08:00-08:30">08:00-08:30(次日)</option><option value = "08:30-09:00">08:30-09:00(次日)</option><option value = "09:00-09:30">09:00-09:30(次日)</option><option value = "09:30-10:00">09:30-10:00(次日)</option>'
+					preSendTimeObj.append(info);
 				}else if(now >= fiftyAndHalf && now < twentySecond){
-					$("#preSendTime").empty();
-					$("#preSendTime").append('<option value = "-1">请选择</option>');
-					$("#preSendTime").append('<option value = "07:00-07:30">07:00-07:30(次日)</option>');
-					$("#preSendTime").append('<option value = "07:30-08:00">07:30-08:00(次日)</option>');
-					$("#preSendTime").append('<option value = "08:00-08:30">08:00-08:30(次日)</option>');
-					$("#preSendTime").append('<option value = "08:30-09:00">08:30-09:00(次日)</option>');
-					$("#preSendTime").append('<option value = "09:00-09:30">09:00-09:30(次日)</option>');
-					$("#preSendTime").append('<option value = "09:30-10:00">09:30-10:00(次日)</option>');
+					preSendTimeObj.empty();
+					var info = '<option value = "-1">请选择</option><option value = "07:00-07:30">07:00-07:30(次日)</option><option value = "07:30-08:00">07:30-08:00(次日)</option><option value = "08:00-08:30">08:00-08:30(次日)</option><option value = "08:30-09:00">08:30-09:00(次日)</option><option value = "09:00-09:30">09:00-09:30(次日)</option><option value = "09:30-10:00">09:30-10:00(次日)</option>'
+					preSendTimeObj.append(info);
 				}else if(now >= twentySecond){
 					$("#buyNowButton").val("已打烊");
 				}
