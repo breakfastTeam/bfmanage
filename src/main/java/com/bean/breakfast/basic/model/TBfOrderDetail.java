@@ -11,20 +11,21 @@ import javax.persistence.*;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_order_detail")
+@Table(name = "t_bf_order_detail", catalog = "breakfast", uniqueConstraints = {})
 public class TBfOrderDetail implements java.io.Serializable {
 
 	// Fields
 
 	private String detailId;
 	private String orderId;
-	private String foodId;
-	private Integer foodCount;
+	private String foodObjId;
+	private Integer foodObjCount;
+	private String foodObjType;
 	private Date createTime;
 	private String createBy;
 	private Date lastModifyTime;
 	private String lastModifyBy;
-	private Integer optTime;
+	private Long optTime;
 
 	// Constructors
 
@@ -38,13 +39,15 @@ public class TBfOrderDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TBfOrderDetail(String detailId, String orderId, String foodId,
-			Integer foodCount, Date createTime, String createBy,
-			Date lastModifyTime, String lastModifyBy, Integer optTime) {
+	public TBfOrderDetail(String detailId, String orderId, String foodObjId,
+			Integer foodObjCount, String foodObjType, Date createTime,
+			String createBy, Date lastModifyTime, String lastModifyBy,
+			Long optTime) {
 		this.detailId = detailId;
 		this.orderId = orderId;
-		this.foodId = foodId;
-		this.foodCount = foodCount;
+		this.foodObjId = foodObjId;
+		this.foodObjCount = foodObjCount;
+		this.foodObjType = foodObjType;
 		this.createTime = createTime;
 		this.createBy = createBy;
 		this.lastModifyTime = lastModifyTime;
@@ -74,22 +77,31 @@ public class TBfOrderDetail implements java.io.Serializable {
 		this.orderId = orderId;
 	}
 
-	@Column(name = "food_id", unique = false, nullable = true, insertable = true, updatable = true, length = 32)
-	public String getFoodId() {
-		return this.foodId;
+	@Column(name = "food_obj_id", unique = false, nullable = true, insertable = true, updatable = true, length = 32)
+	public String getFoodObjId() {
+		return this.foodObjId;
 	}
 
-	public void setFoodId(String foodId) {
-		this.foodId = foodId;
+	public void setFoodObjId(String foodObjId) {
+		this.foodObjId = foodObjId;
 	}
 
-	@Column(name = "food_count", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getFoodCount() {
-		return this.foodCount;
+	@Column(name = "food_obj_count", unique = false, nullable = true, insertable = true, updatable = true)
+	public Integer getFoodObjCount() {
+		return this.foodObjCount;
 	}
 
-	public void setFoodCount(Integer foodCount) {
-		this.foodCount = foodCount;
+	public void setFoodObjCount(Integer foodObjCount) {
+		this.foodObjCount = foodObjCount;
+	}
+
+	@Column(name = "food_obj_type", unique = false, nullable = true, insertable = true, updatable = true, length = 20)
+	public String getFoodObjType() {
+		return this.foodObjType;
+	}
+
+	public void setFoodObjType(String foodObjType) {
+		this.foodObjType = foodObjType;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -131,11 +143,11 @@ public class TBfOrderDetail implements java.io.Serializable {
 	}
 
 	@Column(name = "opt_time", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOptTime() {
+	public Long getOptTime() {
 		return this.optTime;
 	}
 
-	public void setOptTime(Integer optTime) {
+	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
 

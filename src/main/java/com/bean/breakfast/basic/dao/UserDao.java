@@ -9,4 +9,5 @@ import com.bean.core.orm.dao.BaseDao;
  */
 public interface UserDao extends BaseDao<TBfUser, String> {
     public TBfUser getUserByWeixin(String weixin);
+    public TBfUser getUserByPhone(String phone);
 }

@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_photo_show")
+@Table(name = "t_bf_photo_show", catalog = "breakfast", uniqueConstraints = {})
 public class TBfPhotoShow implements java.io.Serializable {
 
 	// Fields
@@ -30,7 +30,7 @@ public class TBfPhotoShow implements java.io.Serializable {
 	private String createBy_1;
 	private Date lastModifyTime;
 	private String lastModifyBy;
-	private Integer optTime;
+	private Long optTime;
 
 	// Constructors
 
@@ -47,7 +47,7 @@ public class TBfPhotoShow implements java.io.Serializable {
 	public TBfPhotoShow(String photoId, String orginFileId, String smallFileId,
 			Date uploadTime, Date validDate, String createBy, String status,
 			Date createTime, String createBy_1, Date lastModifyTime,
-			String lastModifyBy, Integer optTime) {
+			String lastModifyBy, Long optTime) {
 		this.photoId = photoId;
 		this.orginFileId = orginFileId;
 		this.smallFileId = smallFileId;
@@ -168,11 +168,11 @@ public class TBfPhotoShow implements java.io.Serializable {
 	}
 
 	@Column(name = "opt_time", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOptTime() {
+	public Long getOptTime() {
 		return this.optTime;
 	}
 
-	public void setOptTime(Integer optTime) {
+	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
 

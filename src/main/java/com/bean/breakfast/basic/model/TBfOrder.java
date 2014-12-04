@@ -11,7 +11,7 @@ import javax.persistence.*;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_order")
+@Table(name = "t_bf_order", catalog = "breakfast", uniqueConstraints = {})
 public class TBfOrder implements java.io.Serializable {
 
 	// Fields
@@ -23,15 +23,15 @@ public class TBfOrder implements java.io.Serializable {
 	private String consigneeName;
 	private String consigneeAddress;
 	private String consigneeMobile;
-	private Integer orderPrice;
+	private Double orderPrice;
 	private Integer exccreaditCount;
 	private String usedCoupons;
+	private String comments;
 	private Date createTime;
 	private String createBy;
 	private Date lastModifyTime;
 	private String lastModifyBy;
 	private Integer optTime;
-	private String remark;
 
 	// Constructors
 
@@ -47,10 +47,10 @@ public class TBfOrder implements java.io.Serializable {
 	/** full constructor */
 	public TBfOrder(String orderId, String customerId, String orderType,
 			String status, String consigneeName, String consigneeAddress,
-			String consigneeMobile, Integer orderPrice,
-			Integer exccreaditCount, String usedCoupons, Date createTime,
+			String consigneeMobile, Double orderPrice, Integer exccreaditCount,
+			String usedCoupons, String comments, Date createTime,
 			String createBy, Date lastModifyTime, String lastModifyBy,
-			Integer optTime, String remark) {
+			Integer optTime) {
 		this.orderId = orderId;
 		this.customerId = customerId;
 		this.orderType = orderType;
@@ -61,12 +61,12 @@ public class TBfOrder implements java.io.Serializable {
 		this.orderPrice = orderPrice;
 		this.exccreaditCount = exccreaditCount;
 		this.usedCoupons = usedCoupons;
+		this.comments = comments;
 		this.createTime = createTime;
 		this.createBy = createBy;
 		this.lastModifyTime = lastModifyTime;
 		this.lastModifyBy = lastModifyBy;
 		this.optTime = optTime;
-		this.remark = remark;
 	}
 
 	// Property accessors
@@ -136,12 +136,12 @@ public class TBfOrder implements java.io.Serializable {
 		this.consigneeMobile = consigneeMobile;
 	}
 
-	@Column(name = "order_price", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOrderPrice() {
+	@Column(name = "order_price", unique = false, nullable = true, insertable = true, updatable = true, precision = 8, scale = 3)
+	public Double getOrderPrice() {
 		return this.orderPrice;
 	}
 
-	public void setOrderPrice(Integer orderPrice) {
+	public void setOrderPrice(Double orderPrice) {
 		this.orderPrice = orderPrice;
 	}
 
@@ -161,6 +161,15 @@ public class TBfOrder implements java.io.Serializable {
 
 	public void setUsedCoupons(String usedCoupons) {
 		this.usedCoupons = usedCoupons;
+	}
+
+	@Column(name = "comments", unique = false, nullable = true, insertable = true, updatable = true, length = 200)
+	public String getComments() {
+		return this.comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -208,15 +217,6 @@ public class TBfOrder implements java.io.Serializable {
 
 	public void setOptTime(Integer optTime) {
 		this.optTime = optTime;
-	}
-
-	@Column(name = "remark", unique = false, nullable = true, insertable = true, updatable = true, length = 200)
-	public String getRemark() {
-		return this.remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
 	}
 
 }

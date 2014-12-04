@@ -11,7 +11,7 @@ import javax.persistence.*;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_food")
+@Table(name = "t_bf_food", catalog = "breakfast", uniqueConstraints = {})
 public class TBfFood implements java.io.Serializable {
 
 	// Fields
@@ -31,12 +31,12 @@ public class TBfFood implements java.io.Serializable {
 	private Byte supportExchange;
 	private Integer exchangeCount;
 	private Integer showOrder;
-	private Date createTime;
 	private Date saleTime;
+	private Date createTime;
 	private String createBy;
 	private Date lastModifyTime;
 	private String lastModifyBy;
-	private Integer optTime;
+	private Long optTime;
 
 	// Constructors
 
@@ -55,7 +55,7 @@ public class TBfFood implements java.io.Serializable {
 			Integer realFoodCount, String smallPicId, String orginPicId,
 			Byte supportSnapUp, Byte supportExchange, Integer exchangeCount,
 			Integer showOrder, Date createTime, String createBy,
-			Date lastModifyTime, String lastModifyBy, Integer optTime) {
+			Date lastModifyTime, String lastModifyBy, Long optTime) {
 		this.foodId = foodId;
 		this.foodName = foodName;
 		this.cost = cost;
@@ -216,7 +216,6 @@ public class TBfFood implements java.io.Serializable {
 	public void setShowOrder(Integer showOrder) {
 		this.showOrder = showOrder;
 	}
-
 	@Temporal(TemporalType.DATE)
 	@Column(name = "sale_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getSaleTime() {
@@ -226,7 +225,6 @@ public class TBfFood implements java.io.Serializable {
 	public void setSaleTime(Date saleTime) {
 		this.saleTime = saleTime;
 	}
-
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "create_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
@@ -267,11 +265,11 @@ public class TBfFood implements java.io.Serializable {
 	}
 
 	@Column(name = "opt_time", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOptTime() {
+	public Long getOptTime() {
 		return this.optTime;
 	}
 
-	public void setOptTime(Integer optTime) {
+	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
 

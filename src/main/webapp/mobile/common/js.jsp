@@ -12,7 +12,8 @@
 <script src="${ctx }/mobile/skin/default/js/bootstrap-switch.js"></script>
 <script src="${ctx}/mobile/skin/default/js/respond.min.js"
 	type="text/javascript"></script>
-
+<script src="${ctx}/mobile/skin/default/js/jquery.lazyload.js"
+		type="text/javascript"></script>
 <!----- 系统自定义插件 ------>
 <script src="${ctx }/mobile/js/utils/iMap.js"></script>
 <script src="${ctx }/mobile/js/utils/iReqMsg.js"></script>

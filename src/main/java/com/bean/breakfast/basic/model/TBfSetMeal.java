@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_set_meal")
+@Table(name = "t_bf_set_meal", catalog = "breakfast", uniqueConstraints = {})
 public class TBfSetMeal implements java.io.Serializable {
 
 	// Fields
@@ -22,7 +22,7 @@ public class TBfSetMeal implements java.io.Serializable {
 	private String setMealId;
 	private String setName;
 	private String introduce;
-	private Date starTime;
+	private Date startTime;
 	private Date endTime;
 	private Double price;
 	private Double privilege;
@@ -36,7 +36,7 @@ public class TBfSetMeal implements java.io.Serializable {
 	private String createBy;
 	private Date lastModifyTime;
 	private String lastModifyBy;
-	private Integer optTime;
+	private Long optTime;
 
 	// Constructors
 
@@ -51,15 +51,15 @@ public class TBfSetMeal implements java.io.Serializable {
 
 	/** full constructor */
 	public TBfSetMeal(String setMealId, String setName, String introduce,
-			Date starTime, Date endTime, Double price, Double privilege,
+			Date startTime, Date endTime, Double price, Double privilege,
 			String status, Integer foodCount, Integer realFoodCount,
 			String smallPicId, String orginPicId, Integer showOrder,
 			Date createTime, String createBy, Date lastModifyTime,
-			String lastModifyBy, Integer optTime) {
+			String lastModifyBy, Long optTime) {
 		this.setMealId = setMealId;
 		this.setName = setName;
 		this.introduce = introduce;
-		this.starTime = starTime;
+		this.startTime = startTime;
 		this.endTime = endTime;
 		this.price = price;
 		this.privilege = privilege;
@@ -106,13 +106,13 @@ public class TBfSetMeal implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "star_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
-	public Date getStarTime() {
-		return this.starTime;
+	@Column(name = "start_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
+	public Date getStartTime() {
+		return this.startTime;
 	}
 
-	public void setStarTime(Date starTime) {
-		this.starTime = starTime;
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -236,11 +236,11 @@ public class TBfSetMeal implements java.io.Serializable {
 	}
 
 	@Column(name = "opt_time", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOptTime() {
+	public Long getOptTime() {
 		return this.optTime;
 	}
 
-	public void setOptTime(Integer optTime) {
+	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
 

@@ -12,7 +12,7 @@
         <div class="sprocket-mosaic-item">
             <div class="sprocket-padding">
                 <div class="sprocket-mosaic-image-container">
-                    <a href="javascript:void(0)"> <img id="originPicPath" src="" alt=""
+                    <a href="javascript:void(0)"> <img id="originPicPath" original = "" src="${ctx}/mobile/skin/default/images/grey.gif" alt=""
                                                        class="sprocket-mosaic-image"> </a>
                 </div>
                 <div class="sprocket-mosaic-head">
@@ -48,10 +48,10 @@
 
     <div class="row" style="margin: 0 auto;">
         <div class="col-lg-12">
-            <a href="javascript:void(0)" id="shopCartButton" class="col-lg-24 btn btn-primary btn-large">加入购物车</a>
+            <a href="javascript:void(0)" sale-out="false" id="shopCartButton" class="col-lg-24 btn btn-primary btn-large">加入购物车</a>
         </div>
         <div class="col-lg-12">
-            <a href="javascript:void(0)" id="buyNowButton" class="col-lg-24 btn btn-warning btn-large">立即购买</a>
+            <a href="javascript:void(0)" sale-out="false" id="buyNowButton" class="col-lg-24 btn btn-warning btn-large">立即购买</a>
         </div>
 
     </div>

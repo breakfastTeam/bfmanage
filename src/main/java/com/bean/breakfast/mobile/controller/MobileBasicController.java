@@ -10,38 +10,42 @@ import org.springframework.web.servlet.ModelAndView;
 public class MobileBasicController {
 	@RequestMapping(value = "/")
 	public ModelAndView home(final HttpServletRequest request){
-		ModelAndView model = new ModelAndView("/mobile/index");
+		ModelAndView model = new ModelAndView("mobile/index");
 		return model;
 	}
 	@RequestMapping(value = "/foodList")
 	public ModelAndView foodList(final HttpServletRequest request){
-		ModelAndView model = new ModelAndView("/mobile/foodList");
+		ModelAndView model = new ModelAndView("mobile/foodList");
 		return model;
 	}
 	@RequestMapping(value = "/foodDetail")
 	public ModelAndView foodDetail(final HttpServletRequest request){
-		ModelAndView model = new ModelAndView("/mobile/foodDetail");
+		ModelAndView model = new ModelAndView("mobile/foodDetail");
 		return model;
 	}
 	@RequestMapping(value = "/toMyOrders")
 	public ModelAndView toMyOrders(final HttpServletRequest request){
-		ModelAndView model = new ModelAndView("/mobile/myOrders");
+		ModelAndView model = new ModelAndView("mobile/myOrders");
 		return model;
 	}
 	@RequestMapping(value = "/toBuyNow")
 	public ModelAndView toOrderNow(final HttpServletRequest request){
-		ModelAndView model = new ModelAndView("/mobile/buyNow");
+		ModelAndView model = new ModelAndView("mobile/buyNow");
 		return model;
 	}
-
+	@RequestMapping(value = "/toLogin")
+	public ModelAndView toLogin(final HttpServletRequest request){
+		ModelAndView model = new ModelAndView("mobile/login");
+		return model;
+	}
 	@RequestMapping(value = "/500")
 	public ModelAndView error500(final HttpServletRequest request){
-		ModelAndView model = new ModelAndView("/mobile/common/500");
+		ModelAndView model = new ModelAndView("mobile/common/500");
 		return model;
 	}
 	@RequestMapping(value = "/404")
 	public ModelAndView error404(final HttpServletRequest request){
-		ModelAndView model = new ModelAndView("/mobile/common/404");
+		ModelAndView model = new ModelAndView("mobile/common/404");
 		return model;
 	}
 }

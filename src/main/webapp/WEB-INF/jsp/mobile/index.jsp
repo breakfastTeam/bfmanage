@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/mobile/common/taglibs.jsp" %>
 <%@ include file="/mobile/common/meta.jsp" %>
+<%@ include file="/mobile/common/js.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>奔跑下的勺子兄弟</title>
+    <title>粥妹只为温暖你的心</title>
 </head>
 <body class="has-js">
 <div id="menuContainer" class="st-container st-effect-9" style = "overflow-y:auto">

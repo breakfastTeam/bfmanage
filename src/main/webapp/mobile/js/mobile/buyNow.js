@@ -44,37 +44,12 @@ var BelOrderNow = function() {
 						address:"请填写您的收获地址"
 					},
 					submitHandler: function(form) {
-						var customerId = sessionStorage.getItem("userId");
-						var consigneeName = $("#userName").val();
-						var city = $("#city option:selected").text();
-						var area = $("#area option:selected").text();
-						var consigneeAddr = city+""+area+$("#address").val();
-						var consigneeMobile = $("#phone").val();
-						var orderPrice = $("#sumMoney").text();
-						var	remark = $("#remark").val();
-
+						var phone = $("#phone").val();
 						var map = new Map();
-						map.put("customerId", customerId);
-						map.put("consigneeName", consigneeName);
-						map.put("consigneeAddr", consigneeAddr);
-						map.put("consigneeMobile", consigneeMobile);
-						map.put("orderPrice", orderPrice);
-						map.put("exccreaditCount", "0");
-						map.put("remark", remark);
-						var orderDetails = new Array();
-						var shopCartInfo = localStorage.getItem("shopCart");
-						var shopCartInfos = $.parseJSON('{"shopCartInfos":['+shopCartInfo+']}').shopCartInfos;
-						for(var i = 0; i < shopCartInfos.length; i++) {
-							var orderDetail = new Map();
-							orderDetail.put("foodId", shopCartInfos[i].foodId);
-							orderDetail.put("foodCount", shopCartInfos[i].count);
-							orderDetails.push(orderDetail);
-						}
-						map.put("orderDetail", orderDetails);
-
+						map.put("phone", phone);
 						var reqData = iReqMsg.getReqMsg(map);
 						$.ajax({
-							url: "saveOrder.do",
+							url: "regist.do",
 							type: "POST",
 							data: reqData,
 							dataType: "json",
@@ -82,18 +57,68 @@ var BelOrderNow = function() {
 							success: function (data) {
 								var rtnCode = data.head.rtnCode;
 								if(rtnCode == "888888"){
-									iDialog.iTip("订单成功，等待享受美食吧！");
-									localStorage.removeItem("shopCart");
-									loadUrl("foodList.do");
-								}else{
-									iDialog.iTip("提交失败，请稍后重试！");
+									var userId = data.body.userId;
+									localStorage.setItem("userId", userId);
+									localStorage.setItem("phone", phone);
+									buyNow();
 								}
 							}
 						});
+
 					}
 				});
 			});
+			/**
+			 * 下订单
+			 * **/
+			function buyNow(){
+				var customerId = localStorage.getItem("userId");
+				var consigneeName = $("#userName").val();
+				var city = $("#city option:selected").text();
+				var area = $("#area option:selected").text();
+				var consigneeAddr = city+""+area+$("#address").val();
+				var consigneeMobile = $("#phone").val();
+				var orderPrice = $("#sumMoney").text();
+				var	remark = $("#remark").val();
 
+				var map = new Map();
+				map.put("customerId", customerId);
+				map.put("consigneeName", consigneeName);
+				map.put("consigneeAddr", consigneeAddr);
+				map.put("consigneeMobile", consigneeMobile);
+				map.put("orderPrice", orderPrice);
+				map.put("exccreaditCount", "0");
+				map.put("remark", remark);
+				var orderDetails = new Array();
+				var shopCartInfo = localStorage.getItem("shopCart");
+				var shopCartInfos = $.parseJSON('{"shopCartInfos":['+shopCartInfo+']}').shopCartInfos;
+				for(var i = 0; i < shopCartInfos.length; i++) {
+					var orderDetail = new Map();
+					orderDetail.put("foodId", shopCartInfos[i].foodId);
+					orderDetail.put("foodCount", shopCartInfos[i].count);
+					orderDetails.push(orderDetail);
+				}
+				map.put("orderDetail", orderDetails);
+
+				var reqData = iReqMsg.getReqMsg(map);
+				$.ajax({
+					url: "saveOrder.do",
+					type: "POST",
+					data: reqData,
+					dataType: "json",
+					contentType: "text/plain",
+					success: function (data) {
+						var rtnCode = data.head.rtnCode;
+						if(rtnCode == "888888"){
+							iDialog.iTip("订单成功，等待享受美食吧！");
+							localStorage.removeItem("shopCart");
+							loadUrl("foodList.do");
+						}else{
+							iDialog.iTip("提交失败，请稍后重试！");
+						}
+					}
+				});
+			}
 			$("#shopCartList").find("a").click(function(){
 				var obj = $(this);
 				var foodId = $(obj).attr("id");
@@ -132,8 +157,8 @@ var BelOrderNow = function() {
 				}
 			}
 			function initUserInfo(){
-				$("#userName").val(sessionStorage.getItem("userName"));
-				$("#phone").val(sessionStorage.getItem("phone"));
+				$("#userName").val(localStorage.getItem("userName"));
+				$("#phone").val(localStorage.getItem("phone"));
 			}
 			/**
 			 * 校验手机号是否合法
@@ -152,10 +177,10 @@ var BelOrderNow = function() {
 				var shopCartInfo = localStorage.getItem("shopCart");
 				var shopCartInfos = $.parseJSON('{"shopCartInfos":['+shopCartInfo+']}').shopCartInfos;
 				if(shopCartInfos == null || shopCartInfos.length<=0 || shopCartInfos[0] == null){
-					iDialog.iTip("购物车内空荡荡的");
+					iDialog.iAlert("购物车内空荡荡的,赶快选购吧");
 					setTimeout(function(){
 						loadUrl("foodList.do");
-					},2000);
+					},3000);
 				}else{
 					for(var i = 0; i < shopCartInfos.length; i++){
 						var info = '<div class="row border-bottom">'+

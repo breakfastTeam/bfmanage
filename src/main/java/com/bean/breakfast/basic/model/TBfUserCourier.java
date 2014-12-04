@@ -9,13 +9,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * TBrUserCourier entity.
+ * TBfUserCourier entity.
  * 
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_br_user_courier")
-public class TBrUserCourier implements java.io.Serializable {
+@Table(name = "t_bf_user_courier", catalog = "breakfast", uniqueConstraints = {})
+public class TBfUserCourier implements java.io.Serializable {
 
 	// Fields
 
@@ -25,23 +25,23 @@ public class TBrUserCourier implements java.io.Serializable {
 	private String createBy;
 	private Date lastModifyTime;
 	private String lastModifyBy;
-	private Integer optTime;
+	private Long optTime;
 
 	// Constructors
 
 	/** default constructor */
-	public TBrUserCourier() {
+	public TBfUserCourier() {
 	}
 
 	/** minimal constructor */
-	public TBrUserCourier(String userId) {
+	public TBfUserCourier(String userId) {
 		this.userId = userId;
 	}
 
 	/** full constructor */
-	public TBrUserCourier(String userId, String source, Date createTime,
+	public TBfUserCourier(String userId, String source, Date createTime,
 			String createBy, Date lastModifyTime, String lastModifyBy,
-			Integer optTime) {
+			Long optTime) {
 		this.userId = userId;
 		this.source = source;
 		this.createTime = createTime;
@@ -110,11 +110,11 @@ public class TBrUserCourier implements java.io.Serializable {
 	}
 
 	@Column(name = "opt_time", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOptTime() {
+	public Long getOptTime() {
 		return this.optTime;
 	}
 
-	public void setOptTime(Integer optTime) {
+	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
 

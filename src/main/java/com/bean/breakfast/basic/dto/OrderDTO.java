@@ -14,8 +14,8 @@ public class OrderDTO implements java.io.Serializable {
 	private String consigneeName;
 	private String consigneeAddr;
 	private String consigneePhone;
-	private Integer exccreaditCount;
-	private Integer money;
+	private double exccreaditCount;
+	private double money;
 	private String remark;
 	private String createTime;
 	private List<FoodDTO> foods;
@@ -60,11 +60,11 @@ public class OrderDTO implements java.io.Serializable {
 		this.consigneePhone = consigneePhone;
 	}
 
-	public Integer getMoney() {
+	public double getMoney() {
 		return money;
 	}
 
-	public void setMoney(Integer money) {
+	public void setMoney(double money) {
 		this.money = money;
 	}
 
@@ -76,11 +76,11 @@ public class OrderDTO implements java.io.Serializable {
 		this.foods = foods;
 	}
 
-	public Integer getExccreaditCount() {
+	public double getExccreaditCount() {
 		return exccreaditCount;
 	}
 
-	public void setExccreaditCount(Integer exccreaditCount) {
+	public void setExccreaditCount(double exccreaditCount) {
 		this.exccreaditCount = exccreaditCount;
 	}
 

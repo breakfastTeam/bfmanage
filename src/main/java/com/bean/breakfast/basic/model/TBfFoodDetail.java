@@ -1,9 +1,12 @@
 package com.bean.breakfast.basic.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * TBfFoodDetail entity.
@@ -11,7 +14,7 @@ import javax.persistence.*;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_food_detail")
+@Table(name = "t_bf_food_detail", catalog = "breakfast", uniqueConstraints = {})
 public class TBfFoodDetail implements java.io.Serializable {
 
 	// Fields
@@ -54,8 +57,6 @@ public class TBfFoodDetail implements java.io.Serializable {
 
 	// Property accessors
 	@Id
-	@GeneratedValue(generator = "id")
-	@GenericGenerator(name = "id", strategy = "uuid")
 	@Column(name = "detail_id", unique = true, nullable = false, insertable = true, updatable = true, length = 32)
 	public String getDetailId() {
 		return this.detailId;

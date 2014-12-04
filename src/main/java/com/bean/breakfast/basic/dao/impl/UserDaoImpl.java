@@ -29,4 +29,17 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
             return null;
         }
     }
+
+    @Override
+    public TBfUser getUserByPhone(String phone) {
+        List<String> params = new ArrayList<String>();
+        String hql = "from TBfUser t where t.status=? and t.mobile=?";
+        params.add(IConstants.VALID);
+        List<TBfUser> users = this.find(hql, IConstants.VALID, phone);
+        if(users.size()>0){
+            return users.get(0);
+        }else{
+            return null;
+        }
+    }
 }

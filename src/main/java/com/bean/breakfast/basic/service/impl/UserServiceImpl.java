@@ -10,7 +10,9 @@ import com.bean.breakfast.basic.model.TBfOrderDetail;
 import com.bean.breakfast.basic.model.TBfUser;
 import com.bean.breakfast.basic.service.OrderService;
 import com.bean.breakfast.basic.service.UserService;
+import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.service.impl.BaseServiceImpl;
+import com.bean.core.utils.IDateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,4 +38,15 @@ public class UserServiceImpl extends BaseServiceImpl<TBfUser,String> implements 
 	public TBfUser getUserByWeixin(String weixin) {
 		return userDao.getUserByWeixin(weixin);
 	}
+
+	@Override
+	public TBfUser getUserByPhone(String phone) {
+		return userDao.getUserByPhone(phone);
+	}
+	public String saveUser(TBfUser user) {
+		user.setStatus(IConstants.VALID);
+		user.setCreateTime(IDateUtil.getCurrentTimeDate());
+		return userDao.save(user);
+	}
+
 }

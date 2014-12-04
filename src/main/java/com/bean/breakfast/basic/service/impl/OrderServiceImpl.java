@@ -10,6 +10,7 @@ import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.model.TBfOrder;
 import com.bean.breakfast.basic.model.TBfOrderDetail;
 import com.bean.breakfast.basic.service.OrderService;
+import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.service.impl.BaseServiceImpl;
 import com.bean.core.utils.IDateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,14 +49,16 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 		order.setConsigneeMobile(orderDTO.getConsigneePhone());
 		order.setConsigneeAddress(orderDTO.getConsigneeAddr());
 		order.setOrderPrice(orderDTO.getMoney());
-		order.setRemark(orderDTO.getRemark());
+		order.setComments(orderDTO.getRemark());
+		order.setStatus(IConstants.VALID);
+		order.setCreateTime(IDateUtil.getCurrentTimeDate());
 		String orderId = orderDao.save(order);
 		List<FoodDTO> foods = orderDTO.getFoods();
 		for (FoodDTO foodDTO : foods) {
 			TBfOrderDetail orderDetail = new TBfOrderDetail();
 			orderDetail.setOrderId(orderId);
-			orderDetail.setFoodId(foodDTO.getFoodId());
-			orderDetail.setFoodCount(foodDTO.getFoodNum());
+			orderDetail.setFoodObjId(foodDTO.getFoodId());
+			orderDetail.setFoodObjCount(foodDTO.getFoodNum());
 			orderDetailDao.save(orderDetail);
 
 			foodDao.minusFoodCount(foodDTO.getFoodId(), foodDTO.getFoodNum(), foodDTO.getFoodNum());
@@ -80,12 +83,12 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 			List<TBfOrderDetail> orderDetails = orderDetailDao.getOrderDetailByOrderId(order.getOrderId());
 			for (TBfOrderDetail orderDetail : orderDetails){
 				try {
-					TBfFood food = foodDao.get(orderDetail.getFoodId());
+					TBfFood food = foodDao.get(orderDetail.getFoodObjId());
 					FoodDTO foodDTO = new FoodDTO();
 					foodDTO.setFoodName(food.getFoodName());
 					foodDTO.setFoodId(food.getFoodId());
 					foodDTO.setPrice(food.getPrice());
-					foodDTO.setFoodNum(orderDetail.getFoodCount());
+					foodDTO.setFoodNum(orderDetail.getFoodObjCount());
 					foodDTOs.add(foodDTO);
 				} catch (Exception e) {
 					e.printStackTrace();

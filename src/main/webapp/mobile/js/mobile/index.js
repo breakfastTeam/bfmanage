@@ -19,7 +19,12 @@ $(function(){
     });
     //打开购物车列表
     $("#shopCart").click(function(){
-		loadUrl("toBuyNow.do");
+		var phone = localStorage.getItem("phone");
+		//if(phone != null && phone != "" && phone != undefined){
+			loadUrl("toBuyNow.do");
+		//}else{
+		//	loadUrl("toLogin.do");
+		//}
     });
 //打开购物车列表
 	$("#myOrders").click(function(){
@@ -29,27 +34,32 @@ $(function(){
 	getUserInfo();
 
 	function getUserInfo(){
-		var map = new Map();
-		map.put("weixin","805404898");
+		var phone = localStorage.getItem("phone");
+		var userId = localStorage.getItem("userId");
 
-		var reqData = iReqMsg.getReqMsg(map);
-		$.ajax({
-			url: "getUserInfo.do",
-			type: "POST",
-			data: reqData,
-			dataType: "json",
-			contentType: "text/plain",
-			success: function (data) {
-				if(data.head.rtnCode == "888888"){
-					var userId = data.body.userId;
-					var userName = data.body.userName;
-					var phone = data.body.phone;
-					sessionStorage.setItem("userId", userId);
-					sessionStorage.setItem("userName", userName);
-					sessionStorage.setItem("phone", phone);
-				}
+		if(phone != "" && phone != null && phone != undefined ){
+			if(userId == "" || userId == null || userId == undefined){
+				var map = new Map();
+				map.put("weixin","805404898");
+				var reqData = iReqMsg.getReqMsg(map);
+				$.ajax({
+					url: "getUserInfo.do",
+					type: "POST",
+					data: reqData,
+					dataType: "json",
+					contentType: "text/plain",
+					success: function (data) {
+						if(data.head.rtnCode == "888888"){
+							var userId = data.body.userId;
+							var userName = data.body.userName;
+							var phone = data.body.phone;
+							localStorage.setItem("userId", userId);
+						}
+					}
+				})
 			}
-		})
+
+		}
 	}
 });
 

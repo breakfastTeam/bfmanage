@@ -11,7 +11,7 @@ import javax.persistence.*;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_file")
+@Table(name = "t_bf_file", catalog = "breakfast", uniqueConstraints = {})
 public class TBfFile implements java.io.Serializable {
 
 	// Fields
@@ -23,7 +23,7 @@ public class TBfFile implements java.io.Serializable {
 	private String createBy;
 	private Date lastModifyTime;
 	private String lastModifyBy;
-	private Integer optTime;
+	private Long optTime;
 
 	// Constructors
 
@@ -39,7 +39,7 @@ public class TBfFile implements java.io.Serializable {
 	/** full constructor */
 	public TBfFile(String fileId, String filePath, String status,
 			Date createTime, String createBy, Date lastModifyTime,
-			String lastModifyBy, Integer optTime) {
+			String lastModifyBy, Long optTime) {
 		this.fileId = fileId;
 		this.filePath = filePath;
 		this.status = status;
@@ -120,11 +120,11 @@ public class TBfFile implements java.io.Serializable {
 	}
 
 	@Column(name = "opt_time", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOptTime() {
+	public Long getOptTime() {
 		return this.optTime;
 	}
 
-	public void setOptTime(Integer optTime) {
+	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
 

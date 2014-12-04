@@ -15,6 +15,7 @@ public class IConstants {
 	public static final String ERROR_CODE = "000000";//操作失败
 	public static final String ERROR = "error";
 	public static final String SUCCESS = "success";
+	public static final String RANDOM_VALIDATE_CODE_KEY = "RandomValidateCode";//验证码随机码的key
 	
 	/**************搜索*************/
 	public static int DEFAULT_PAGE_SIZE = 20;

@@ -48,8 +48,8 @@ public class MobileOrderController {
             String consigneeAddr = bodyObj.getString("consigneeAddr");
             String consigneeMobile = bodyObj.getString("consigneeMobile");
             String remark = bodyObj.getString("remark");
-            Integer orderPrice = StringUtils.isNotBlank(bodyObj.getString("orderPrice"))?Integer.parseInt(bodyObj.getString("orderPrice")):0;
-            Integer exccreaditCount = StringUtils.isNotBlank(bodyObj.getString("exccreaditCount"))?Integer.parseInt(bodyObj.getString("exccreaditCount")):0;
+            Double orderPrice = StringUtils.isNotBlank(bodyObj.getString("orderPrice"))?Double.parseDouble(bodyObj.getString("orderPrice")):0;
+            Double exccreaditCount = StringUtils.isNotBlank(bodyObj.getString("exccreaditCount"))?Double.parseDouble(bodyObj.getString("exccreaditCount")):0;
             JSONArray orderDetail = bodyObj.getJSONArray("orderDetail");
             List<FoodDTO> foodDTOs = new ArrayList<FoodDTO>();
             for (int i = 0; i<orderDetail.size(); i++){

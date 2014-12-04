@@ -343,7 +343,7 @@ public class BaseDaoImpl<T, PK extends Serializable> implements BaseDao<T, PK> {
 	 * 变更记录：
 	 */
 	@SuppressWarnings("unchecked")
-	public Page<T> findByHql(final Page<T> page, String hql, final List<String> params) {
+	public Page<T> findByHql(final Page<T> page, String hql, final List<Object> params) {
 		Query query = getSession().createQuery(hql);
 		if (params != null) {
 			for (int i = 0; i < params.size(); i++) {

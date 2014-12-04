@@ -5,11 +5,13 @@ import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.dao.impl.BaseDaoImpl;
 import com.bean.core.page.Page;
+import com.bean.core.utils.IDateUtil;
 import com.bean.core.utils.IStringUtil;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Repository("foodDao")
@@ -23,14 +25,15 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 	}
 
 	public Page<TBfFood> findFood(Page<TBfFood> page, TBfFood food) {
-		List<String> params = new ArrayList<String>();
-		String hql = "from TBfFood t where t.status=? ";
+		List<Object> params = new ArrayList<Object>();
+		String hql = "from TBfFood t where t.status=? and t.saleTime>=?";
 		params.add(IConstants.VALID);
+		params.add(IDateUtil.getCurrentTimeDate());
 		if(IStringUtil.isNotBlank(food.getFoodName())){
 			hql = hql + " and t.foodName like ?";
 			params.add("%"+food.getFoodName()+"%");
 		}
-//		hql = hql + " order by orderNum desc, createTime desc";
+		hql = hql + " order by showOrder desc, createTime desc";
 		return this.findByHql(page, hql, params);
 	}
 

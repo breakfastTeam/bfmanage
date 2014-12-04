@@ -1,12 +1,9 @@
 package com.bean.breakfast.basic.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 /**
  * TBfUser entity.
@@ -14,7 +11,7 @@ import javax.persistence.TemporalType;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_user")
+@Table(name = "t_bf_user", catalog = "breakfast", uniqueConstraints = {})
 public class TBfUser implements java.io.Serializable {
 
 	// Fields
@@ -33,7 +30,7 @@ public class TBfUser implements java.io.Serializable {
 	private String createBy;
 	private Date lastModifyTime;
 	private String lastModifyBy;
-	private Integer optTime;
+	private Long optTime;
 
 	// Constructors
 
@@ -51,7 +48,7 @@ public class TBfUser implements java.io.Serializable {
 			String status, String userName, String mobile, String weixin,
 			String qq, Date registerTime, String registerWay, Date createTime,
 			String createBy, Date lastModifyTime, String lastModifyBy,
-			Integer optTime) {
+			Long optTime) {
 		this.userId = userId;
 		this.loginName = loginName;
 		this.password = password;
@@ -71,6 +68,8 @@ public class TBfUser implements java.io.Serializable {
 
 	// Property accessors
 	@Id
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "uuid")
 	@Column(name = "user_id", unique = true, nullable = false, insertable = true, updatable = true, length = 32)
 	public String getUserId() {
 		return this.userId;
@@ -201,11 +200,11 @@ public class TBfUser implements java.io.Serializable {
 	}
 
 	@Column(name = "opt_time", unique = false, nullable = true, insertable = true, updatable = true)
-	public Integer getOptTime() {
+	public Long getOptTime() {
 		return this.optTime;
 	}
 
-	public void setOptTime(Integer optTime) {
+	public void setOptTime(Long optTime) {
 		this.optTime = optTime;
 	}
 
