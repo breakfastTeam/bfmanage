@@ -5,14 +5,9 @@
  	var CLOSE='<spring:message code="CLOSE" />';
 </script>
 
-<script src="${ctx }/mobile/skin/default/js/jquery-1.8.3.js"></script>
-<script src="${ctx }/mobile/skin/default/js/jquery.validate.js"></script>
-<script src="${ctx}/mobile/skin/default/js/bootstrap.min.js"
-	type="text/javascript"></script>
-<script src="${ctx }/mobile/skin/default/js/bootstrap-switch.js"></script>
-<script src="${ctx}/mobile/skin/default/js/respond.min.js"
-	type="text/javascript"></script>
-<script src="${ctx}/mobile/skin/default/js/jquery.lazyload.js"
+<script src="${ctx }/mobile/skin/default/js/jquery-1.8.3.min.js"></script>
+<script src="${ctx }/mobile/skin/default/js/jquery.validate.min.js"></script>
+<script src="${ctx}/mobile/skin/default/js/jquery.lazyload.min.js"
 		type="text/javascript"></script>
 <!----- 系统自定义插件 ------>
 <script src="${ctx }/mobile/js/utils/iMap.js"></script>
