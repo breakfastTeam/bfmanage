@@ -74,7 +74,7 @@ var BelFoodDetail = function() {
 				}else{
 					var phone = localStorage.getItem("phone");
 					//if(phone != null && phone != "" && phone != undefined){
-					//	addFoodToCart();
+					addFoodToCart();
 					loadUrl("toBuyNow.do");
 					//}else{
 					//	loadUrl("toLogin.do");

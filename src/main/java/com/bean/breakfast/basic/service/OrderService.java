@@ -9,4 +9,5 @@ import java.util.List;
 public interface OrderService extends BaseService<TBfOrder, String> {
 	public String save(OrderDTO food);
 	public List<OrderDTO> getUserOrder(String userId);
+	public TBfOrder getUserLatestOrder(String userId);
 }

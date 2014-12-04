@@ -14,6 +14,8 @@ public class OrderDTO implements java.io.Serializable {
 	private String consigneeName;
 	private String consigneeAddr;
 	private String consigneePhone;
+	private String preSendTime;
+	private Date preSendDate;
 	private double exccreaditCount;
 	private double money;
 	private String remark;
@@ -98,5 +100,21 @@ public class OrderDTO implements java.io.Serializable {
 
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
+	}
+
+	public String getPreSendTime() {
+		return preSendTime;
+	}
+
+	public void setPreSendTime(String preSendTime) {
+		this.preSendTime = preSendTime;
+	}
+
+	public Date getPreSendDate() {
+		return preSendDate;
+	}
+
+	public void setPreSendDate(Date preSendDate) {
+		this.preSendDate = preSendDate;
 	}
 }

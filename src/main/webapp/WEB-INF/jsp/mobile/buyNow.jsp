@@ -77,8 +77,8 @@
                 <div class="col-lg-19">
                     <select class="form-control" id = "area" name = "area">
                         <option value = "-1">请选择</option>
-                        <option value = "0">金城国际</option>
-                        <option value = "0">财富广场</option>
+                        <option value = "金城国际">金城国际</option>
+                        <option value = "财富广场">财富广场</option>
                     </select>
                 </div>
             </div>
@@ -99,20 +99,29 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-lg-24">
+            <div class="form-group">
+                <label class="col-lg-5 control-label">
+                   日期：
+                </label>
+                <div class="col-lg-19">
+                    <input type="text" placeholder="" id="preSendDateShow"
+                           name="preSendDateShow" class="form-control" style="margin:0px;" value="">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-24">
             <div class="form-group">
                 <label class="col-lg-5 control-label">
                     送达：
                 </label>
-
+                <input type = "hidden" id = "preSendDate" name = "preSendDate" />
                 <div class="col-lg-19">
-                    <select class="form-control" id = "sendTime" name = "sendTime">
-                        <option value = "-1">请选择</option>
-                        <option value = "0">12:00—12:30</option>
-                        <option value = "1">12:30—13:00</option>
-                        <option value = "2">13:00—13:30</option>
+                    <select class="form-control" id = "preSendTime" name = "preSendTime">
+
                     </select>
                 </div>
             </div>
@@ -134,7 +143,7 @@
     </div>
 
     <div class="row" style="margin: 0 auto 10px auto;">
-        <button class="col-lg-24 btn btn-primary btn-large" type="submit" id="byNowButton">
+        <button class="col-lg-24 btn btn-primary btn-large" type="submit" id="buyNowButton">
             提交
         </button>
     </div>

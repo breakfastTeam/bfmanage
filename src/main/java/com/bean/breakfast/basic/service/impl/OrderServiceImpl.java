@@ -67,7 +67,7 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 	}
 
 	@Override
-	public List<OrderDTO> getUserOrder(String userId) {
+	 public List<OrderDTO> getUserOrder(String userId) {
 		List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
 		List<TBfOrder> orders = orderDao.getOrdersByUserId(userId);
 		for(TBfOrder order : orders){
@@ -99,5 +99,12 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 		}
 
 		return orderDTOs;
+	}
+
+	@Override
+	public TBfOrder getUserLatestOrder(String userId) {
+		TBfOrder order = orderDao.getLatestOrderByUserId(userId);
+
+		return order;
 	}
 }

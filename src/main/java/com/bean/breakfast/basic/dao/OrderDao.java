@@ -1,5 +1,6 @@
 package com.bean.breakfast.basic.dao;
 
+import com.bean.breakfast.basic.dto.OrderDTO;
 import com.bean.breakfast.basic.model.TBfFile;
 import com.bean.breakfast.basic.model.TBfOrder;
 import com.bean.core.orm.dao.BaseDao;
@@ -11,4 +12,5 @@ import java.util.List;
  */
 public interface OrderDao extends BaseDao<TBfOrder, String> {
     public List<TBfOrder> getOrdersByUserId(String userId);
+    public TBfOrder getLatestOrderByUserId(String userId);
 }

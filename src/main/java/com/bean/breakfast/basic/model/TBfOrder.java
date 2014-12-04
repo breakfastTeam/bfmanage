@@ -27,6 +27,8 @@ public class TBfOrder implements java.io.Serializable {
 	private Integer exccreaditCount;
 	private String usedCoupons;
 	private String comments;
+	private Date preSendDate;
+	private String preSendTime;
 	private Date createTime;
 	private String createBy;
 	private Date lastModifyTime;
@@ -172,6 +174,29 @@ public class TBfOrder implements java.io.Serializable {
 		this.comments = comments;
 	}
 
+	@Column(name = "pre_send_time", unique = false, nullable = true, insertable = true, updatable = true, length = 24)
+	public String getPreSendTime() {
+		return this.preSendTime;
+	}
+
+	public void setPreSendTime(String preSendTime) {
+		this.preSendTime = preSendTime;
+	}
+
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "pre_send_date", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
+	public Date getPreSendDate() {
+		return this.preSendDate;
+	}
+
+	public void setPreSendDate(Date preSendDate) {
+		this.preSendDate = preSendDate;
+	}
+
+
+
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "create_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getCreateTime() {
@@ -181,6 +206,7 @@ public class TBfOrder implements java.io.Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+
 
 	@Column(name = "create_by", unique = false, nullable = true, insertable = true, updatable = true, length = 32)
 	public String getCreateBy() {

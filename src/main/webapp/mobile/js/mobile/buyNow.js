@@ -4,8 +4,8 @@ var BelOrderNow = function() {
 		init: function() {
 			displayCartInfo();
 			initUserInfo();
-
-			$("#byNowButton").click(function(){
+			resetPreSendTime();
+			$("#buyNowButton").click(function(){
 				var mobilePhone = $("#phone").val();
 				if(mobilePhone == "" || mobilePhone == null || mobilePhone == undefined){
 					iDialog.iTip("请输入手机号");
@@ -17,12 +17,12 @@ var BelOrderNow = function() {
 					return false;
 				}
 				var area = $("#area option:selected").val();
-				var sendTime = $("#sendTime option:selected").val();
+				var preSendTime = $("#preSendTime option:selected").val();
 				if(area == "-1" || area == -1){
 					iDialog.iTip("请选择送餐区域");
 					return false;
 				}
-				if(sendTime == "-1" || sendTime == -1){
+				if(preSendTime == "-1" || preSendTime == -1){
 					iDialog.iTip("请选择送餐时间");
 					return false;
 				}
@@ -76,10 +76,12 @@ var BelOrderNow = function() {
 				var consigneeName = $("#userName").val();
 				var city = $("#city option:selected").text();
 				var area = $("#area option:selected").text();
-				var consigneeAddr = city+""+area+$("#address").val();
+				var consigneeAddr = city+"-"+area+"-"+$("#address").val();
 				var consigneeMobile = $("#phone").val();
 				var orderPrice = $("#sumMoney").text();
 				var	remark = $("#remark").val();
+				var preSendTime = $("#preSendTime option:selected").val();
+				var preSendDate = $("#preSendDate").val();
 
 				var map = new Map();
 				map.put("customerId", customerId);
@@ -89,6 +91,8 @@ var BelOrderNow = function() {
 				map.put("orderPrice", orderPrice);
 				map.put("exccreaditCount", "0");
 				map.put("remark", remark);
+				map.put("preSendTime", preSendTime);
+				map.put("preSendDate", preSendDate);
 				var orderDetails = new Array();
 				var shopCartInfo = localStorage.getItem("shopCart");
 				var shopCartInfos = $.parseJSON('{"shopCartInfos":['+shopCartInfo+']}').shopCartInfos;
@@ -157,8 +161,45 @@ var BelOrderNow = function() {
 				}
 			}
 			function initUserInfo(){
+				var userId = localStorage.getItem("userId");
 				$("#userName").val(localStorage.getItem("userName"));
 				$("#phone").val(localStorage.getItem("phone"));
+				var year = new Date().getFullYear();
+				$("#preSendDate").val(year+"-"+localStorage.getItem("saleTime"));
+				$("#preSendDateShow").val(year+"-"+localStorage.getItem("saleTime"));
+
+				if(userId != null && userId != "" && userId != undefined ){
+					var map = new Map();
+					map.put("userId", userId);
+					var reqData = iReqMsg.getReqMsg(map);
+					$.ajax({
+						url: "getMyLatestOrder.do",
+						type: "POST",
+						data: reqData,
+						dataType: "json",
+						contentType: "text/plain",
+						success: function (data) {
+							var rtnCode = data.head.rtnCode;
+							if(rtnCode == "888888"){
+								var comments = data.body.comments;
+								var consigneeName = data.body.consigneeName;
+								var consigneeAddress = data.body.consigneeAddress;
+								var consigneeMobile = data.body.consigneeMobile;
+								var addressInfos = consigneeAddress.split("-")
+								var city = addressInfos[0];
+								var area = addressInfos[1];
+								var address = addressInfos[2];
+								$("#userName").val(consigneeName);
+								$("#phone").val(consigneeMobile);
+								$("#remark").val(comments);
+								$("#address").val(address);
+								$("#city option[value="+city+"]").attr("selected", "selected");
+								$("#area option[value="+area+"]").attr("selected", "selected");
+							}
+
+						}
+					});
+				}
 			}
 			/**
 			 * 校验手机号是否合法
@@ -205,6 +246,47 @@ var BelOrderNow = function() {
 						sumMoney = sumMoney + parseInt(shopCartInfos[i].count)*parseFloat(shopCartInfos[i].price);
 					}
 					$("#sumMoney").text(sumMoney);
+				}
+			}
+
+			function resetPreSendTime(){
+				var date = new Date();
+				var hour = date.getHours()
+				var minute = date.getMinutes();
+				var now = hour*60+minute;
+				var seven = 7*60;
+				var fiftyAndHalf = 15*60+30;
+				var twentySecond = 22*60;
+				if(now<seven){
+					$("#buyNowButton").val("未开张");
+				}else if(now >= seven && now <fiftyAndHalf){
+					$("#preSendTime").empty();
+					$("#preSendTime").append('<option value = "-1">请选择</option>');
+					$("#preSendTime").append('<option value = "17:30-18:00">17:30-18:00</option>');
+					$("#preSendTime").append('<option value = "18:00-18:30">18:00-18:30</option>');
+					$("#preSendTime").append('<option value = "18:30-19:00">18:30-19:00</option>');
+					$("#preSendTime").append('<option value = "19:00-19:30">19:00-19:30</option>');
+					$("#preSendTime").append('<option value = "19:30-20:00">19:30-20:00</option>');
+
+					$("#preSendTime").append('<option value = "07:00-07:30">07:00-07:30(次日)</option>');
+					$("#preSendTime").append('<option value = "07:30-08:00">07:30-08:00(次日)</option>');
+					$("#preSendTime").append('<option value = "08:00-08:30">08:00-08:30(次日)</option>');
+					$("#preSendTime").append('<option value = "08:30-09:00">08:30-09:00(次日)</option>');
+					$("#preSendTime").append('<option value = "09:00-09:30">09:00-09:30(次日)</option>');
+					$("#preSendTime").append('<option value = "09:30-10:00">09:30-10:00(次日)</option>');
+
+
+				}else if(now >= fiftyAndHalf && now < twentySecond){
+					$("#preSendTime").empty();
+					$("#preSendTime").append('<option value = "-1">请选择</option>');
+					$("#preSendTime").append('<option value = "07:00-07:30">07:00-07:30(次日)</option>');
+					$("#preSendTime").append('<option value = "07:30-08:00">07:30-08:00(次日)</option>');
+					$("#preSendTime").append('<option value = "08:00-08:30">08:00-08:30(次日)</option>');
+					$("#preSendTime").append('<option value = "08:30-09:00">08:30-09:00(次日)</option>');
+					$("#preSendTime").append('<option value = "09:00-09:30">09:00-09:30(次日)</option>');
+					$("#preSendTime").append('<option value = "09:30-10:00">09:30-10:00(次日)</option>');
+				}else if(now >= twentySecond){
+					$("#buyNowButton").val("已打烊");
 				}
 			}
 		}

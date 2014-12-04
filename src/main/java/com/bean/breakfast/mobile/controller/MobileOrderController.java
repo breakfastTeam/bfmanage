@@ -5,11 +5,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.dto.OrderDTO;
 import com.bean.breakfast.basic.model.TBfFood;
+import com.bean.breakfast.basic.model.TBfOrder;
 import com.bean.breakfast.basic.model.TBfUser;
 import com.bean.breakfast.basic.service.OrderService;
 import com.bean.breakfast.basic.service.UserService;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.breakfast.utils.MsgUtil;
+import com.bean.core.utils.IDateUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,6 +50,9 @@ public class MobileOrderController {
             String consigneeAddr = bodyObj.getString("consigneeAddr");
             String consigneeMobile = bodyObj.getString("consigneeMobile");
             String remark = bodyObj.getString("remark");
+            String preSendTime = bodyObj.getString("preSendTime");
+            String preSendDateStr = bodyObj.getString("preSendDate");
+            Date preSendDate = IDateUtil.parseDate(preSendDateStr,1);
             Double orderPrice = StringUtils.isNotBlank(bodyObj.getString("orderPrice"))?Double.parseDouble(bodyObj.getString("orderPrice")):0;
             Double exccreaditCount = StringUtils.isNotBlank(bodyObj.getString("exccreaditCount"))?Double.parseDouble(bodyObj.getString("exccreaditCount")):0;
             JSONArray orderDetail = bodyObj.getJSONArray("orderDetail");
@@ -68,6 +73,8 @@ public class MobileOrderController {
             orderDTO.setCustomerId(customerId);
             orderDTO.setOrderType(type);
             orderDTO.setMoney(orderPrice);
+            orderDTO.setPreSendTime(preSendTime);
+            orderDTO.setPreSendDate(preSendDate);
             orderDTO.setExccreaditCount(exccreaditCount);
             orderDTO.setFoods(foodDTOs);
             orderDTO.setRemark(remark);
@@ -81,7 +88,7 @@ public class MobileOrderController {
     }
 
     /**
-     * 根据微信号获取用户信息
+     * 根据用户主键获取用户所有订单
      *
      * @return model ModelAndView 基本返回对象
      * @author Felix
@@ -102,6 +109,32 @@ public class MobileOrderController {
 
             List<OrderDTO> orderDTOs = orderService.getUserOrder(userId);
             return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg(orderDTOs);
+        }catch(Exception e){
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
+    }
+    /**
+     * 根据用户主键获取用户所有订单
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getMyLatestOrder")
+    public String getMyLatestOrder(@RequestBody final String reqData, final HttpServletRequest request){
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;//报文对应的JSON对象
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json=JSONObject.parseObject(reqData);
+            bodyObj=json.getJSONObject("body");
+            String userId = bodyObj.getString("userId");
+
+            TBfOrder order = orderService.getUserLatestOrder(userId);
+            return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg(order);
         }catch(Exception e){
             e.printStackTrace();
             return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();

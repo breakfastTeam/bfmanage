@@ -73,6 +73,25 @@ public class MsgUtil {
 		String bodyStr="\"body\":"+jsonBody.toString()+"}";
 		return headStr+bodyStr;
 	}
+
+	/**
+	 * 生成整个报文信息并以JSON格式返回
+	 * @author Felix
+	 * @param bodyObj Object 将要生成的对象
+	 * @return String
+	 * @since 2014-04-24 09:09
+	 * 变更记录：
+	 */
+	public String generateRtnMsg(Object bodyObj){
+		String headMapString = JSONObject.toJSONString(this.getHeadMap());
+		String bodyMapString = JSONObject.toJSONString(bodyObj);
+		JSONObject jsonHead=JSONObject.parseObject(headMapString);
+		JSONObject jsonBody=JSONObject.parseObject(bodyMapString);
+		String headStr="{\"head\":"+jsonHead.toString()+",";
+		String bodyStr="\"body\":"+jsonBody.toString()+"}";
+		return headStr+bodyStr;
+	}
+
 	/**
 	 * 生成整个报文信息并以JSON格式返回，消息体为空
 	 * @author Felix
