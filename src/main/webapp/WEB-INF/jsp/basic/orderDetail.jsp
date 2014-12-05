@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><spring:message code="FOOD_MANAGE"/>
-    </title>
 </head>
 <body class="has-js">
 <!--main content start-->
@@ -30,36 +28,31 @@
                                 <spring:message code="PRICE"/>
                             </th>
                             <th>
-                                <spring:message code="FOOD_COUNT"/>
+                                <spring:message code="NUM"/>
                             </th>
+
                             <th>
-                                <spring:message code="REAL_FOOD_COUNT"/>
-                            </th>
-                            <th>
-                                <spring:message code="SALE_TIME"/>
+                                <spring:message code="SUM"/>
                             </th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${foods}" var="item" varStatus="status">
+                        <c:forEach items="${orderDetails}" var="item" varStatus="status">
                             <tr class="">
 
                                 <td>
-                                        ${item.foodName }
+                                        ${item.food.foodName }
                                 </td>
                                 <td>
-                                        ${item.price }
+                                        ${item.food.price }
                                 </td>
                                 <td>
-                                        ${item.foodCount}
-                                </td>
-                                <td>
-                                        ${item.realFoodCount}
+                                        ${item.orderDetail.foodObjCount}
                                 </td>
 
                                 <td>
-                                        ${item.saleTime}
+                                        ${item.food.price*item.orderDetail.foodObjCount}
                                 </td>
 
                             </tr>

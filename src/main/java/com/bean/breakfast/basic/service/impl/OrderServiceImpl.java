@@ -5,6 +5,7 @@ import com.bean.breakfast.basic.dao.OrderDao;
 import com.bean.breakfast.basic.dao.OrderDetailDao;
 import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.dto.OrderDTO;
+import com.bean.breakfast.basic.dto.OrderDetailDTO;
 import com.bean.breakfast.basic.model.TBfFile;
 import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.model.TBfOrder;
@@ -104,20 +105,30 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 	 * 根据订单Id获取单品详情
 	 * **/
 	@Override
-	public List<TBfFood> getOrderDetail(String orderId) {
-		List<TBfFood> foods = new ArrayList<TBfFood>();
+	public List<OrderDetailDTO> getOrderDetail(String orderId) {
+		List<OrderDetailDTO> orderDetailDTOs = new ArrayList<OrderDetailDTO>();
 		List<TBfOrderDetail> orderDetails = orderDetailDao.getOrderDetailByOrderId(orderId);
 		for (TBfOrderDetail orderDetail : orderDetails){
 			try {
+				OrderDetailDTO orderDetailDTO = new OrderDetailDTO();
 				TBfFood food = foodDao.get(orderDetail.getFoodObjId());
-				foods.add(food);
+				orderDetailDTO.setFood(food);
+				orderDetailDTO.setOrderDetail(orderDetail);
+				orderDetailDTOs.add(orderDetailDTO);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		return foods;
+		return orderDetailDTOs;
 	}
-
+	public TBfOrder getOrder(String orderId){
+		try {
+			return this.orderDao.get(orderId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	/**
 	 * 将Order封装成OrderDTO对象
 	 * **/

@@ -19,8 +19,16 @@ var BelOrder = function () {
                 showOrderDetail(orderId);
             });
 
+            $("button[name='showPrint']").click(function (e) {
+                e.preventDefault();
+                var orderId = $(this).parent().find("input").val();
+                showOrderPrint(orderId);
+            });
             function showOrderDetail(orderId) {
                 iDialog.iWindow("toOrderDetail.do?orderId="+orderId, ORDER_DETAIL);
+            }
+            function showOrderPrint(orderId) {
+                iDialog.iWindow("toOrderPrint.do?orderId="+orderId, PRINT);
             }
         }
     };

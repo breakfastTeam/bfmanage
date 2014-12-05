@@ -160,6 +160,9 @@
                                             <button title="<spring:message code="ORDER_DETAIL"/>" class="btn btn-primary btn-xs" name="showDetail">
                                                 <i class="fa fa-info-circle"></i>
                                             </button>
+                                            <button title="<spring:message code="PRINT"/>" class="btn btn-warning btn-xs" name="showPrint">
+                                                <i class="fa fa-print"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 </c:forEach>

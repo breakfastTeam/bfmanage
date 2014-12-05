@@ -3,6 +3,7 @@ package com.bean.breakfast.basic.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.dto.OrderDTO;
+import com.bean.breakfast.basic.dto.OrderDetailDTO;
 import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.model.TBfOrder;
 import com.bean.breakfast.basic.service.FoodService;
@@ -80,9 +81,39 @@ public class OrderController {
     public ModelAndView toOrderDetail(final HttpServletRequest request) {
         ModelAndView model = new ModelAndView("basic/orderDetail");
         String orderId = request.getParameter("orderId");
-        List<TBfFood> foods = orderService.getOrderDetail(orderId);
-        model.addObject("foods", foods);
+        List<OrderDetailDTO> orderDetails = orderService.getOrderDetail(orderId);
+        model.addObject("orderDetails", orderDetails);
         return model;
     }
+    /**
+     * 跳转到订单打印页面
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+    @RequestMapping(value = "/toOrderPrint")
+    public ModelAndView toOrderPrint(final HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("basic/orderPrint");
+        String orderId = request.getParameter("orderId");
+        TBfOrder order = null;
+        if(IStringUtil.isNotBlank(orderId)){
+            order = orderService.getOrder(orderId);
+        }
+        if(order == null){
+            order = new TBfOrder();
+        }
 
+        List<OrderDetailDTO> orderDetails = orderService.getOrderDetail(orderId);
+        String address = order.getConsigneeAddress();
+        String addresses[] = address.split("-");
+        String tempAdd = "";
+        for(int i = 1; i <addresses.length; i++){
+            tempAdd = tempAdd + addresses[i];
+        }
+        order.setConsigneeAddress(tempAdd);
+        model.addObject("orderDetails", orderDetails);
+        model.addObject("order", order);
+        return model;
+    }
 }
