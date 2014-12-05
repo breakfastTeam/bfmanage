@@ -143,6 +143,9 @@ public class MobileOrderController {
             String userId = bodyObj.getString("userId");
 
             TBfOrder order = orderService.getUserLatestOrder(userId);
+            if(order == null){
+                order = new TBfOrder();
+            }
             return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg(order);
         }catch(Exception e){
             e.printStackTrace();

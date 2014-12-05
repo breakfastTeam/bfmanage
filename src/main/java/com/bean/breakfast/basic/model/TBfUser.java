@@ -142,7 +142,7 @@ public class TBfUser implements java.io.Serializable {
 		this.qq = qq;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "register_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getRegisterTime() {
 		return this.registerTime;
@@ -161,7 +161,7 @@ public class TBfUser implements java.io.Serializable {
 		this.registerWay = registerWay;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getCreateTime() {
 		return this.createTime;
@@ -180,7 +180,7 @@ public class TBfUser implements java.io.Serializable {
 		this.createBy = createBy;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "last_modify_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getLastModifyTime() {
 		return this.lastModifyTime;

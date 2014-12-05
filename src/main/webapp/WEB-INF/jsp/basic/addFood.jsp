@@ -116,7 +116,7 @@
                                     <label class="col-lg-6 control-label"><spring:message code="ORDER_NUM"/>：</label>
 
                                     <div class="col-lg-18">
-                                        <input type="text" placeholder="" id="orderNum" name="orderNum"
+                                        <input type="text" placeholder="" id="showOrder" name="showOrder"
                                                class="form-control" value="${food.showOrder }">
                                     </div>
                                 </div>
@@ -192,7 +192,7 @@
                         <div class="row">
                             <div class="col-lg-24">
                                 <div class="form-group">
-                                    <label class="col-lg-3 control-label"><spring:message code="PIC"/>(320*200)：</label>
+                                    <label class="col-lg-3 control-label"><spring:message code="PIC"/>(8:5)：</label>
 
                                     <div class="col-lg-20">
 			                                      		<span class="btn btn-success fileinput-button pull-left">

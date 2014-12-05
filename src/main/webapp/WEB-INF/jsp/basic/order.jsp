@@ -37,33 +37,37 @@
                     <div class="adv-table editable-table ">
                         <form action="toOrder.do" id="iForm" method="GET">
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-6">
                                     <div>
                                         <spring:message code="PHONE"/>
                                         ：
                                         <label>
-                                            <div>
                                                 <input type="text" name="consigneeMobile" id="consigneeMobile"
                                                        aria-controls="editable-sample" class="form-control medium"
                                                        value="${consigneeMobile }">
-                                            </div>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-6">
                                     <div>
                                         <spring:message code="NAME"/>
                                         ：
                                         <label>
-                                            <div>
                                                 <input type="text" name="consigneeName" id="consigneeName"
                                                        aria-controls="editable-sample" class="form-control medium"
                                                        value="${consigneeName }">
-                                            </div>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-6">
+                                    <spring:message code="ADDRESS"/>：
+                                    <label>
+                                            <input type="text" name="consigneeAddress" id="consigneeAddress"
+                                                   aria-controls="editable-sample" class="form-control medium"
+                                                   value="${consigneeAddress }">
+                                    </label>
+                                </div>
+                                <div class="col-lg-6">
                                     <div class="pull-right">
                                         <button class="btn btn-primary">
                                             <i class="fa fa-search"></i>
@@ -71,23 +75,9 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div>
-                                        <spring:message code="ADDRESS"/>
-                                        ：
-                                        <label>
-                                            <div>
-                                                <input type="text" name="consigneeAddress" id="consigneeAddress"
-                                                       aria-controls="editable-sample" class="form-control medium"
-                                                       value="${consigneeAddress }">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
 
                             </div>
+
                             <table
                                     class="table table-striped table-hover table-bordered table-advance"
                                     id="orderTable">

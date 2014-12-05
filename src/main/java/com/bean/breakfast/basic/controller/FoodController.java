@@ -67,7 +67,7 @@ public class FoodController {
         String foodCountStr = request.getParameter("foodCount");
         int foodCount = Integer.parseInt(foodCountStr);
         String realFoodCountStr = request.getParameter("realFoodCount");
-        int realFoodCount = Integer.parseInt(foodCountStr);
+        int realFoodCount = Integer.parseInt(realFoodCountStr);
 
         String isSupportSnapUpStr = request.getParameter("isSupportSnapUp");
         byte isSupportSnapUp = IStringUtil.equals(IConstants.ON, isSupportSnapUpStr) ? IConstants.YES : IConstants.NO;
@@ -77,8 +77,8 @@ public class FoodController {
         byte isSupportExchange = IStringUtil.equals(IConstants.ON, isSupportExchangeStr) ? IConstants.YES : IConstants.NO;
         String exchangePriceStr = request.getParameter("exchangePrice");
         int exchangePrice =  IStringUtil.isNotBlank(exchangePriceStr) ? Integer.parseInt(exchangePriceStr):0;
-        String orderNumStr = request.getParameter("orderNum");
-        int orderNum = Integer.parseInt(orderNumStr);
+        String showOrderStr = request.getParameter("showOrder");
+        int showOrder = Integer.parseInt(showOrderStr);
         String briefIntro = request.getParameter("briefIntro");
         String saleTime = request.getParameter("saleTime");
         TBfFood food;
@@ -101,7 +101,7 @@ public class FoodController {
         food.setSupportSnapUp(isSupportSnapUp);
         food.setSupportExchange(isSupportExchange);
         food.setExchangeCount(exchangePrice);
-        food.setShowOrder(orderNum);//排序号
+        food.setShowOrder(showOrder);//排序号
         food.setBriefIntro(briefIntro);
         food.setCreateTime(IDateUtil.getCurrentTimeDate());
         food.setSaleTime(IDateUtil.parseDate(saleTime, 1));
@@ -237,8 +237,10 @@ public class FoodController {
     @RequestMapping(value = "/toAddFood")
     public ModelAndView toAddFood(final HttpServletRequest request) {
         ModelAndView model = new ModelAndView("/basic/addFood");
-        int orderNum = foodService.getOrderNum() + 1;
-        model.addObject("orderNum", orderNum);
+        int showOrder = foodService.getOrderNum() + 1;
+        FoodDTO food = new FoodDTO();
+        food.setShowOrder(showOrder);
+        model.addObject("food", food);
         model.addObject("validTime", IDateUtil.dateToString(new Date()));
         return model;
     }
