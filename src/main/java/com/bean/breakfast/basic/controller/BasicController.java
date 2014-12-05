@@ -84,9 +84,7 @@ public class BasicController {
     public ModelAndView openImageCrop(final HttpServletRequest request){
         ModelAndView model = new ModelAndView("/common/imageCrop");
         String filePath = request.getParameter("filePath");
-        String scaleFileName= request.getParameter("scaleFileName");
         model.addObject("filePath", filePath);
-        model.addObject("scaleFileName",scaleFileName);
         return model;
     }
 }

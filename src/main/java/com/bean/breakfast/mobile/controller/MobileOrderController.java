@@ -7,6 +7,7 @@ import com.bean.breakfast.basic.dto.OrderDTO;
 import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.model.TBfOrder;
 import com.bean.breakfast.basic.model.TBfUser;
+import com.bean.breakfast.basic.service.FoodService;
 import com.bean.breakfast.basic.service.OrderService;
 import com.bean.breakfast.basic.service.UserService;
 import com.bean.breakfast.constants.IConstants;
@@ -25,6 +26,10 @@ import java.util.*;
 public class MobileOrderController {
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private FoodService foodService;
+
 
     /**
      * 保存订单信息
@@ -61,7 +66,11 @@ public class MobileOrderController {
                 FoodDTO foodDTO = new FoodDTO();
                 JSONObject orderDetailObject = (JSONObject)orderDetail.get(i);
                 String foodId = orderDetailObject.getString("foodId");
+                int fc = foodService.getFoodCount(foodId);
                 String foodCount = orderDetailObject.getString("foodCount");
+                if(fc < Integer.parseInt(foodCount)){
+                    return msgUtil.generateHeadMsg(IConstants.EXCEPTION_CODE, "亲，太火爆了，粥小妹只能卖您"+fc+"份").generateRtnMsg();
+                }
                 foodDTO.setFoodId(foodId);
                 foodDTO.setFoodNum(Integer.parseInt(foodCount));
                 foodDTOs.add(foodDTO);

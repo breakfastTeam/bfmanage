@@ -203,13 +203,12 @@
 										  				</span>
 
                                         <div id="foodPicName" class="control-label pull-left"></div>
-
+                                        <input id="diskPath" name="diskPath" type="hidden"/>
                                         <input id="fileName" name="fileName" type="hidden"/>
-                                        <input id="filePath" name="filePath" type="hidden" value = "${food.orginPicPath}"/>
-                                        <input id="bigPicId" name="bigPicId" type="hidden" value = "${food.orginPicId}"/>
+                                        <input id="orginPicPath" name="orginPicPath" type="hidden" value = "${food.orginPicPath}"/>
+                                        <input id="orginPicId" name="orginPicId" type="hidden" value = "${food.orginPicId}"/>
 
-                                        <input id="saveDiskPath" name="saveDiskPath" type="hidden"/>
-                                        <input id="scaleFilePath" name="scaleFilePath" type="hidden" value = "${food.smallPicPath}"/>
+                                        <input id="smallPicPath" name="smallPicPath" type="hidden" value = "${food.smallPicPath}"/>
                                         <input id="smallPicId" name="smallPicId" type="hidden" value = "${food.smallPicId}"/>
 
                                         <input type = "hidden" id = "x" name = "x">

@@ -58,13 +58,10 @@ public class IImageUtil {
 		return size;
 	}
 
-	public static void scaleImage(String imgSrc, String imgDest, double scale){
-		int distImgWidth, distImgHeight;
+	public static void scaleImage(String imgSrc, String imgDest, int distImgWidth, int distImgHeight){
 		try {
 			File srcImgFile = new File(imgSrc);
 			BufferedImage srcImage = ImageIO.read(new FileInputStream(imgSrc));
-			distImgWidth =(int)(srcImage.getWidth()*scale);
-			distImgHeight = (int)(srcImage.getHeight()*scale);
 
 			BufferedImage target=new BufferedImage(distImgWidth,distImgHeight,srcImage.getType());
 			Graphics2D g=target.createGraphics();  
@@ -72,8 +69,13 @@ public class IImageUtil {
 			g.drawImage(srcImage, 0, 0, distImgWidth, distImgHeight, null);
 			g.dispose();
 			String srcImgFileName = srcImgFile.getName();
-			String suffix = srcImgFileName.substring(srcImgFileName.lastIndexOf(".")+1);
-			File distImgFilePath = new File(imgDest);
+			String suffix = srcImgFileName.substring(srcImgFileName.lastIndexOf(".") + 1);
+			String imgDests[] = imgDest.split("\\\\");
+			String imgDestTemp = "";
+			for(int i = 0; i<imgDests.length-1; i++){
+				imgDestTemp = imgDestTemp +imgDests[i]+"\\";
+			}
+			File distImgFilePath = new File(imgDestTemp);
 			if(!distImgFilePath.exists()){
 				distImgFilePath.mkdirs();
 			}

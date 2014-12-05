@@ -53,6 +53,8 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 		order.setConsigneeAddress(orderDTO.getConsigneeAddr());
 		order.setOrderPrice(orderDTO.getMoney());
 		order.setComments(orderDTO.getRemark());
+		order.setPreSendDate(orderDTO.getPreSendDate());
+		order.setPreSendTime(orderDTO.getPreSendTime());
 		order.setStatus(IConstants.VALID);
 		order.setCreateTime(IDateUtil.getCurrentTimeDate());
 		String orderId = orderDao.save(order);
@@ -131,6 +133,8 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 			orderDTO.setMoney(order.getOrderPrice());
 			orderDTO.setRemark(orderDTO.getRemark());
 			orderDTO.setStatus(order.getStatus());
+			orderDTO.setPreSendTime(order.getPreSendTime());
+			orderDTO.setPreSendDate(order.getPreSendDate());
 			orderDTO.setCreateTime(IDateUtil.dateToString(order.getCreateTime()));
 			List<FoodDTO> foodDTOs = new ArrayList<FoodDTO>();
 			List<TBfOrderDetail> orderDetails = orderDetailDao.getOrderDetailByOrderId(order.getOrderId());
@@ -138,9 +142,11 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 				try {
 					TBfFood food = foodDao.get(orderDetail.getFoodObjId());
 					FoodDTO foodDTO = new FoodDTO();
-					foodDTO.setFoodName(food.getFoodName());
-					foodDTO.setFoodId(food.getFoodId());
-					foodDTO.setPrice(food.getPrice());
+					if(food != null) {
+						foodDTO.setFoodName(food.getFoodName());
+						foodDTO.setFoodId(food.getFoodId());
+						foodDTO.setPrice(food.getPrice());
+					}
 					foodDTO.setFoodNum(orderDetail.getFoodObjCount());
 					foodDTOs.add(foodDTO);
 				} catch (Exception e) {

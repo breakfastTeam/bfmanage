@@ -113,12 +113,15 @@ var BelOrderNow = function() {
 					contentType: "text/plain",
 					success: function (data) {
 						var rtnCode = data.head.rtnCode;
+						var rtnMsg = data.head.rtnMsg;
 						if(rtnCode == "888888"){
-							iDialog.iTip("订单成功，等待享受美食吧！");
+							iDialog.iAlert("订单成功，坐等美食吧！");
 							localStorage.removeItem("shopCart");
-							loadUrl("foodList.do");
+							setTimeout(function(){
+								loadUrl("foodList.do")
+							},3000);
 						}else{
-							iDialog.iTip("提交失败，请稍后重试！");
+							iDialog.iAlert(rtnMsg);
 						}
 					}
 				});
@@ -273,9 +276,9 @@ var BelOrderNow = function() {
 					var info = '<option value = "-1">请选择</option><option value = "07:00-07:30">07:00-07:30(次日)</option><option value = "07:30-08:00">07:30-08:00(次日)</option><option value = "08:00-08:30">08:00-08:30(次日)</option><option value = "08:30-09:00">08:30-09:00(次日)</option><option value = "09:00-09:30">09:00-09:30(次日)</option><option value = "09:30-10:00">09:30-10:00(次日)</option>'
 					preSendTimeObj.append(info);
 				}else if(now >= twentySecond){
-					var info = '<option value = "-1">已打烊</option>';
+					var info = '<option value = "-1">(～﹃～)~zZ明天见</option>';
 					preSendTimeObj.append(info);
-					$("#buyNowButton").text("已打烊");
+					$("#buyNowButton").text("(～﹃～)~zZ明天见");
 					$("#buyNowButton").css({"color":"black"});
 					$("#buyNowButton").attr("disabled", true);
 				}

@@ -11,5 +11,6 @@ public interface FoodService extends BaseService<TBfFood, String> {
 	public Page<FoodDTO> findFoodWithSaleTime(Page<TBfFood> page, TBfFood food);
 	public FoodDTO getFoodDTO(String foodId);
 	public TBfFood getFood(String foodId);
+	public int getFoodCount(String foodId);
 
 }

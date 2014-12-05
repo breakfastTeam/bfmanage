@@ -17,15 +17,23 @@ var BelFoodDetail = function() {
 			resetImgScrollLoading();
 			checkFoodIsAvailable();
 
+			$("#returnToHome").click(function(){
+				loadUrl("foodList.do");
+			});
+
 			$("#plus").click(function(){
 				var count = parseInt($("#count").val())+1;
-				$("#count").val(count);
+				if(count > 10){
+					iDialog.iTip("一次订购不能超过10份");
+				}else{
+					$("#count").val(count);
+				}
 			});
 
 			$("#minus").click(function(){
 				var count = parseInt($("#count").val())-1;
 				if(count<=0){
-					iDialog.iTip("数量不能少于1个");
+					iDialog.iTip("订购1份起");
 				}else{
 					$("#count").val(count);
 				}
@@ -34,11 +42,10 @@ var BelFoodDetail = function() {
 			$("#shopCartButton").click(function(){
 				var saleOut = $("#buyNowButton").attr("sale-out");
 				if(saleOut == true || saleOut == "true"){
-					iDialog.iAlert("亲，已经卖完了，下次记得早点儿来粥妹哦");
+					iDialog.iAlert("亲，已经售完了，下次记得早点儿来哦");
 					return false;
 				}else{
 					addFoodToCart();
-					iDialog.iTip("已加入购物车");
 				}
 
 			});
@@ -52,7 +59,13 @@ var BelFoodDetail = function() {
 					var isExist = false;
 					for(var i = 0; i < shopCartInfos.length; i++){
 						if(foodId == shopCartInfos[i].foodId){
-							shopCartInfos[i].count = (parseInt(shopCartInfos[i].count) + parseInt(count))+"";
+							var buyFoodCount = (parseInt(shopCartInfos[i].count) + parseInt(count));
+							if(buyFoodCount>10){
+								iDialog.iAlert("该商品一次订购不能超过10份哦");
+								return false;
+							}else{
+								shopCartInfos[i].count = buyFoodCount+"";
+							}
 							isExist = true;
 							break;
 						}
@@ -65,6 +78,7 @@ var BelFoodDetail = function() {
 				}
 				shopCartInfo = shopCartInfo.substring(0, shopCartInfo.length);
 				localStorage.setItem("shopCart", shopCartInfo);
+				iDialog.iTip("已加入购物车");
 			}
 			$("#buyNowButton").click(function(){
 				var saleOut = $("#buyNowButton").attr("sale-out");

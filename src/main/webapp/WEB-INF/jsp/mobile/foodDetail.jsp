@@ -55,8 +55,16 @@
         </div>
 
     </div>
+
+
     <div class="row border-top" style="margin-top:10px;" id="foodBriefIntro">
 
+    </div>
+
+    <div class="row" style = "margin-top: 10px;">
+        <div class="col-lg-24">
+            <a href="javascript:void(0)" sale-out="false" id="returnToHome" class="col-lg-24 btn btn-primary btn-large">返回首页</a>
+        </div>
     </div>
 </form>
 <script src="${ctx }/mobile/js/mobile/foodDetail.js"></script>

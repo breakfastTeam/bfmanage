@@ -70,17 +70,22 @@ var BelAddFood = function() {
                 done: function(e, data) {
                     if(data.result.head.rtnCode=="888888") {
                         var result = data.result;
-                        var fileName = result.body.fileName;
                         var filePath = result.body.filePath;
-                        var scaleFilePath = result.body.scaleFilePath;
-                        $("#fileName").val(fileName);
+                        var originalFileName = result.body.originalFileName;
+                        var orginPicPath = result.body.orginPicPath;
+                        var smallPicPath = result.body.smallPicPath;
+                        var diskPath = result.body.diskPath;
+                        $("#fileName").val(originalFileName);
                         $("#filePath").val(filePath);
-                        $("#scaleFilePath").val(scaleFilePath);
+                        $("#orginPicPath").val(orginPicPath);
+                        $("#smallPicPath").val(smallPicPath);
+                        $("#diskPath").val(diskPath);
 
-                        $('<p/>').text(fileName).appendTo('#foodPicName');
+
+                        $('<p/>').text(originalFileName).appendTo('#foodPicName');
                         $("#foodPicDelButton").removeClass("display-none");
                         $("#foodPicEditButton").removeClass("display-none");
-                        openImageCrop(filePath, scaleFilePath);
+                        openImageCrop(filePath);
                     }else{
                         iDialog.iAlert("图片尺寸不符合要求，尺寸长宽为：320*200");
                     }
@@ -163,8 +168,8 @@ var BelAddFood = function() {
                 });
             });
 
-            function openImageCrop(path, scaleFileName) {
-                iDialog.iWindow("../openImageCrop.do?filePath=" + path + "&scaleFileName=" + scaleFileName, IMAGE_CROP);
+            function openImageCrop(path) {
+                iDialog.iWindow("../openImageCrop.do?filePath=" + path, IMAGE_CROP);
             }
         }
     };

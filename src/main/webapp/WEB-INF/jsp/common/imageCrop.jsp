@@ -5,21 +5,10 @@
 <html>
 	<body class="has-js">
 		<section class="wrapper">
-		<div class="panel-body">
 			<div class="row">
-				<img class = "col-md-24" src="${filePath }"
-						id="showImg" style="max-width: 400px;max-height:300px;" />
-				<div class="col-md-6">
-					<div id="preview-pane">
-						<div class="preview-container">
-							<img src="${scaleFileName }"
-								class="jcrop-preview" />
-						</div>
-					</div>
-				</div>
+				<img class = "col-md-24" src="../${filePath }"
+					 id="showImg" style="max-width: 640px;max-height:400px;" />
 			</div>
-			<img class = "col-md-24" src="${scaleFileName }"
-						id="orginImg" style="display:none;" />
 			<div class="row">
 				<div class="col-lg-24">
 					<div class="pull-right">
@@ -29,7 +18,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		</section>
 		<%@ include file="/manage/common/js.jsp"%>
 		<script src="${ctx}/manage/js/common/imageCrop.js"></script>

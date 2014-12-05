@@ -127,7 +127,7 @@ public class TBfFood implements java.io.Serializable {
 		this.unit = unit;
 	}
 
-	@Column(name = "brief_intro", unique = false, nullable = true, insertable = true, updatable = true, length = 65535)
+	@Column(name = "brief_intro", unique = false, nullable = true, insertable = true, updatable = true)
 	public String getBriefIntro() {
 		return this.briefIntro;
 	}

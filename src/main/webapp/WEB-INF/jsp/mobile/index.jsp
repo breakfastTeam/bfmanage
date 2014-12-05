@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>粥妹只为温暖你的心</title>
+    <title>寒冬下的那一抹温度——粥妹</title>
 </head>
 <body class="has-js">
 <div id="menuContainer" class="st-container st-effect-9" style = "overflow-y:auto">

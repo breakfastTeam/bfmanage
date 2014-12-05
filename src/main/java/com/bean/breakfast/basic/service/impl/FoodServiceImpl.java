@@ -123,7 +123,15 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 	public int getOrderNum() {
 		return foodDao.getOrderNum();
 	}
-
+	public int getFoodCount(String foodId){
+		try {
+			TBfFood food = this.foodDao.get(foodId);
+			return food.getFoodCount();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
 	public FoodDTO generateFoodDTO(TBfFood food){
 		FoodDTO foodDTO = new FoodDTO();
 		foodDTO.setCost(food.getCost());
