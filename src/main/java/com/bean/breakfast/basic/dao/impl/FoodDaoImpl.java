@@ -32,7 +32,7 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 			hql = hql + " and t.foodName like ?";
 			params.add("%"+food.getFoodName()+"%");
 		}
-		hql = hql + " order by showOrder desc, createTime desc";
+		hql = hql + " order by showOrder asc, createTime desc";
 		return this.findByHql(page, hql, params);
 	}
 	public Page<TBfFood> findFoodWithSaleTime(Page<TBfFood> page, TBfFood food) {
@@ -44,7 +44,7 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 			hql = hql + " and t.foodName like ?";
 			params.add("%"+food.getFoodName()+"%");
 		}
-		hql = hql + " order by showOrder desc, createTime desc";
+		hql = hql + " order by showOrder asc, createTime desc";
 		return this.findByHql(page, hql, params);
 	}
 	@Override
