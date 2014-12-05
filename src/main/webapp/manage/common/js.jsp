@@ -6,6 +6,8 @@
  	var IMAGE_CROP='<spring:message code="IMAGE_CROP"/>';
  	var SUCCESS='<spring:message code="SUCCESS"/>';
  	var FAIL='<spring:message code="FAIL"/>';
+	var ORDER_DETAIL = '<spring:message code="ORDER_DETAIL" />'
+
 </script>
 
 <script src="${ctx }/manage/skin/default/js/jquery-1.8.3.js"></script>

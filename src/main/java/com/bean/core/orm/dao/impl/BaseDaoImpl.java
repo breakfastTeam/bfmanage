@@ -208,7 +208,9 @@ public class BaseDaoImpl<T, PK extends Serializable> implements BaseDao<T, PK> {
 	public PK save(T entity) {
 		return (PK) getSession().save(entity);
 	}
-
+	public void saveOrUpdate(T entity) {
+		getSession().saveOrUpdate(entity);
+	}
 	public void update(T entity) {
 		getSession().update(entity);
 	}

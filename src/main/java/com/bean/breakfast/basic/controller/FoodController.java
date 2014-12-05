@@ -52,7 +52,9 @@ public class FoodController {
 //        String paths[] = dealThePic(request);
         String bigPicPath = request.getParameter("filePath");
         String smallPicPath =  request.getParameter("scaleFilePath");
-
+        String smallPicId = request.getParameter("smallPicId");
+        String orginPicId = request.getParameter("orginPicId");
+        String foodId = request.getParameter("foodId");
         String foodName = request.getParameter("foodName");
         String priceStr = request.getParameter("price");
         Double price = Double.parseDouble(priceStr);
@@ -76,8 +78,19 @@ public class FoodController {
         int orderNum = Integer.parseInt(orderNumStr);
         String briefIntro = request.getParameter("briefIntro");
         String saleTime = request.getParameter("saleTime");
+        TBfFood food;
+        if(IStringUtil.isNotBlank(foodId)){
+            try {
+                food = foodService.getFood(foodId);
+            } catch (Exception e) {
+                e.printStackTrace();
+                food = new TBfFood();
+            }
+        }else{
+            food = new TBfFood();
+        }
 
-        TBfFood food = new TBfFood();
+        food.setFoodId(foodId);
         food.setFoodName(foodName);
         food.setCost(cost);
         food.setPrice(price);
@@ -92,7 +105,7 @@ public class FoodController {
         food.setCreateTime(IDateUtil.getCurrentTimeDate());
         food.setSaleTime(IDateUtil.parseDate(saleTime, 1));
 
-        foodService.save(food, smallPicPath, bigPicPath);
+        foodService.saveOrUpdate(food, smallPicId, smallPicPath, orginPicId, bigPicPath);
         return jumpToFood();
     }
 //    public String[] dealThePic(final HttpServletRequest request){
@@ -246,7 +259,14 @@ public class FoodController {
         model.addObject("validTime", IDateUtil.dateToString(new Date()));
         return model;
     }
-
+    @RequestMapping(value = "/toEditFood")
+    public ModelAndView toFoodEdit(final HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("basic/addFood");
+        String foodId = request.getParameter("foodId");
+        FoodDTO foodDTO = foodService.getFoodDTO(foodId);
+        model.addObject("food", foodDTO);
+        return model;
+    }
     /**
      * 跳转到菜谱管理页面
      *
@@ -272,7 +292,7 @@ public class FoodController {
         }
         pageDTO = foodService.findFood(page, food);
         model.addObject("page", page);
-        model.addObject("setName", food);
+        model.addObject("foodName",foodName );
         return model;
     }
     /**

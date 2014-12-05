@@ -13,12 +13,14 @@ import java.util.Date;
 public class FoodDTO implements java.io.Serializable {
 	private String foodId;
 	private String foodName;
+	private Double cost;
 	private Double price;
 	private String unit;
 	private String briefIntro;
 	private String status;
 	private Integer foodCount;
-	private Integer foodNum;
+	private Integer realFoodCount;
+	private Integer foodNum;//订单中单品数量
 	private String smallPicId;
 	private String smallPicPath;
 	private String orginPicId;
@@ -27,6 +29,7 @@ public class FoodDTO implements java.io.Serializable {
 	private boolean supportExchange;
 	private Integer exchangeCount;
 	private String saleTime;
+	private Integer showOrder;
 
 	public String getFoodId() {
 		return foodId;
@@ -140,12 +143,12 @@ public class FoodDTO implements java.io.Serializable {
 		this.exchangeCount = exchangeCount;
 	}
 
-	public Integer getFoodNum() {
-		return foodNum;
+	public Integer getRealFoodCount() {
+		return realFoodCount;
 	}
 
-	public void setFoodNum(Integer foodNum) {
-		this.foodNum = foodNum;
+	public void setRealFoodCount(Integer realFoodCount) {
+		this.realFoodCount = realFoodCount;
 	}
 
 	public String getSaleTime() {
@@ -154,5 +157,29 @@ public class FoodDTO implements java.io.Serializable {
 
 	public void setSaleTime(String saleTime) {
 		this.saleTime = saleTime;
+	}
+
+	public Integer getFoodNum() {
+		return foodNum;
+	}
+
+	public void setFoodNum(Integer foodNum) {
+		this.foodNum = foodNum;
+	}
+
+	public Double getCost() {
+		return cost;
+	}
+
+	public void setCost(Double cost) {
+		this.cost = cost;
+	}
+
+	public Integer getShowOrder() {
+		return showOrder;
+	}
+
+	public void setShowOrder(Integer showOrder) {
+		this.showOrder = showOrder;
 	}
 }

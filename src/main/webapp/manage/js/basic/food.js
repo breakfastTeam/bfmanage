@@ -16,6 +16,12 @@ var BelCookBook = function () {
 			$("#toAddFood").click(function(){
         		openNewUrl('basic/toAddFood.do')
         	});
+
+            $("button[name='editFood']").click(function(e){
+                e.preventDefault();
+                var foodId = $(this).parent().find("input").val();
+                openNewUrl('basic/toEditFood.do?foodId='+foodId);
+            });
         }
     };
 }();

@@ -10,6 +10,7 @@ import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.service.impl.BaseServiceImpl;
 import com.bean.core.page.Page;
 import com.bean.core.utils.IDateUtil;
+import com.bean.core.utils.IStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,48 +35,56 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 		this.foodDao = foodDao;
 		super.setBaseDao(foodDao);
 	}
+	public TBfFood getFood(String foodId){
+		try {
+			return this.foodDao.get(foodId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public void saveOrUpdate(TBfFood food,String smallPicId, String smallPicPath,String orginPicId, String bigPicPath){
+		TBfFile smallPic, bigPic;
+		if(IStringUtil.isNotBlank(smallPicId)){
+			try {
+				smallPic = fileDao.get(smallPicId);
+			} catch (Exception e) {
+				e.printStackTrace();
+				smallPic = new TBfFile();
+			}
+		}else{
+			smallPic = new TBfFile();
+		}
 
-	public String save(TBfFood food, String smallPicPath, String bigPicPath){
-		TBfFile smallPic = new TBfFile();
 		smallPic.setFilePath(smallPicPath);
 
-		TBfFile bigPic = new TBfFile();
+		if(IStringUtil.isNotBlank(smallPicId)){
+			try {
+				bigPic = fileDao.get(smallPicId);
+			} catch (Exception e) {
+				e.printStackTrace();
+				bigPic = new TBfFile();
+			}
+		}else{
+			bigPic = new TBfFile();
+		}
 		bigPic.setFilePath(bigPicPath);
 
-		String smallPicId = fileDao.save(smallPic);
-		String bigPicId = fileDao.save(bigPic);
+		fileDao.saveOrUpdate(smallPic);
+		fileDao.save(bigPic);
 
-		food.setSmallPicId(smallPicId);
-		food.setOrginPicId(bigPicId);
+		food.setSmallPicId(smallPic.getFileId());
+		food.setOrginPicId(bigPic.getFileId());
 		food.setStatus(IConstants.VALID);
-		return foodDao.save(food);
+		foodDao.saveOrUpdate(food);
 	}
 	public Page<FoodDTO> findFood(Page<TBfFood> page, TBfFood food) {
 		Page<FoodDTO> pageDTO = new Page<FoodDTO>(page.getPageSize());
 		page = foodDao.findFood(page, food);
 		List<FoodDTO> foodDTOList = new ArrayList<FoodDTO>();
 		for (TBfFood f : page.getResult()){
-			FoodDTO foodDTO = new FoodDTO();
-			foodDTO.setStatus(f.getStatus());
-			foodDTO.setOrginPicId(f.getOrginPicId());
-			foodDTO.setSmallPicId(f.getSmallPicId());
-			foodDTO.setBriefIntro(f.getBriefIntro());
-			foodDTO.setExchangeCount(f.getExchangeCount());
-			foodDTO.setFoodId(f.getFoodId());
-			foodDTO.setFoodName(f.getFoodName());
-			foodDTO.setFoodCount(f.getFoodCount());
-			foodDTO.setUnit(f.getUnit());
-			foodDTO.setSupportExchange(true);
-			foodDTO.setSupportExchange(true);
-			foodDTO.setPrice(f.getPrice());
-			String saleTime = IDateUtil.dateToString(f.getSaleTime());
-			foodDTO.setSaleTime(saleTime.substring(5, saleTime.length()));
-			try {
-				foodDTO.setOrginPicPath(fileDao.get(f.getOrginPicId()).getFilePath());
-				foodDTO.setSmallPicPath(fileDao.get(f.getSmallPicId()).getFilePath());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			FoodDTO foodDTO = generateFoodDTO(f);
+
 			foodDTOList.add(foodDTO);
 		}
 		pageDTO.setPageNo(page.getPageNo());
@@ -84,9 +93,63 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 		pageDTO.setTotalCount(page.getTotalCount());
 		return pageDTO;
 	}
+	public Page<FoodDTO> findFoodWithSaleTime(Page<TBfFood> page, TBfFood food) {
+		Page<FoodDTO> pageDTO = new Page<FoodDTO>(page.getPageSize());
+		page = foodDao.findFoodWithSaleTime(page, food);
+		List<FoodDTO> foodDTOList = new ArrayList<FoodDTO>();
+		for (TBfFood f : page.getResult()){
+			FoodDTO foodDTO = generateFoodDTO(f);
+
+			foodDTOList.add(foodDTO);
+		}
+		pageDTO.setPageNo(page.getPageNo());
+		pageDTO.setPageSize(page.getPageSize());
+		pageDTO.setResult(foodDTOList);
+		pageDTO.setTotalCount(page.getTotalCount());
+		return pageDTO;
+	}
+	@Override
+	public FoodDTO getFoodDTO(String foodId) {
+		try {
+			TBfFood food = foodDao.get(foodId);
+			FoodDTO foodDTO = generateFoodDTO(food);
+			return foodDTO;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public int getOrderNum() {
 		return foodDao.getOrderNum();
 	}
 
+	public FoodDTO generateFoodDTO(TBfFood food){
+		FoodDTO foodDTO = new FoodDTO();
+		foodDTO.setCost(food.getCost());
+		foodDTO.setStatus(food.getStatus());
+		foodDTO.setOrginPicId(food.getOrginPicId());
+		foodDTO.setSmallPicId(food.getSmallPicId());
+		foodDTO.setBriefIntro(food.getBriefIntro());
+		foodDTO.setExchangeCount(food.getExchangeCount());
+		foodDTO.setFoodId(food.getFoodId());
+		foodDTO.setFoodName(food.getFoodName());
+		foodDTO.setFoodCount(food.getFoodCount());
+		foodDTO.setRealFoodCount(food.getRealFoodCount());
+		foodDTO.setShowOrder(food.getShowOrder());
+		foodDTO.setUnit(food.getUnit());
+//		foodDTO.setSupportExchange(true);
+//		foodDTO.setSupportExchange(true);
+		foodDTO.setPrice(food.getPrice());
+		String saleTime = IDateUtil.dateToString(food.getSaleTime());
+		foodDTO.setSaleTime(saleTime);
+
+		try {
+			foodDTO.setOrginPicPath(fileDao.get(food.getOrginPicId()).getFilePath());
+			foodDTO.setSmallPicPath(fileDao.get(food.getSmallPicId()).getFilePath());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return foodDTO;
+	}
 }

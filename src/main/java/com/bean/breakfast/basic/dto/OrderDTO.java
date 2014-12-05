@@ -9,6 +9,7 @@ import java.util.List;
  * @author MyEclipse Persistence Tools
  */
 public class OrderDTO implements java.io.Serializable {
+	private String orderId;
 	private String customerId;
 	private String orderType;
 	private String consigneeName;
@@ -21,6 +22,14 @@ public class OrderDTO implements java.io.Serializable {
 	private String remark;
 	private String createTime;
 	private List<FoodDTO> foods;
+	private String status;
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
 
 	public String getCustomerId() {
 		return customerId;
@@ -116,5 +125,13 @@ public class OrderDTO implements java.io.Serializable {
 
 	public void setPreSendDate(Date preSendDate) {
 		this.preSendDate = preSendDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

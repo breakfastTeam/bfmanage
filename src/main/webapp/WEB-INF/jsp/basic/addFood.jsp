@@ -17,7 +17,7 @@
                     <spring:message code="FOOD_MANAGE"/>
                 </li>
                 <li class="active">
-                    <spring:message code="ADD"/>
+                    <spring:message code="EDIT"/>
                 </li>
             </ul>
             <!--位置指示标志 结束 -->
@@ -27,7 +27,7 @@
         <div class="col-lg-24">
             <section class="panel">
                 <header class="panel-heading">
-                    <spring:message code="ADD_FOOD"/>
+                    <spring:message code="EDIT_FOOD"/>
                 </header>
                 <div class="panel-body">
 
@@ -38,8 +38,9 @@
                                     <label class="col-lg-6 control-label"><spring:message code="FOOD_NAME"/>：</label>
 
                                     <div class="col-lg-18">
+                                        <input type="hidden" name = "foodId" id="foodId" value = "${food.foodId}">
                                         <input type="text" placeholder="" id="foodName" name="foodName"
-                                               class="form-control" value="">
+                                               class="form-control" value="${food.foodName}">
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +50,7 @@
 
                                     <div class="col-lg-18">
                                         <input type="text" accuracy="2" id="cost" name="cost" class="form-control"
-                                               value="">
+                                               value="${food.cost}">
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@
 
                                     <div class="col-lg-18">
                                         <input type="text" accuracy="2" id="price" name="price" class="form-control"
-                                               value="">
+                                               value="${food.price}">
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +72,7 @@
 
                                     <div class="col-lg-18">
                                         <input type="text" placeholder="" id="unit" name="unit" class="form-control"
-                                               value="">
+                                               value="${food.unit}">
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +84,7 @@
 
                                     <div class="col-lg-18">
                                         <input type="text" id="foodCount" name="foodCount" class="form-control"
-                                               value="">
+                                               value="${food.foodCount}">
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +95,7 @@
 
                                     <div class="col-lg-18">
                                         <input type="text" placeholder="" id="realFoodCount" name="realFoodCount"
-                                               class="form-control" value="">
+                                               class="form-control" value="${food.realFoodCount}">
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +107,7 @@
 
                                     <div class="col-lg-18">
                                         <input type="text" placeholder="" id="saleTime" name="saleTime"
-                                               class="form-control default-date-picker" value="${saleTime }">
+                                               class="form-control default-date-picker" value="${food.saleTime }">
                                     </div>
                                 </div>
                             </div>
@@ -116,12 +117,12 @@
 
                                     <div class="col-lg-18">
                                         <input type="text" placeholder="" id="orderNum" name="orderNum"
-                                               class="form-control" value="${orderNum }">
+                                               class="form-control" value="${food.showOrder }">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="rowle" style = "display: none">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="col-lg-6 control-label"><spring:message
@@ -154,7 +155,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style = "display:none;">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="col-lg-6 control-label"><spring:message
@@ -204,9 +205,13 @@
                                         <div id="foodPicName" class="control-label pull-left"></div>
 
                                         <input id="fileName" name="fileName" type="hidden"/>
-                                        <input id="filePath" name="filePath" type="hidden"/>
+                                        <input id="filePath" name="filePath" type="hidden" value = "${food.orginPicPath}"/>
+                                        <input id="bigPicId" name="bigPicId" type="hidden" value = "${food.orginPicId}"/>
+
                                         <input id="saveDiskPath" name="saveDiskPath" type="hidden"/>
-                                        <input id="scaleFilePath" name="scaleFilePath" type="hidden"/>
+                                        <input id="scaleFilePath" name="scaleFilePath" type="hidden" value = "${food.smallPicPath}"/>
+                                        <input id="smallPicId" name="smallPicId" type="hidden" value = "${food.smallPicId}"/>
+
                                         <input type = "hidden" id = "x" name = "x">
                                         <input type = "hidden" id = "y" name = "y">
                                         <button id="foodPicDelButton" type="button"
@@ -237,7 +242,7 @@
                                         <textarea rows="0" cols="0" class="form-control" id="briefIntro"
                                                   name="briefIntro" style="display:none;"></textarea>
                                         <textarea rows="0" cols="0" class="form-control" id="briefIntroContent"
-                                                  name="briefIntroContent" style="display:none;"></textarea>
+                                                  name="briefIntroContent" style="display:none;">${food.briefIntro}</textarea>
                                     </div>
                                 </div>
                             </div>

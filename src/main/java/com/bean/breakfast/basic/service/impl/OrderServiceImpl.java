@@ -12,6 +12,7 @@ import com.bean.breakfast.basic.model.TBfOrderDetail;
 import com.bean.breakfast.basic.service.OrderService;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.service.impl.BaseServiceImpl;
+import com.bean.core.page.Page;
 import com.bean.core.utils.IDateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,9 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 		this.orderDao = orderDao;
 		super.setBaseDao(orderDao);
 	}
-
+	/**
+	 * 保存订单及订单详细信息
+	 * **/
 	public String save(OrderDTO orderDTO){
 		TBfOrder order = new TBfOrder();
 		order.setCustomerId(orderDTO.getCustomerId());
@@ -65,19 +68,69 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 		}
 		return orderDao.save(order);
 	}
-
+	/**
+	 * 获取一个用户下的所有订单
+	 * **/
 	@Override
 	 public List<OrderDTO> getUserOrder(String userId) {
-		List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
 		List<TBfOrder> orders = orderDao.getOrdersByUserId(userId);
+		return generateOrderDTO(orders);
+	}
+	/**
+	 * 获取用户下面最新订单信息
+	 * **/
+	@Override
+	public TBfOrder getUserLatestOrder(String userId) {
+		TBfOrder order = orderDao.getLatestOrderByUserId(userId);
+		return order;
+	}
+
+	@Override
+	public Page<OrderDTO> findOrders(Page<OrderDTO> page, TBfOrder order) {
+		Page<TBfOrder> orderPage = new Page<TBfOrder>();
+		orderPage.setPageSize(page.getPageSize());
+		orderPage.setPageNo(page.getPageNo());
+		orderPage = orderDao.findOrders(orderPage, order);
+		List<TBfOrder> orders = new ArrayList<TBfOrder>();
+		orders = orderPage.getResult();
+		List<OrderDTO> orderDTOs = generateOrderDTO(orders);
+		page.setTotalCount(orderPage.getTotalCount());
+		page.setResult(orderDTOs);
+		return page;
+	}
+	/**
+	 * 根据订单Id获取单品详情
+	 * **/
+	@Override
+	public List<TBfFood> getOrderDetail(String orderId) {
+		List<TBfFood> foods = new ArrayList<TBfFood>();
+		List<TBfOrderDetail> orderDetails = orderDetailDao.getOrderDetailByOrderId(orderId);
+		for (TBfOrderDetail orderDetail : orderDetails){
+			try {
+				TBfFood food = foodDao.get(orderDetail.getFoodObjId());
+				foods.add(food);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return foods;
+	}
+
+	/**
+	 * 将Order封装成OrderDTO对象
+	 * **/
+	public List<OrderDTO> generateOrderDTO(List<TBfOrder> orders){
+		List<OrderDTO> orderDTOs = new ArrayList<OrderDTO>();
 		for(TBfOrder order : orders){
 			OrderDTO orderDTO = new OrderDTO();
+			orderDTO.setOrderId(order.getOrderId());
 			orderDTO.setCustomerId(order.getCustomerId());
 			orderDTO.setConsigneeName(order.getConsigneeName());
 			orderDTO.setConsigneePhone(order.getConsigneeMobile());
 			orderDTO.setConsigneeAddr(order.getConsigneeAddress());
 			orderDTO.setMoney(order.getOrderPrice());
 			orderDTO.setRemark(orderDTO.getRemark());
+			orderDTO.setStatus(order.getStatus());
 			orderDTO.setCreateTime(IDateUtil.dateToString(order.getCreateTime()));
 			List<FoodDTO> foodDTOs = new ArrayList<FoodDTO>();
 			List<TBfOrderDetail> orderDetails = orderDetailDao.getOrderDetailByOrderId(order.getOrderId());
@@ -97,14 +150,6 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 			orderDTO.setFoods(foodDTOs);
 			orderDTOs.add(orderDTO);
 		}
-
 		return orderDTOs;
-	}
-
-	@Override
-	public TBfOrder getUserLatestOrder(String userId) {
-		TBfOrder order = orderDao.getLatestOrderByUserId(userId);
-
-		return order;
 	}
 }

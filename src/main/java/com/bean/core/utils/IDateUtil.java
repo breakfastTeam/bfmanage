@@ -30,7 +30,10 @@ public class IDateUtil extends DateUtils{
 		gc.setTimeInMillis(date.getTime());
 		return gc;
 	}
-
+public static int getYear(){
+	Calendar cal = Calendar.getInstance();
+	return cal.get(Calendar.YEAR);
+}
 	public static Calendar parseDate(String dateStr)
 	{
 		if ((dateStr == null) || (dateStr.trim().length() == 0))

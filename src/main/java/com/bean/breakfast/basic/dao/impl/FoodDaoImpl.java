@@ -26,6 +26,17 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 
 	public Page<TBfFood> findFood(Page<TBfFood> page, TBfFood food) {
 		List<Object> params = new ArrayList<Object>();
+		String hql = "from TBfFood t where t.status=?";
+		params.add(IConstants.VALID);
+		if(IStringUtil.isNotBlank(food.getFoodName())){
+			hql = hql + " and t.foodName like ?";
+			params.add("%"+food.getFoodName()+"%");
+		}
+		hql = hql + " order by showOrder desc, createTime desc";
+		return this.findByHql(page, hql, params);
+	}
+	public Page<TBfFood> findFoodWithSaleTime(Page<TBfFood> page, TBfFood food) {
+		List<Object> params = new ArrayList<Object>();
 		String hql = "from TBfFood t where t.status=? and t.saleTime>=?";
 		params.add(IConstants.VALID);
 		params.add(IDateUtil.getCurrentTimeDate());
@@ -36,7 +47,6 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 		hql = hql + " order by showOrder desc, createTime desc";
 		return this.findByHql(page, hql, params);
 	}
-
 	@Override
 	public void minusFoodCount(String foodId, int foodCount, int realFoodCount) {
 		String hql = "update TBfFood t set t.foodCount = t.foodCount -"+ foodCount +", t.realFoodCount = t.realFoodCount - "+realFoodCount +" where t.foodId='"+foodId+"'";

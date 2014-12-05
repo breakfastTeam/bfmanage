@@ -1,11 +1,14 @@
 package com.bean.breakfast.basic.dao.impl;
 
 import com.bean.breakfast.basic.dao.OrderDao;
+import com.bean.breakfast.basic.dto.OrderDTO;
 import com.bean.breakfast.basic.model.TBfFile;
 import com.bean.breakfast.basic.model.TBfOrder;
 import com.bean.breakfast.basic.model.TBfUser;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.dao.impl.BaseDaoImpl;
+import com.bean.core.page.Page;
+import com.bean.core.utils.IStringUtil;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -33,6 +36,28 @@ public class OrderDaoImpl extends BaseDaoImpl<TBfOrder,String> implements OrderD
         }else{
             return null;
         }
+    }
+
+    @Override
+    public Page<TBfOrder> findOrders(Page<TBfOrder> page, TBfOrder order) {
+        List<Object> params = new ArrayList<Object>();
+        StringBuffer hql = new StringBuffer("from TBfOrder t where 1=1 ");
+        if(order != null){
+            if(IStringUtil.isNotBlank(order.getConsigneeMobile())){
+                hql.append(" and t.consigneeMobile like ?");
+                params.add("%"+order.getConsigneeMobile()+"%");
+            }
+            if(IStringUtil.isNotBlank(order.getConsigneeAddress())){
+                hql.append(" and t.consigneeAddress like ?");
+                params.add("%"+order.getConsigneeAddress()+"%");
+            }
+            if(IStringUtil.isNotBlank(order.getConsigneeName())){
+                hql.append(" and t.consigneeName like ?");
+                params.add("%"+order.getConsigneeName()+"%");
+            }
+        }
+        hql.append(" order by t.createTime desc");
+        return this.findByHql(page, hql.toString(), params);
     }
 
 }

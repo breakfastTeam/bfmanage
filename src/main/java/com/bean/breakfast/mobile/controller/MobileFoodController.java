@@ -51,7 +51,7 @@ public class MobileFoodController {
 				page.setPageSize(Integer.parseInt(pageSizeStr));
 				page.setPageNo(Integer.parseInt(pageNoStr));
 			}
-			pageDTO = foodService.findFood(page, food);
+			pageDTO = foodService.findFoodWithSaleTime(page, food);
 			return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg(pageDTO.getResult());
 
 		}catch(Exception e){

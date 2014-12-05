@@ -84,8 +84,6 @@ public abstract interface BaseDao<T, PK extends Serializable> {
 	/**
 	 * 根据hql进行分页查询
 	 * 
-	 * @param Page
-	 *            Page对象
 	 * @param hql
 	 *            hql语句
 	 * @param object
@@ -100,8 +98,6 @@ public abstract interface BaseDao<T, PK extends Serializable> {
 	/**
 	 * 根据hql进行分页查询
 	 * 
-	 * @param page
-	 *            Page对象
 	 * @param sql
 	 *            sql语句
 	 * @param pList
@@ -138,6 +134,8 @@ public abstract interface BaseDao<T, PK extends Serializable> {
 	 * @return ID
 	 */
 	public PK save(T entity);
+
+	public void saveOrUpdate(T entity);
 	
 	/**
 	 * 更新实体对象
