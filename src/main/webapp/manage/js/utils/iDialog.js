@@ -4,14 +4,14 @@
 		this.backdrops = new Array();
 		this.dialogs = new Array(),
 		this.backdrop = '<div id = "backdrop" class="modal-backdrop fade" style = "display:none;"></div>',
-		this.ialert = '<div div-type = "idialog" dialog-type = "ialert" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">'+
+		this.ialert = '<div div-type = "idialog" dialog-type = "ialert"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">'+
                            '<div class="modal-dialog">'+
                                  '<div class="modal-content">'+
                                        '<div class="modal-header">'+
                                              '<button class="close" idialog-data-dismiss="modal" aria-hidden="true">&times;</button>'+
                                              '<h4 class="modal-title">'+TIPS+'</h4>'+
                                         '</div>'+
-                                        '<div class="modal-body">'+EMPTY_CONTENT+'</div>'+
+                                        '<div class="modal-body" style = "max-height: 450px;overflow-y: scroll;">'+EMPTY_CONTENT+'</div>'+
                                           '<div class="modal-footer">'+
                                               '<button idialog-data-dismiss="modal" class="btn btn-success">'+CONFIRM+'</button>'+
                                           '</div>'+
@@ -25,7 +25,7 @@
                                              '<button class="close" idialog-data-dismiss="modal" aria-hidden="true">&times;</button>'+
                                              '<h4 class="modal-title">'+TIPS+'</h4>'+
                                         '</div>'+
-                                        '<div class="modal-body">'+EMPTY_CONTENT+'</div>'+
+                                        '<div class="modal-body"  style = "max-height: 450px;overflow-y: scroll;">'+EMPTY_CONTENT+'</div>'+
                                           '<div class="modal-footer">'+
                                           	  '<button idialog-data-dismiss="modal" class="btn btn-danger">'+CLOSE+'</button>'+
                                               '<button idialog-data-dismiss="modal-ok" class="btn btn-success">'+CONFIRM+'</button>'+
@@ -42,7 +42,7 @@
                                              '<button class="close" idialog-data-dismiss="modal" aria-hidden="true">&times;</button>'+
                                              '<h4 class="modal-title"></h4>'+
                                         '</div>'+
-                                        '<div class="modal-body"></div>'+
+                                        '<div class="modal-body" style = "max-height: 450px;overflow-y: scroll;"></div>'+
                                       '</div>'+
                                   '</div>'+
                               '</div>',

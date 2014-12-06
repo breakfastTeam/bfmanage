@@ -12,14 +12,20 @@
 
         <div class="col-lg-24" style="margin:5px;">
             <div class="row">
-                <label class="col-lg-24 control-label"><spring:message code="ORDER_TIME"/>：${order.createTime}</label>
+                <label class="col-lg-24" style="font-size: 15pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粥妹</label>
+            </div>
+            <div class="row">
+                <label class="col-lg-24"  style="font-size: 13pt">&nbsp;&nbsp;&nbsp;寒冬下的那一抹温度</label>
+            </div>
+            <div class="row">
+                <label class="col-lg-24 control-label" style="font-size: xx-small"><spring:message code="ORDER_TIME"/>：${order.createTime}</label>
             </div>
             <div class="row">
                 <label class="col-lg-24 control-label">*************************************</label>
             </div>
 
             <div class="row">
-                <table class="col-lg-24" style="font-size:1pt">
+                <table class="col-lg-24" style="font-size:1pt" id = "orderList">
                     <tr>
                         <td style="width:50%;padding-left: 15px;"><spring:message code="FOOD_NAME"/></td>
                         <td style="width:16%"><spring:message code="PRICE"/>&nbsp;&nbsp;&nbsp;</td>
@@ -31,13 +37,18 @@
                         <td style="padding-left: 15px;padding-top:5px;">${item.food.foodName }</td>
                         <td style = "padding-top:5px;">${item.food.price }</td>
                         <td style = "padding-top:5px;">${item.orderDetail.foodObjCount}</td>
-                        <td style = "padding-top:5px;">${item.food.price*item.orderDetail.foodObjCount}</td>
+                        <td style = "padding-top:5px;"><a  name="partSum">${item.food.price*item.orderDetail.foodObjCount}</a></td>
                     </tr>
                     </c:forEach>
                 </table>
             </div>
+
             <div class="row">
                 <label class="col-lg-24 control-label">*************************************</label>
+            </div>
+            <div class="row" style="font-size: 13pt">
+                <label class="col-lg-24 control-label"><spring:message
+                        code="SUM"/>：<a id = "sum"></a></label>
             </div>
             <div class="row" style="font-size: 13pt">
                <label class="col-lg-24 control-label"><spring:message
@@ -51,7 +62,9 @@
                     <label class="col-lg-24 control-label"><spring:message
                             code="ADDRESS"/>：${order.consigneeAddress}</label>
             </div>
-
+            <div class="row">
+                <img src = "${ctx}/manage/img/zhoumeiweixin.jpg">
+            </div>
         </div>
     </div>
 <div class="row">
