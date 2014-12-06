@@ -201,6 +201,9 @@
 										       				<input id="foodPicUpload" type="file" name="files"
                                                                    multiple>
 										  				</span>
+                                        <c:if test="${food.smallPicPath != null}">
+                                            <img id = "previewSmallPic" style="width:55px;" src="${ctx}/${food.smallPicPath}">
+                                        </c:if>
 
                                         <div id="foodPicName" class="control-label pull-left"></div>
                                         <input id="diskPath" name="diskPath" type="hidden"/>
@@ -211,18 +214,12 @@
                                         <input id="smallPicPath" name="smallPicPath" type="hidden" value = "${food.smallPicPath}"/>
                                         <input id="smallPicId" name="smallPicId" type="hidden" value = "${food.smallPicId}"/>
 
-                                        <input type = "hidden" id = "x" name = "x">
-                                        <input type = "hidden" id = "y" name = "y">
                                         <button id="foodPicDelButton" type="button"
                                                 class="btn btn-danger display-none">
                                             <i class="glyphicon glyphicon-trash"></i>
                                             <span><spring:message code="DELETE"/></span>
                                         </button>
-                                        <button id="foodPicEditButton" type="button"
-                                                class="btn btn-primary display-none">
-                                            <i class="glyphicon glyphicon-pencil"></i>
-                                            <span><spring:message code="EDIT"/></span>
-                                        </button>
+
                                         <div id="foodPicProgress" class="progress control-label white-bg col-lg-10">
                                             <div class="progress-bar progress-bar-success"></div>
                                         </div>

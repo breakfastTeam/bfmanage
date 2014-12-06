@@ -60,7 +60,8 @@
                           <span><spring:message code="BASIC_FUN"/></span>
                       </a>
                       <ul class="sub">
-                          <li class=""><a href="javascript:void(0)"  onclick = "openNewUrl('${ctx}/basic/toFood.do')"><spring:message code="FOOD_MANAGE"/></a></li>
+						  <li class=""><a href="javascript:void(0)"  onclick = "openNewUrl('${ctx}/basic/toFood.do')"><spring:message code="FOOD_MANAGE"/></a></li>
+						  <li class=""><a href="javascript:void(0)"  onclick = "openNewUrl('${ctx}/basic/toSetMeal.do')"><spring:message code="SET_MEAL_MANAGE"/></a></li>
                           <li class=""><a  href="javascript:void(0)" onclick = "openNewUrl('${ctx}/basic/toOrder.do')"><spring:message code="ORDER_MANAGE"/></a></li>
                           <!--<li class=""><a  href="javascript:void(0)" onclick = "openNewUrl('${ctx}/basic/toCustomer.do')"><spring:message code="CUSTOMER_MANAGE"/></a></li>-->
                           <!--<li class=""><a  href="javascript:void(0)" onclick = "openNewUrl('${ctx}/basic/toExpress.do')"><spring:message code="EXPRESS_MANAGE"/></a></li>-->

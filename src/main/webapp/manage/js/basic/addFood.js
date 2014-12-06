@@ -84,10 +84,10 @@ var BelAddFood = function() {
 
                         $('<p/>').text(originalFileName).appendTo('#foodPicName');
                         $("#foodPicDelButton").removeClass("display-none");
-                        $("#foodPicEditButton").removeClass("display-none");
+                        $("#previewSmallPic").hide();
                         openImageCrop(filePath);
                     }else{
-                        iDialog.iAlert("图片尺寸不符合要求，尺寸长宽为：320*200");
+                        iDialog.iAlert("图片尺寸不符合要求");
                     }
                 },
                 progressall: function(e, data) {
@@ -129,23 +129,17 @@ var BelAddFood = function() {
                 $("#isSupportSnapUpYesInput").val("off");
                 $("#snapupPrice").attr("disabled", true);
             });
-            $("#foodPicEditButton").click(function() {
-                var filePath = $("#filePath").val();
-                var cropFileName = $("#cropFileName").val(cropFileName);
-                openImageCrop(filePath, cropFileName);
-            });
 
             $("#foodPicDelButton").click(function() {
                 var btnObj = this;
-                var saveDiskPath = $("#saveDiskPath").val();
-                var cropFileName = $("#cropFileName").val();
-
+                var orginPicPath = $("#orginPicPath").val();
+                orginPicPath = orginPicPath.replace(/\\/g, "\\\\");
                 var map = new Map();
-                map.put("filePath", saveDiskPath);
-                map.put("cropFileName", cropFileName);
+                map.put("orginPicPath", orginPicPath);
                 var reqData = iReqMsg.getReqMsg(map);
+                console.log(reqData);
                 $.ajax({
-                    url: "deleteFood.do",
+                    url: "deleteFoodPic.do",
                     type: "POST",
                     data: reqData,
                     dataType: "json",
@@ -158,8 +152,10 @@ var BelAddFood = function() {
                         if (data.head.rtnCode == "888888") {
                             iDialog.iAlert(SUCCESS);
                             $("#fileName").val("");
-                            $("#filePath").val("");
-                            $("#saveDiskPath").val("");
+                            $("#diskPath").val("");
+                            $("#orginPicPath").val("");
+                            $("#smallPicPath").val("");
+                            $("#foodPicDelButton").hide();
                             $("#foodPicName").remove();
                         } else {
                             iDialog.iAlert(FAIL);

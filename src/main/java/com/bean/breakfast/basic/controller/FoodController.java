@@ -201,8 +201,8 @@ public class FoodController {
      * 变更记录:
      */
     @ResponseBody
-    @RequestMapping(value = "/deleteFood")
-    public String deleteCookBook(@RequestBody final String reqData, final HttpServletRequest request) {
+    @RequestMapping(value = "/deleteFoodPic")
+    public String deleteFoodPic(@RequestBody final String reqData, final HttpServletRequest request) {
         MsgUtil msgUtil = new MsgUtil();//声明报文工具类
         JSONObject json;
         JSONObject bodyObj;
@@ -210,8 +210,16 @@ public class FoodController {
             /**解析处理请求报文**/
             json = JSONObject.parseObject(reqData);
             bodyObj = json.getJSONObject("body");
-            String cookBookPath = request.getSession().getServletContext().getRealPath(IConstants.FOOD_PIC_PATH);
-            String filePath = cookBookPath + "\\" + bodyObj.getString("filePath") + "\\\\" + bodyObj.getString("cropFileName");
+            String orginPicPath = bodyObj.getString("orginPicPath");
+            String orginPicPathAbsolute = request.getSession().getServletContext().getRealPath(orginPicPath);
+
+            String orginPicPathAbsolutes[] = orginPicPathAbsolute.split("\\\\");
+            String filePath = "";
+            int lgh = orginPicPathAbsolutes.length;
+            for(int i = 0; i<lgh-2; i++){
+                filePath = filePath +orginPicPathAbsolutes[i]+"\\";
+            }
+            filePath = filePath +"\\"+orginPicPathAbsolutes[lgh-1];
             boolean isDelete = IFileUtil.deleteFile(filePath);
             if (isDelete) {
                 return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
