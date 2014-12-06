@@ -1,15 +1,14 @@
 package com.bean.breakfast.basic.controller;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bean.breakfast.basic.dto.FoodDTO;
+import com.bean.breakfast.basic.dto.SetMealDTO;
 import com.bean.breakfast.basic.model.TBfFood;
+import com.bean.breakfast.basic.model.TBfSetMeal;
 import com.bean.breakfast.basic.service.FoodService;
 import com.bean.core.utils.IDateUtil;
 import com.bean.core.utils.IImageUtil;
@@ -302,6 +301,24 @@ public class FoodController {
         TBfFood food = new TBfFood();
         pageDTO = foodService.findFood(page, food);
         model.addObject("page", page);
+        return model;
+    }
+
+    /**
+     * 打开单品信息列表
+     * @param request HttpServletRequest request请求
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+
+    @RequestMapping(value = "/openFoodList")
+    public ModelAndView toSetMealAdd(final HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("basic/foodList");
+        TBfFood food = new TBfFood();
+        List<TBfFood> foods = foodService.findFood(food);
+        model.addObject("foods", foods);
         return model;
     }
 }

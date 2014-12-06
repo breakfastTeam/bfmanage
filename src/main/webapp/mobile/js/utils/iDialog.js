@@ -49,7 +49,7 @@
                            '<div class="modal-dialog">'+
                                  '<div class="modal-content">'+
                                        '<div class="modal-header">'+
-                                             '<button class="close" idialog-data-dismiss="modal" aria-hidden="true">&times;</button>'+
+                                             '<button class="close" id="iwindow"  idialog-data-dismiss="modal" aria-hidden="true">&times;</button>'+
                                              '<h4 class="modal-title"  style = "color:white"></h4>'+
                                         '</div>'+
                                         '<div class="modal-body"></div>'+

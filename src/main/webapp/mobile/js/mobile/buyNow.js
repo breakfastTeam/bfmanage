@@ -263,12 +263,12 @@ var BelOrderNow = function() {
 				var twentySecond = 22*60;
 				var preSendTimeObj = $("#preSendTime");
 				if(now<seven){
-					/*$("#buyNowButton").text("马上开门");
+					$("#buyNowButton").text("马上开门");
 					$("#buyNowButton").css({"color":"black"});
 					$("#buyNowButton").attr("disabled", true);
 
 					var info = '<option value = "-1">马上开门</option>';
-					preSendTimeObj.append(info);*/
+					preSendTimeObj.append(info);
 				}else if(now >= seven && now <fiftyAndHalf){
 					var info = '<option value = "-1">请选择</option><option value = "17:30-18:00">17:30-18:00</option><option value = "18:00-18:30">18:00-18:30</option><option value = "18:30-19:00">18:30-19:00</option><option value = "19:00-19:30">19:00-19:30</option><option value = "19:30-20:00">19:30-20:00</option><option value = "07:00-07:30">07:00-07:30(次日)</option><option value = "07:30-08:00">07:30-08:00(次日)</option><option value = "08:00-08:30">08:00-08:30(次日)</option><option value = "08:30-09:00">08:30-09:00(次日)</option><option value = "09:00-09:30">09:00-09:30(次日)</option><option value = "09:30-10:00">09:30-10:00(次日)</option>'
 					preSendTimeObj.append(info);

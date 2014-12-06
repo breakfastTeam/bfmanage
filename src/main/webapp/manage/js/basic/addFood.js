@@ -4,7 +4,7 @@ var BelAddFood = function() {
         init: function() {
             var um = UM.getEditor('briefIntroEditor');
             var briefIntroContent = $("#briefIntroContent").val();
-            um.execCommand('insertHtml', briefIntroContent)
+            um.execCommand('insertHtml', briefIntroContent);
             bundleDatepicker();
             $("#save").click(function() {
                     var content = um.getContent();
@@ -20,10 +20,12 @@ var BelAddFood = function() {
                                 required: true
                             },
                             cost: {
-                                required: true
+                                required: true,
+                                number: true
                             },
                             price: {
-                                required: true
+                                required: true,
+                                number: true
                             },
                             foodCount: {
                                 required: true,
@@ -42,8 +44,14 @@ var BelAddFood = function() {
                         },
                         messages: {
                             foodName: "请输入菜谱名称",
-                            cost: "请输入数字",
-                            price: "开始时间不能为空",
+                            cost:{
+                                required: "请输入成本",
+                                number: "成本要求输入数字"
+                            } ,
+                            price:{
+                                required: "请输入价格",
+                                number: "价格要求输入数字"
+                            } ,
                             saleTime:"请输入销售日期",
                             foodCount: {
                                 required: "请输入库存数",

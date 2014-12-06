@@ -66,7 +66,7 @@
                             </div>
                             <table
                                     class="table table-striped table-hover table-bordered table-advance"
-                                    id="cookBookTable">
+                                    id="foodTable">
                                 <thead>
                                 <tr>
                                     <th class="first-td">
@@ -155,7 +155,7 @@
 <!-- END JAVASCRIPTS -->
 <script>
     jQuery(document).ready(function () {
-        BelCookBook.init();
+        BelFood.init();
     });
 </script>
 </body>

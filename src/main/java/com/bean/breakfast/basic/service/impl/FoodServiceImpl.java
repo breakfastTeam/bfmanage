@@ -43,6 +43,10 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 			return null;
 		}
 	}
+	public List<TBfFood> findFood(TBfFood food){
+		List<TBfFood> foods = new ArrayList<TBfFood>();
+		return foodDao.findFood(food);
+	}
 	public void saveOrUpdate(TBfFood food,String smallPicId, String smallPicPath,String orginPicId, String bigPicPath){
 		TBfFile smallPic, bigPic;
 		if(IStringUtil.isNotBlank(smallPicId)){

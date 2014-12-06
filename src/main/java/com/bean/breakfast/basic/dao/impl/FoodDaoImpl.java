@@ -24,6 +24,17 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 		return ((Number)query.iterate().next()).intValue();
 	}
 
+	public List<TBfFood> findFood(TBfFood food) {
+		List<Object> params = new ArrayList<Object>();
+		String hql = "from TBfFood t where t.status=?";
+		params.add(IConstants.VALID);
+		if(IStringUtil.isNotBlank(food.getFoodName())){
+			hql = hql + " and t.foodName like ?";
+			params.add("%"+food.getFoodName()+"%");
+		}
+		hql = hql + " order by showOrder asc, createTime desc";
+		return this.find(hql, params);
+	}
 	public Page<TBfFood> findFood(Page<TBfFood> page, TBfFood food) {
 		List<Object> params = new ArrayList<Object>();
 		String hql = "from TBfFood t where t.status=?";

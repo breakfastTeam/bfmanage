@@ -1,8 +1,8 @@
-var BelCookBook = function () {
+var BelFood = function () {
     return {
         //主模块初始化
         init: function () {
-            var oTable = $('#cookBookTable').dataTable({
+            var oTable = $('#foodTable').dataTable({
                 "bInfo":false,
                 "bFilter":false,
                 "bLengthChange":false,

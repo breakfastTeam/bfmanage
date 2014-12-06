@@ -3,6 +3,7 @@
 	var EMPTY_CONTENT='<spring:message code="EMPTY_CONTENT" />';
  	var CONFIRM='<spring:message code="CONFIRM" />';
  	var CLOSE='<spring:message code="CLOSE" />';
+
 </script>
 
 <script src="${ctx }/mobile/skin/default/js/jquery-1.8.3.min.js"></script>
