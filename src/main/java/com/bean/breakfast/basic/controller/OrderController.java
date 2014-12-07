@@ -58,7 +58,7 @@ public class OrderController {
         order.setConsigneeMobile(consigneeMobile);
         order.setConsigneeName(consigneeName);
         if (IStringUtil.isNotBlank(pageSizeStr) && IStringUtil.isNotBlank(pageNoStr)) {
-            page.setPageNo(Integer.parseInt(pageNoStr));
+            pageDTO.setPageNo(Integer.parseInt(pageNoStr));
         }
         pageDTO = orderService.findOrders(pageDTO, order);
         model.addObject("page", pageDTO);

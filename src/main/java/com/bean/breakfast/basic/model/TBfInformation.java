@@ -1,12 +1,9 @@
 package com.bean.breakfast.basic.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 /**
  * TBfInformation entity.
@@ -19,7 +16,7 @@ public class TBfInformation implements java.io.Serializable {
 
 	// Fields
 
-	private String infomationId;
+	private String informationId;
 	private String title;
 	private String content;
 	private String informationType;
@@ -39,16 +36,16 @@ public class TBfInformation implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public TBfInformation(String infomationId) {
-		this.infomationId = infomationId;
+	public TBfInformation(String informationId) {
+		this.informationId = informationId;
 	}
 
 	/** full constructor */
-	public TBfInformation(String infomationId, String title, String content,
+	public TBfInformation(String informationId, String title, String content,
 			String informationType, Date postTime, String postBy,
 			String status, Date createTime, String createBy,
 			Date lastModifyTime, String lastModifyBy, Long optTime) {
-		this.infomationId = infomationId;
+		this.informationId = informationId;
 		this.title = title;
 		this.content = content;
 		this.informationType = informationType;
@@ -64,13 +61,15 @@ public class TBfInformation implements java.io.Serializable {
 
 	// Property accessors
 	@Id
-	@Column(name = "infomation_id", unique = true, nullable = false, insertable = true, updatable = true, length = 32)
-	public String getInfomationId() {
-		return this.infomationId;
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "uuid")
+	@Column(name = "information_id", unique = true, nullable = false, insertable = true, updatable = true, length = 32)
+	public String getInformationId() {
+		return this.informationId;
 	}
 
-	public void setInfomationId(String infomationId) {
-		this.infomationId = infomationId;
+	public void setInformationId(String informationId) {
+		this.informationId = informationId;
 	}
 
 	@Column(name = "title", unique = false, nullable = true, insertable = true, updatable = true, length = 100)
@@ -100,7 +99,7 @@ public class TBfInformation implements java.io.Serializable {
 		this.informationType = informationType;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "post_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getPostTime() {
 		return this.postTime;
@@ -128,7 +127,7 @@ public class TBfInformation implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getCreateTime() {
 		return this.createTime;
@@ -147,7 +146,7 @@ public class TBfInformation implements java.io.Serializable {
 		this.createBy = createBy;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "last_modify_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getLastModifyTime() {
 		return this.lastModifyTime;
