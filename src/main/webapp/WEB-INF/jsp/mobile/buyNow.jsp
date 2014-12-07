@@ -80,7 +80,9 @@
                         <option value = "金城国际">金城国际</option>
                         <option value = "财富广场">财富广场</option>
                         <option value = "轻院校内">轻院校内</option>
-                        <option value = "轻院东风路学生宿舍区">轻院东风路学生宿舍区</option>
+                        <option value = "轻院第二生活区">轻院第二生活区</option>
+                        <option value = "轻院第三生活区">轻院第三生活区</option>
+                        <option value = "农大校内">农大校内</option>
                         <option value = "农大桃李园">农大桃李园</option>
                     </select>
                 </div>

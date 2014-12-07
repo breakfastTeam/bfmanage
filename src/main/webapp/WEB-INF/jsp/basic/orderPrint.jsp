@@ -12,7 +12,7 @@
 
         <div class="col-lg-24" style="margin:5px;">
             <div class="row">
-                <label class="col-lg-24" style="font-size: 15pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粥妹</label>
+                <label class="col-lg-24" style="font-size: 15pt">粥妹（公众号：izhoumei）</label>
             </div>
             <div class="row">
                 <label class="col-lg-24"  style="font-size: 13pt">&nbsp;&nbsp;&nbsp;寒冬下的那一抹温度</label>

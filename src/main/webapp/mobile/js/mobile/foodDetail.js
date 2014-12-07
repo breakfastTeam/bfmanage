@@ -45,11 +45,11 @@ var BelFoodDetail = function() {
 					iDialog.iAlert("亲，已经售完了，下次记得早点儿来哦");
 					return false;
 				}else{
-					addFoodToCart();
+					addFoodToCart(true);
 				}
 
 			});
-			function addFoodToCart(){
+			function addFoodToCart(showTip){
 				var count = $("#count").val();
 				var shopCartInfo = localStorage.getItem("shopCart");
 				if(shopCartInfo == null || shopCartInfo == undefined){
@@ -78,7 +78,9 @@ var BelFoodDetail = function() {
 				}
 				shopCartInfo = shopCartInfo.substring(0, shopCartInfo.length);
 				localStorage.setItem("shopCart", shopCartInfo);
-				iDialog.iTip("已加入购物车");
+				if(showTip){
+					iDialog.iTip("已加入购物车");
+				}
 			}
 			$("#buyNowButton").click(function(){
 				var saleOut = $("#buyNowButton").attr("sale-out");
@@ -88,7 +90,7 @@ var BelFoodDetail = function() {
 				}else{
 					var phone = localStorage.getItem("phone");
 					//if(phone != null && phone != "" && phone != undefined){
-					addFoodToCart();
+					addFoodToCart(false);
 					loadUrl("toBuyNow.do");
 					//}else{
 					//	loadUrl("toLogin.do");
