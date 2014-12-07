@@ -14,12 +14,15 @@ var BelSetMealAdd = function() {
 
             $("#save").click(function() {
                 var content = um.getContent();
-                $("#briefIntro").val(content);
-                $("#briefIntroContent").val(um.getContentTxt());
+                $("#introduce").val(content);
+                $("#introduceContent").val(um.getContentTxt());
                 if (um.getContentTxt().length > 400) {
                     iDialog.iAlert("简介内容不能够超过400个字");
                     return;
                 }
+
+
+
                 $("#iForm").validate({
                     rules: {
                         setName: {

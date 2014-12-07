@@ -1,13 +1,11 @@
 package com.bean.breakfast.basic.service.impl;
 
-import com.bean.breakfast.basic.dao.FileDao;
-import com.bean.breakfast.basic.dao.FoodDao;
-import com.bean.breakfast.basic.dao.OrderDao;
-import com.bean.breakfast.basic.dao.SetMealDao;
+import com.bean.breakfast.basic.dao.*;
 import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.dto.SetMealDTO;
 import com.bean.breakfast.basic.model.TBfFile;
 import com.bean.breakfast.basic.model.TBfFood;
+import com.bean.breakfast.basic.model.TBfSetFoods;
 import com.bean.breakfast.basic.model.TBfSetMeal;
 import com.bean.breakfast.basic.service.FoodService;
 import com.bean.breakfast.basic.service.SetMealService;
@@ -29,6 +27,11 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 	@Autowired
 	private SetMealDao setMealDao;
 
+	@Autowired
+	private SetFoodsDao setFoodsDao;
+
+	@Autowired
+	private FileDao fileDao;
 
 	public SetMealDao getSetMealDao() {
 		return setMealDao;
@@ -51,6 +54,13 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 		SetMealDTO setMealDTO = new SetMealDTO();
 		try {
 			TBfSetMeal setMeal = setMealDao.get(setMealId);
+			TBfFile smallPic = fileDao.get(setMeal.getSmallPicId());
+			TBfFile originalPic = fileDao.get(setMeal.getOrginPicId());
+			setMealDTO.setSmallPicId(smallPic.getFileId());
+			setMealDTO.setSmallPicPath(smallPic.getFilePath());
+			setMealDTO.setOrginPicId(originalPic.getFileId());
+			setMealDTO.setOrginPicPath(originalPic.getFilePath());
+
 			if(setMeal != null){
 				setMealDTO.setSetMeal(setMeal);
 			}
@@ -77,6 +87,56 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 
 	@Override
 	public void saveOrUpdate(SetMealDTO setMealDTO) {
+
+
+
+		TBfFile smallPic, bigPic;
+		if(IStringUtil.isNotBlank(setMealDTO.getSmallPicId())){
+			try {
+				smallPic = fileDao.get(setMealDTO.getSmallPicId());
+			} catch (Exception e) {
+				e.printStackTrace();
+				smallPic = new TBfFile();
+			}
+		}else{
+			smallPic = new TBfFile();
+		}
+
+		smallPic.setFilePath(setMealDTO.getSmallPicPath());
+
+		if(IStringUtil.isNotBlank(setMealDTO.getOrginPicId())){
+			try {
+				bigPic = fileDao.get(setMealDTO.getOrginPicId());
+			} catch (Exception e) {
+				e.printStackTrace();
+				bigPic = new TBfFile();
+			}
+		}else{
+			bigPic = new TBfFile();
+		}
+		bigPic.setFilePath(setMealDTO.getOrginPicPath());
+
+		fileDao.saveOrUpdate(smallPic);
+		fileDao.saveOrUpdate(bigPic);
+
+		TBfSetMeal setMeal = setMealDTO.getSetMeal();
+		setMeal.setSmallPicId(smallPic.getFileId());
+		setMeal.setOrginPicId(bigPic.getFileId());
+		setMealDao.saveOrUpdate(setMeal);
+
+		List<TBfFood> foods = setMealDTO.getFoods();
+		String setMealId = setMeal.getSetMealId();
+		for (int i = 0; i<foods.size(); i++){
+			String foodId = foods.get(i).getFoodId();
+			TBfSetFoods setFoods = setFoodsDao.getSetFoodsByFoodIdAndSetMealId(foodId, setMealId);
+			if(setFoods == null){
+				setFoods = new TBfSetFoods();
+				setFoods.setSetMealId(setMealId);
+				setFoods.setFoodId(foodId);
+			}
+			setFoodsDao.saveOrUpdate(setFoods);
+		}
+
 
 	}
 }

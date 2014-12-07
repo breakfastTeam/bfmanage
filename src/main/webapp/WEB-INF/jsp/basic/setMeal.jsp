@@ -99,7 +99,7 @@
                                     <tr class="">
                                         <td>
                                             <label class="label_check">
-                                                <input value="${item.setMealId}" name="foodId"
+                                                <input value="${item.setMealId}" name="setMealId"
                                                        id="checkbox${item.setMealId}" type="checkbox">
                                             </label>
                                         </td>
@@ -123,8 +123,8 @@
                                                 ${item.status}
                                         </td>
                                         <td>
-                                            <input type = "hidden" value = "${item.foodId}">
-                                            <button class="btn btn-primary btn-xs" name = "editFood">
+                                            <input type = "hidden" value = "${item.setMealId}">
+                                            <button class="btn btn-primary btn-xs" name = "setMealEdit">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
 

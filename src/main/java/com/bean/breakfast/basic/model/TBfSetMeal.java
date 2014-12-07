@@ -196,7 +196,7 @@ public class TBfSetMeal implements java.io.Serializable {
 		this.showOrder = showOrder;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getCreateTime() {
 		return this.createTime;
@@ -215,7 +215,7 @@ public class TBfSetMeal implements java.io.Serializable {
 		this.createBy = createBy;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "last_modify_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getLastModifyTime() {
 		return this.lastModifyTime;

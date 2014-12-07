@@ -14,6 +14,7 @@ import com.bean.core.utils.IDateUtil;
 import com.bean.core.utils.IFileUtil;
 import com.bean.core.utils.IImageUtil;
 import com.bean.core.utils.IStringUtil;
+import org.apache.commons.collections.iterators.ArrayListIterator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,16 +22,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/basic")
 public class SetMealController {
     @Autowired
     private SetMealService setMealService;
+
+    @Autowired
+    private FoodService foodService;
 
     Page<TBfSetMeal> page = new Page<TBfSetMeal>(IConstants.DEFAULT_PAGE_SIZE);
     Page<SetMealDTO> pageDTO = new Page<SetMealDTO>(IConstants.DEFAULT_PAGE_SIZE);
@@ -69,8 +70,19 @@ public class SetMealController {
         int showOrder = Integer.parseInt(showOrderStr);
         String introduce = request.getParameter("introduce");
         String saleTime = request.getParameter("saleTime");
+        String startTime = request.getParameter("startTime");
+        String endTime = request.getParameter("endTime");
 
+        List<TBfFood> foodList = new ArrayList<TBfFood>();
         String foodIds = request.getParameter("foodIds");
+        if(IStringUtil.isNotBlank(foodIds)){
+            String [] tempFoodIds = foodIds.split(",");
+            for(int i = 0; i<tempFoodIds.length; i++){
+                TBfFood f = foodService.getFood(tempFoodIds[i]);
+                foodList.add(f);
+            }
+        }
+
 
         TBfSetMeal setMeal;
         if(IStringUtil.isNotBlank(foodId)){
@@ -92,9 +104,12 @@ public class SetMealController {
         setMeal.setIntroduce(introduce);
         setMeal.setCreateTime(IDateUtil.getCurrentTimeDate());
         setMeal.setSaleTime(IDateUtil.parseDate(saleTime, 1));
-
+        setMeal.setStartTime(IDateUtil.parseDate(startTime, 1));
+        setMeal.setEndTime(IDateUtil.parseDate(endTime, 1));
+        setMeal.setStatus(IConstants.VALID);
         SetMealDTO setMealDTO = new SetMealDTO();
         setMealDTO.setSetMeal(setMeal);
+        setMealDTO.setFoods(foodList);
         setMealDTO.setOrginPicId(orginPicId);
         setMealDTO.setOrginPicPath(orginPicPath);
         setMealDTO.setSmallPicId(smallPicId);
@@ -298,8 +313,8 @@ public class SetMealController {
 
     public ModelAndView jumpToSetMeal() {
         ModelAndView model = new ModelAndView("basic/setMeal");
-        TBfSetMeal food = new TBfSetMeal();
-        page = setMealService.findSetMeal(page, food);
+        TBfSetMeal setMeal = new TBfSetMeal();
+        page = setMealService.findSetMeal(page, setMeal);
         model.addObject("page", page);
         return model;
     }

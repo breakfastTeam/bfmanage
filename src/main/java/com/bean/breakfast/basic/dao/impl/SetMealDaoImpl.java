@@ -33,7 +33,7 @@ public class SetMealDaoImpl extends BaseDaoImpl<TBfSetMeal,String>  implements S
             hql = hql + " and t.saleTime>=?";
             params.add(IDateUtil.getCurrentTimeDate());
         }
-        hql = hql + " order by showOrder asc, createTime desc";
+        hql = hql + " order by showOrder desc, createTime desc";
         return this.findByHql(page, hql, params);
     }
 

@@ -16,6 +16,12 @@ var BelSetMeal = function () {
             $("#toSetMealAdd").click(function(){
                 openNewUrl('basic/toSetMealAdd.do')
             });
+
+            $("button[name='setMealEdit']").click(function(e){
+                e.preventDefault();
+                var setMealId = $(this).parent().find("input").val();
+                openNewUrl('basic/toSetMealEdit.do?setMealId='+setMealId);
+            });
         }
     };
 }();

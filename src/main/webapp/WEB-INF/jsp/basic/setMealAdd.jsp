@@ -130,6 +130,29 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="PUBLISH_TIME"/>：</label>
+
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="startTime" name="startTime"
+                                               class="form-control default-date-picker"
+                                               value="${setMealDTO.setMeal.startTime }">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="PUT_OFF_TIME"/>：</label>
+
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="endTime" name="endTime"
+                                               class="form-control default-date-picker" value="${setMealDTO.setMeal.endTime }">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-lg-24">
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label"><spring:message code="FOOD_LIST"/>：</label>
@@ -139,7 +162,7 @@
                                             <i class="fa fa-plus"></i>
                                             <spring:message code="ADD"/>
                                         </button>
-
+                                        <input id = "foodIds" name = "foodIds" type = "hidden" />
                                         <div id = "foodList">
 
                                         </div>

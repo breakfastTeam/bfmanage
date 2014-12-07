@@ -62,9 +62,9 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 
 		smallPic.setFilePath(smallPicPath);
 
-		if(IStringUtil.isNotBlank(smallPicId)){
+		if(IStringUtil.isNotBlank(orginPicId)){
 			try {
-				bigPic = fileDao.get(smallPicId);
+				bigPic = fileDao.get(orginPicId);
 			} catch (Exception e) {
 				e.printStackTrace();
 				bigPic = new TBfFile();
@@ -75,7 +75,7 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 		bigPic.setFilePath(bigPicPath);
 
 		fileDao.saveOrUpdate(smallPic);
-		fileDao.save(bigPic);
+		fileDao.saveOrUpdate(bigPic);
 
 		food.setSmallPicId(smallPic.getFileId());
 		food.setOrginPicId(bigPic.getFileId());

@@ -15,7 +15,7 @@ var BelFoodList = function () {
 
             $("#OK").click(function(){
                 var foodIds = $("input[name='foodId'][checked]");
-
+                var fids = "";
                 var info="";
                 for(var i = 0; i<foodIds.length; i++){
                     info = info + '<div class="col-lg-4">'+
@@ -23,12 +23,16 @@ var BelFoodList = function () {
                                             '<button data-dismiss="alert" class="close close-sm" type="button">'+
                                                 '<i class="fa fa-times"></i>'+
                                             '</button>'+
-                                            '<input type = "hidden" name="foodIds" value="'+$(foodIds).attr("id")+'"/>'+
+                                            '<input type = "hidden" name="foodId" value="'+$(foodIds).attr("id")+'"/>'+
                                             '<p>'+$(foodIds[i]).val()+'</p>'+
                                         '</div>'+
                                     '</div>';
+                    fids = fids + $(foodIds).attr("id") +",";
                 }
                 $("#foodList").append(info);
+
+                fids = fids.substring(0, fids.length-1);
+                $("#foodIds").val(fids);
                 iDialog.iHide();
             });
 
