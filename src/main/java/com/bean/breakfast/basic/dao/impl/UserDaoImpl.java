@@ -71,7 +71,30 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
             hql = hql + " order by createTime desc";
             return this.findByHql(page, hql, params);
     }
-
+    @Override
+    public Page<TBfUser> findUserCourier(Page<TBfUser> page, TBfUser user) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from TBfUser t where t.status=? and t.userId in (select t1.userId from TBfUserCourier t1)  ";
+        params.add(IConstants.VALID);
+        if (IStringUtil.isNotBlank(user.getMobile())) {
+            hql = hql + " and t.mobile like ?";
+            params.add("%" + user.getMobile() + "%");
+        }
+        hql = hql + " order by t.createTime desc";
+        return this.findByHql(page, hql, params);
+    }
+    @Override
+    public Page<TBfUser> findUserCustomer(Page<TBfUser> page, TBfUser user) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from TBfUser t where t.status=? and t.userId in ( select t1.userId from TBfUserCustomer t1) ";
+        params.add(IConstants.VALID);
+        if (IStringUtil.isNotBlank(user.getMobile())) {
+            hql = hql + " and t.mobile like ?";
+            params.add("%" + user.getMobile() + "%");
+        }
+        hql = hql + " order by t.createTime desc";
+        return this.findByHql(page, hql, params);
+    }
     @Override
     public List<TBfUser> findUser(TBfUser user) {
         List<Object> params = new ArrayList<Object>();
