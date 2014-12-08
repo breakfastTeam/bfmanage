@@ -89,8 +89,8 @@
                                         onclick="openNewUrl('${ctx}/basic/toUserCourier.do')"><spring:message
                                 code="USER_COURIER_MANAGE"/></a></li>
                         <li class=""><a href="javascript:void(0)"
-                                        onclick="openNewUrl('${ctx}/basic/toCustomer.do')"><spring:message
-                                code="CUSTOMER_MANAGE"/></a></li>
+                                        onclick="openNewUrl('${ctx}/basic/toUserCustomer.do')"><spring:message
+                                code="USER_CUSTOMER_MANAGE"/></a></li>
                     </ul>
                 </li>
             </ul>
