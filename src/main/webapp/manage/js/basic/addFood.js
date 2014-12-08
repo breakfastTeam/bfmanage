@@ -145,7 +145,6 @@ var BelAddFood = function() {
                 var map = new Map();
                 map.put("orginPicPath", orginPicPath);
                 var reqData = iReqMsg.getReqMsg(map);
-                console.log(reqData);
                 $.ajax({
                     url: "deleteFoodPic.do",
                     type: "POST",

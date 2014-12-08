@@ -17,6 +17,7 @@
 <div class="container">
 	<div class="form-signin">
 		<h2 class="form-signin-heading"><spring:message code="TITLE"/></h2>
+		<form class="cmxform form-horizontal tasi-form" id="loginForm" method="post" novalidate="novalidate">
 		<div class="login-wrap">
 			<div class="form-group">
 				<input type="text" class="form-control small" id="loginName" name = "loginName" placeholder="<spring:message code='LOGIN_ACCOUNT'/>"  minlength="2" autofocus>
@@ -24,6 +25,7 @@
 				<button class="btn btn-lg btn-login btn-block" id = "submitLogin" type="submit" ><spring:message code="LOGIN"/></button>
 			</div>
 		</div>
+		</form>
 	</div>
 </div>
 <%@ include file="/manage/common/js.jsp"%>

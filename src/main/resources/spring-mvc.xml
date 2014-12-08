@@ -63,5 +63,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
     <!-- 国际化 end -->
-
+    <!-- 配置系统拦截器 -->
+    <mvc:interceptors>
+        <bean class="com.bean.breakfast.interceptor.SystemInterceptor" />
+    </mvc:interceptors>
 </beans>

@@ -7,7 +7,7 @@ import java.util.Properties;
 public class IConstants {
 	
 	private static IConstants constants = getConstants();
-	
+
 	public static final String RETURN_CODE = "rtnCode";
 	public static final String RETURN_MESSAGE = "rtnMsg";
 	public static final String SUCCESS_CODE = "888888";//操作成功
@@ -49,9 +49,12 @@ public class IConstants {
     public static final int FOOD_SMALL_PIC_WIDTH = 160;
     public static final int FOOD_SMALL_PIC_HEIGHT = 100;
     public static final double HALF = 0.5;
+
+	/************用户************/
+	public static final String IS_LOGINED = "yes";//是否登录
+	public static final String LOGINED = "logined";//已经登录
+	public static final String USER_INFO = "userInfo";//用户信息
     
-    public static final String FOOD_SCALE_SIZE = "140x100";
-	public static final String FOOD_ORGIN_SIZE = "320x220";
     /***********接口信息列表************/
 	public static final String BEL001 = "BEL001";
 	
