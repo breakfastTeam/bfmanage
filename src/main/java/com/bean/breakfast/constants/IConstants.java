@@ -37,6 +37,7 @@ public class IConstants {
 
 	public static final String STATUS_DRAFT = "DRAFT";
 	public static final String STATUS_DISTRIBUTION = "DISTRIBUTION";
+	public static final String STATUS_CANCEL="CANCEL";
 	public static final String STATUS_FINISH = "FINISH";
 
 	public static final String ACTIVE  = "1";

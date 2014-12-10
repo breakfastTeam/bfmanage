@@ -116,4 +116,35 @@ public class OrderController {
         model.addObject("order", order);
         return model;
     }
+
+    /**
+     * 修改订单状态
+     *
+     * @param reqData String 请求的报文字符串
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+    @ResponseBody
+    @RequestMapping(value = "/updateOrderStatus")
+    public String updateOrderStatus(@RequestBody final String reqData, final HttpServletRequest request) {
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json = JSONObject.parseObject(reqData);
+            bodyObj = json.getJSONObject("body");
+            String orderId = bodyObj.getString("orderId");
+            String status = bodyObj.getString("status");
+            TBfOrder order = orderService.getOrder(orderId);
+            order.setStatus(status);
+            orderService.saveOrUpdate(order);
+            return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
+    }
 }

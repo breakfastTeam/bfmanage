@@ -169,4 +169,7 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 		}
 		return orderDTOs;
 	}
+	public void saveOrUpdate(TBfOrder order){
+		orderDao.saveOrUpdate(order);
+	}
 }

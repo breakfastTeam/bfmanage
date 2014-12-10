@@ -162,12 +162,15 @@
                                             <input type = "hidden" value = "${item.orderId}"/>
                                             <c:choose>
                                                 <c:when test="${item.status eq 'DRAFT'}">
-                                                    <button title="<spring:message code="ORDER_DETAIL"/>" class="btn btn-primary btn-xs" name="showDetail">
+                                                    <button title="<spring:message code="ORDER_ACCEPT"/>" class="btn btn-success btn-xs" name="orderAccept">
                                                         <i class="fa fa-fighter-jet"></i>
+                                                    </button>
+                                                    <button title="<spring:message code="ORDER_CANCEL"/>" class="btn btn-danger btn-xs" name="orderCancel">
+                                                        <i class="fa fa-undo"></i>
                                                     </button>
                                                 </c:when>
                                                 <c:when test="${item.status eq 'DISTRIBUTION'}">
-                                                    <button title="<spring:message code="ORDER_DETAIL"/>" class="btn btn-danger btn-xs" name="showDetail">
+                                                    <button title="<spring:message code="ORDER_FINISH"/>" class="btn btn-danger btn-xs" name="orderFinish">
                                                         <i class="fa fa-power-off"></i>
                                                     </button>
                                                 </c:when>
@@ -175,7 +178,7 @@
                                             <button title="<spring:message code="ORDER_DETAIL"/>" class="btn btn-primary btn-xs" name="showDetail">
                                                 <i class="fa fa-info-circle"></i>
                                             </button>
-                                            <button title="<spring:message code="PRINT"/>" class="btn btn-warning btn-xs" name="showPrint">
+                                            <button title="<spring:message code="PRINT"/>" class="btn btn-info btn-xs" name="showPrint">
                                                 <i class="fa fa-print"></i>
                                             </button>
                                         </td>
