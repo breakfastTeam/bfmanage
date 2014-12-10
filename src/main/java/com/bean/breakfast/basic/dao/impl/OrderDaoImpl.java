@@ -23,14 +23,14 @@ public class OrderDaoImpl extends BaseDaoImpl<TBfOrder,String> implements OrderD
     public List<TBfOrder> getOrdersByUserId(String userId) {
         List<String> params = new ArrayList<String>();
         String hql = "from TBfOrder t where t.status=? and t.customerId=? order by createTime desc";
-        List<TBfOrder> orders = this.find(hql, IConstants.VALID, userId);
+        List<TBfOrder> orders = this.find(hql, IConstants.ENABLE, userId);
         return orders;
     }
     @Override
     public TBfOrder getLatestOrderByUserId(String userId) {
         List<String> params = new ArrayList<String>();
         String hql = "from TBfOrder t where t.status=? and t.customerId=? order by createTime desc";
-        List<TBfOrder> orders = this.find(hql, IConstants.VALID, userId);
+        List<TBfOrder> orders = this.find(hql, IConstants.ENABLE, userId);
         if(orders != null && orders.size()>0){
             return orders.get(0);
         }else{

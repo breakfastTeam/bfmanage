@@ -138,6 +138,6 @@ public class MobileUserController {
     @RequestMapping(value = "/getValidateCode")
     @ResponseBody
     public String getValidateCode(final HttpServletRequest request, final HttpServletResponse response){
-        return (String) request.getSession().getAttribute(IConstants.RANDOM_VALIDATE_CODE_KEY);
+        return (String) request.getSession().getAttribute(IConstants.RANDOM_ENABLEATE_CODE_KEY);
     }
 }

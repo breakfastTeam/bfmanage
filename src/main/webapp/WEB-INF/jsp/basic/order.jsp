@@ -143,10 +143,35 @@
                                                 ${item.preSendTime}
                                         </td>
                                         <td>
-                                                ${item.status}
+                                            <c:choose>
+                                                <c:when test="${item.status eq 'DRAFT'}">
+                                                    <a style="color:#00CC00"><spring:message  code="ORDER_DRAFT" /></a>
+                                                </c:when>
+                                                <c:when test="${item.status eq 'DISTRIBUTION'}">
+                                                <a style="color:#CC3300"><spring:message  code="ORDER_DISTRIBUTION" /></a>
+                                                </c:when>
+                                                <c:when test="${item.status eq 'FINISH'}">
+                                                <a style="color:#CCCCCC"><spring:message  code="ORDER_FINISH" /></a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                <a style="color:#CCCCCC"><spring:message code="UNKNOWN"/></a>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
                                         <td>
                                             <input type = "hidden" value = "${item.orderId}"/>
+                                            <c:choose>
+                                                <c:when test="${item.status eq 'DRAFT'}">
+                                                    <button title="<spring:message code="ORDER_DETAIL"/>" class="btn btn-primary btn-xs" name="showDetail">
+                                                        <i class="fa fa-fighter-jet"></i>
+                                                    </button>
+                                                </c:when>
+                                                <c:when test="${item.status eq 'DISTRIBUTION'}">
+                                                    <button title="<spring:message code="ORDER_DETAIL"/>" class="btn btn-danger btn-xs" name="showDetail">
+                                                        <i class="fa fa-power-off"></i>
+                                                    </button>
+                                                </c:when>
+                                            </c:choose>
                                             <button title="<spring:message code="ORDER_DETAIL"/>" class="btn btn-primary btn-xs" name="showDetail">
                                                 <i class="fa fa-info-circle"></i>
                                             </button>

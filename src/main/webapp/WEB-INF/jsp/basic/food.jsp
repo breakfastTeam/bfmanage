@@ -123,7 +123,29 @@
                                                 ${item.saleTime}
                                         </td>
                                         <td>
-                                                ${item.status}
+                                            <c:choose>
+                                                <c:when test="${item.status eq 'PUTAWAY'}">
+                                                    <a style="color:#00CC00">
+                                                        <spring:message code="PUTAWAY" />
+                                                    </a>
+                                                </c:when>
+                                                <c:when test="${item.status eq 'SOLD_PUT'}">
+                                                    <a style="color:#CC3300">
+                                                        <spring:message code="SOLD_PUT" />
+                                                    </a>
+                                                </c:when>
+                                                <c:when test="${item.status eq 'DISCARD'}">
+                                                    <a style="color:#CCCCCC">
+                                                        <spring:message code="DISCARD" />
+                                                    </a>
+                                                </c:when>
+
+                                                <c:otherwise>
+                                                    <a style="color:#CCCCCC">
+                                                        <spring:message code="UNKNOWN" />
+                                                    </a>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
                                         <td>
                                             <input type = "hidden" value = "${item.foodId}">

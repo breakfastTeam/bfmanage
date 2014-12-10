@@ -56,7 +56,7 @@ public class UserServiceImpl extends BaseServiceImpl<TBfUser,String> implements 
 	}
 
 	public String saveUser(TBfUser user) {
-		user.setStatus(IConstants.VALID);
+		user.setStatus(IConstants.ENABLE);
 		user.setCreateTime(IDateUtil.getCurrentTimeDate());
 		return userDao.save(user);
 	}

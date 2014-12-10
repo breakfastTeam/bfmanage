@@ -24,8 +24,8 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     public TBfUser getUserByLoginName(String loginName) {
         List<String> params = new ArrayList<String>();
         String hql = "from TBfUser t where t.status=? and t.loginName=?";
-        params.add(IConstants.VALID);
-        List<TBfUser> users = this.find(hql, IConstants.VALID, loginName);
+        params.add(IConstants.ENABLE);
+        List<TBfUser> users = this.find(hql, IConstants.ENABLE, loginName);
         if(users.size()>0){
             return users.get(0);
         }else{
@@ -37,8 +37,8 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     public TBfUser getUserByWeixin(String weixin) {
         List<String> params = new ArrayList<String>();
         String hql = "from TBfUser t where t.status=? and t.weixin=?";
-        params.add(IConstants.VALID);
-        List<TBfUser> users = this.find(hql, IConstants.VALID, weixin);
+        params.add(IConstants.ENABLE);
+        List<TBfUser> users = this.find(hql, IConstants.ENABLE, weixin);
         if(users.size()>0){
             return users.get(0);
         }else{
@@ -50,8 +50,8 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     public TBfUser getUserByPhone(String phone) {
         List<String> params = new ArrayList<String>();
         String hql = "from TBfUser t where t.status=? and t.mobile=?";
-        params.add(IConstants.VALID);
-        List<TBfUser> users = this.find(hql, IConstants.VALID, phone);
+        params.add(IConstants.ENABLE);
+        List<TBfUser> users = this.find(hql, IConstants.ENABLE, phone);
         if(users.size()>0){
             return users.get(0);
         }else{
@@ -63,7 +63,7 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     public Page<TBfUser> findUser(Page<TBfUser> page, TBfUser user) {
             List<Object> params = new ArrayList<Object>();
             String hql = "from TBfUser t where t.status=?";
-            params.add(IConstants.VALID);
+            params.add(IConstants.ENABLE);
             if (IStringUtil.isNotBlank(user.getMobile())) {
                 hql = hql + " and t.mobile like ?";
                 params.add("%" + user.getMobile() + "%");
@@ -75,7 +75,7 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     public Page<TBfUser> findUserCourier(Page<TBfUser> page, TBfUser user) {
         List<Object> params = new ArrayList<Object>();
         String hql = "from TBfUser t where t.status=? and t.userId in (select t1.userId from TBfUserCourier t1)  ";
-        params.add(IConstants.VALID);
+        params.add(IConstants.ENABLE);
         if (IStringUtil.isNotBlank(user.getMobile())) {
             hql = hql + " and t.mobile like ?";
             params.add("%" + user.getMobile() + "%");
@@ -87,7 +87,7 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     public Page<TBfUser> findUserCustomer(Page<TBfUser> page, TBfUser user) {
         List<Object> params = new ArrayList<Object>();
         String hql = "from TBfUser t where t.status=? and t.userId in ( select t1.userId from TBfUserCustomer t1) ";
-        params.add(IConstants.VALID);
+        params.add(IConstants.ENABLE);
         if (IStringUtil.isNotBlank(user.getMobile())) {
             hql = hql + " and t.mobile like ?";
             params.add("%" + user.getMobile() + "%");
@@ -99,7 +99,7 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     public List<TBfUser> findUser(TBfUser user) {
         List<Object> params = new ArrayList<Object>();
         String hql = "from TBfUser t where t.status=?";
-        params.add(IConstants.VALID);
+        params.add(IConstants.ENABLE);
         if (IStringUtil.isNotBlank(user.getMobile())) {
             hql = hql + " and t.mobile like ?";
             params.add("%" + user.getMobile() + "%");

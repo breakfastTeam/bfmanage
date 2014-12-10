@@ -106,7 +106,7 @@ public class SetMealController {
         setMeal.setSaleTime(IDateUtil.parseDate(saleTime, 1));
         setMeal.setStartTime(IDateUtil.parseDate(startTime, 1));
         setMeal.setEndTime(IDateUtil.parseDate(endTime, 1));
-        setMeal.setStatus(IConstants.VALID);
+        setMeal.setStatus(IConstants.ENABLE);
         SetMealDTO setMealDTO = new SetMealDTO();
         setMealDTO.setSetMeal(setMeal);
         setMealDTO.setFoods(foodList);

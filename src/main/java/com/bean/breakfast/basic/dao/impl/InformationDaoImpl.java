@@ -23,7 +23,7 @@ public class InformationDaoImpl extends BaseDaoImpl<TBfInformation, String> impl
     public Page<TBfInformation> findInformation(Page<TBfInformation> page, TBfInformation information) {
         List<Object> params = new ArrayList<Object>();
         String hql = "from TBfInformation t where t.status=?";
-        params.add(IConstants.VALID);
+        params.add(IConstants.ENABLE);
         if (IStringUtil.isNotBlank(information.getTitle())) {
             hql = hql + " and t.title like ?";
             params.add("%" + information.getTitle() + "%");

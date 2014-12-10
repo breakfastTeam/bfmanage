@@ -15,7 +15,7 @@ public class IConstants {
 	public static final String ERROR_CODE = "000000";//操作失败
 	public static final String ERROR = "error";
 	public static final String SUCCESS = "success";
-	public static final String RANDOM_VALIDATE_CODE_KEY = "RandomValidateCode";//验证码随机码的key
+	public static final String RANDOM_ENABLEATE_CODE_KEY = "RandomValidateCode";//验证码随机码的key
 	
 	/**************搜索*************/
 	public static int DEFAULT_PAGE_SIZE = 10;
@@ -27,9 +27,18 @@ public class IConstants {
 	public static final String OPERATE_ERROR = "error";
 	public static final String SERVER_EXCEPTION = "exception";
 	public static final String INFO = "info";
-	public static final String VALID = "VALID";
-	public static final String INVALID  = "INVALID";
+	public static final String ENABLE = "ENABLE";
+	public static final String DISABLE  = "DISABLE";
 	public static final String FORBIDDEN  = "FORBIDDEN";
+
+	public static final String STATUS_PUTAWAY = "PUTAWAY";
+	public static final String STATUS_SOLD_PUT = "SOLD_PUT";
+	public static final String STATUS_DISCARD = "DISCARD";
+
+	public static final String STATUS_DRAFT = "DRAFT";
+	public static final String STATUS_DISTRIBUTION = "DISTRIBUTION";
+	public static final String STATUS_FINISH = "FINISH";
+
 	public static final String ACTIVE  = "1";
 	public static final String ACCESS_CODE = "accessCode";
 	public static final String ON = "on";

@@ -68,8 +68,8 @@ public class RandomValidateCodeUtil {
         for(int i=1;i<=stringNum;i++){
             randomString=drawString(g,randomString,i);
         }
-        session.removeAttribute(IConstants.RANDOM_VALIDATE_CODE_KEY);
-        session.setAttribute(IConstants.RANDOM_VALIDATE_CODE_KEY, randomString);
+        session.removeAttribute(IConstants.RANDOM_ENABLEATE_CODE_KEY);
+        session.setAttribute(IConstants.RANDOM_ENABLEATE_CODE_KEY, randomString);
         g.dispose();
         return image;
     }

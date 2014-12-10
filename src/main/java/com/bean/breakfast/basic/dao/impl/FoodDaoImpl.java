@@ -19,7 +19,7 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 	public int getOrderNum() {
 		String hql = "select count(t.foodId) from TBfFood t where t.status=? or t.status=?";
 		Query query = getSession().createQuery(hql);
-		query.setParameter(0, IConstants.VALID);
+		query.setParameter(0, IConstants.ENABLE);
 		query.setParameter(1, IConstants.FORBIDDEN);
 		return ((Number)query.iterate().next()).intValue();
 	}
@@ -27,7 +27,7 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 	public List<TBfFood> findFood(TBfFood food) {
 		List<Object> params = new ArrayList<Object>();
 		String hql = "from TBfFood t where t.status=?";
-		params.add(IConstants.VALID);
+		params.add(IConstants.ENABLE);
 		if(IStringUtil.isNotBlank(food.getFoodName())){
 			hql = hql + " and t.foodName like ?";
 			params.add("%"+food.getFoodName()+"%");
@@ -38,7 +38,7 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 	public Page<TBfFood> findFood(Page<TBfFood> page, TBfFood food) {
 		List<Object> params = new ArrayList<Object>();
 		String hql = "from TBfFood t where t.status=?";
-		params.add(IConstants.VALID);
+		params.add(IConstants.ENABLE);
 		if(IStringUtil.isNotBlank(food.getFoodName())){
 			hql = hql + " and t.foodName like ?";
 			params.add("%"+food.getFoodName()+"%");
@@ -49,7 +49,7 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 	public Page<TBfFood> findFoodWithSaleTime(Page<TBfFood> page, TBfFood food) {
 		List<Object> params = new ArrayList<Object>();
 		String hql = "from TBfFood t where t.status=? and t.saleTime>=?";
-		params.add(IConstants.VALID);
+		params.add(IConstants.ENABLE);
 		params.add(IDateUtil.getCurrentTimeDate());
 		if(IStringUtil.isNotBlank(food.getFoodName())){
 			hql = hql + " and t.foodName like ?";

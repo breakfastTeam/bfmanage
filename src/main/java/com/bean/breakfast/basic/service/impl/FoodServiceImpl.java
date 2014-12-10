@@ -79,7 +79,7 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 
 		food.setSmallPicId(smallPic.getFileId());
 		food.setOrginPicId(bigPic.getFileId());
-		food.setStatus(IConstants.VALID);
+		food.setStatus(IConstants.ENABLE);
 		foodDao.saveOrUpdate(food);
 	}
 	public Page<FoodDTO> findFood(Page<TBfFood> page, TBfFood food) {

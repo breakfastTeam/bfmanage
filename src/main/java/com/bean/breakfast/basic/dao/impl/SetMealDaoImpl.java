@@ -24,7 +24,7 @@ public class SetMealDaoImpl extends BaseDaoImpl<TBfSetMeal,String>  implements S
     public Page<TBfSetMeal> findSetMeal(Page<TBfSetMeal> page, TBfSetMeal setMeal) {
         List<Object> params = new ArrayList<Object>();
         String hql = "from TBfSetMeal t where t.status=?";
-        params.add(IConstants.VALID);
+        params.add(IConstants.ENABLE);
         if(IStringUtil.isNotBlank(setMeal.getSetName())){
             hql = hql + " and t.setName like ?";
             params.add("%"+setMeal.getSetName()+"%");
@@ -41,7 +41,7 @@ public class SetMealDaoImpl extends BaseDaoImpl<TBfSetMeal,String>  implements S
     public int getShowOrder() {
         String hql = "select count(t.setMealId) from TBfSetMeal t where t.status=? or t.status=?";
         Query query = getSession().createQuery(hql);
-        query.setParameter(0, IConstants.VALID);
+        query.setParameter(0, IConstants.ENABLE);
         query.setParameter(1, IConstants.FORBIDDEN);
         return ((Number) query.iterate().next()).intValue();
     }

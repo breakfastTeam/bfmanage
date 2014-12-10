@@ -73,7 +73,7 @@ public class UserCourierController {
         user.setUserName(userName);
         user.setQq(qq);
         user.setWeixin(weixin);
-        user.setStatus(IConstants.VALID);
+        user.setStatus(IConstants.ENABLE);
         user.setCreateTime(IDateUtil.getCurrentTimeDate());
         user.setRegisterTime(IDateUtil.getCurrentTimeDate());
 
