@@ -4,7 +4,7 @@ var BelAddFood = function() {
         init: function() {
             var um = UM.getEditor('briefIntroEditor');
             var briefIntroContent = $("#briefIntroContent").val();
-            um.execCommand('insertHtml', briefIntroContent);
+            um.setContent(briefIntroContent);
             bundleDatepicker();
             $("#save").click(function() {
                     var content = um.getContent();
