@@ -22,15 +22,15 @@ public class OrderDaoImpl extends BaseDaoImpl<TBfOrder,String> implements OrderD
     @Override
     public List<TBfOrder> getOrdersByUserId(String userId) {
         List<String> params = new ArrayList<String>();
-        String hql = "from TBfOrder t where t.status=? and t.customerId=? order by createTime desc";
-        List<TBfOrder> orders = this.find(hql, IConstants.ENABLE, userId);
+        String hql = "from TBfOrder t where t.customerId=? order by createTime desc";
+        List<TBfOrder> orders = this.find(hql,  userId);
         return orders;
     }
     @Override
     public TBfOrder getLatestOrderByUserId(String userId) {
         List<String> params = new ArrayList<String>();
-        String hql = "from TBfOrder t where t.status=? and t.customerId=? order by createTime desc";
-        List<TBfOrder> orders = this.find(hql, IConstants.ENABLE, userId);
+        String hql = "from TBfOrder t where t.customerId=? order by createTime desc";
+        List<TBfOrder> orders = this.find(hql, userId);
         if(orders != null && orders.size()>0){
             return orders.get(0);
         }else{
@@ -54,6 +54,10 @@ public class OrderDaoImpl extends BaseDaoImpl<TBfOrder,String> implements OrderD
             if(IStringUtil.isNotBlank(order.getConsigneeName())){
                 hql.append(" and t.consigneeName like ?");
                 params.add("%"+order.getConsigneeName()+"%");
+            }
+            if(IStringUtil.isNotBlank(order.getStatus())){
+                hql.append(" and t.status=?");
+                params.add(order.getStatus());
             }
         }
         hql.append(" order by t.createTime desc");

@@ -35,7 +35,10 @@ public class SystemInterceptor extends HandlerInterceptorAdapter{
                 "/bfmanage/mobile/toBuyNow.do",
                 "/bfmanage/mobile/toMyOrders.do",
                 "/bfmanage/mobile/foodDetail.do",
-                "/bfmanage/mobile/foodList.do"
+                "/bfmanage/mobile/foodList.do",
+				"/bfmanage/mobile/updateCourierPostion.do",
+				"/bfmanage/mobile/getAllNewOrders.do",
+
         };
 		String uri = request.getRequestURI();
 		boolean beFilter = true;

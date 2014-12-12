@@ -11,7 +11,7 @@ import javax.persistence.*;
  * @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "t_bf_set_foods", catalog = "breakfast", uniqueConstraints = {})
+@Table(name = "t_bf_set_foods")
 public class TBfSetFoods implements java.io.Serializable {
 
 	// Fields

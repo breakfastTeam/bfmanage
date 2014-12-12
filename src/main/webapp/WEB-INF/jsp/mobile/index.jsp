@@ -38,7 +38,7 @@
             </div>
             <div id="header-content-mid" class="col-lg-14">
             </div>
-            <div id="shopCart" class="col-lg-5">
+            <div id="shopCart" class="col-lg-5" style = "display:none;">
                 <button data-effect="st-effect-9" id="i-shop-cart"></button>
             </div>
         </div>

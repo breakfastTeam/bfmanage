@@ -56,7 +56,7 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 		order.setComments(orderDTO.getRemark());
 		order.setPreSendDate(orderDTO.getPreSendDate());
 		order.setPreSendTime(orderDTO.getPreSendTime());
-		order.setStatus(IConstants.ENABLE);
+		order.setStatus(IConstants.STATUS_DRAFT);
 		order.setCreateTime(IDateUtil.getCurrentTimeDate());
 		String orderId = orderDao.save(order);
 		List<FoodDTO> foods = orderDTO.getFoods();

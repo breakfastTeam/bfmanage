@@ -12,6 +12,7 @@ import com.bean.breakfast.basic.service.OrderService;
 import com.bean.breakfast.basic.service.UserService;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.breakfast.utils.MsgUtil;
+import com.bean.core.page.Page;
 import com.bean.core.utils.IDateUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class MobileOrderController {
 
     @Autowired
     private FoodService foodService;
+
+    Page<OrderDTO> pageDTO = new Page<OrderDTO>(IConstants.DEFAULT_PAGE_SIZE);
 
 
     /**
@@ -148,6 +151,33 @@ public class MobileOrderController {
             }
             return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg(order);
         }catch(Exception e){
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
+    }
+    /**
+     * 获取所有有效预定订单
+     *
+     * @param reqData String 请求的报文字符串
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getAllNewOrders")
+    public String getAllNewOrders(@RequestBody final String reqData, final HttpServletRequest request) {
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        try {
+            TBfOrder order = new TBfOrder();
+            order.setStatus(IConstants.STATUS_DRAFT);
+            pageDTO = orderService.findOrders(pageDTO, order);
+            if(pageDTO.getResult() != null && pageDTO.getResult().size() > 0){
+                return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+            }else{
+                return msgUtil.generateHeadMsg(IConstants.EXCEPTION_CODE, "No New Orders").generateRtnMsg();
+            }
+        } catch (Exception e) {
             e.printStackTrace();
             return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
         }

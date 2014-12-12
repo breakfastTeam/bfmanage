@@ -47,10 +47,10 @@
     </div>
 
     <div class="row" style="margin: 0 auto;">
-        <div class="col-lg-12">
+        <div class="col-lg-12" style = "display:none;">
             <a href="javascript:void(0)" sale-out="false" id="shopCartButton" class="col-lg-24 btn btn-primary btn-large">加入购物车</a>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-24">
             <a href="javascript:void(0)" sale-out="false" id="buyNowButton" class="col-lg-24 btn btn-warning btn-large">立即购买</a>
         </div>
 
@@ -61,7 +61,7 @@
 
     </div>
 
-    <div class="row" style = "margin-top: 10px;">
+    <div class="row" style = "margin-top: 10px;margin-bottom: 10px;">
         <div class="col-lg-24">
             <a href="javascript:void(0)" sale-out="false" id="returnToHome" class="col-lg-24 btn btn-primary btn-large">返回首页</a>
         </div>
