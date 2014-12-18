@@ -72,8 +72,9 @@
                         <li class=""><a href="javascript:void(0)"
                                         onclick="openNewUrl('${ctx}/basic/toSetMeal.do')"><spring:message
                                 code="SET_MEAL_MANAGE"/></a></li>
-                        <li class=""><a href="javascript:void(0)" onclick="openNewUrl('${ctx}/basic/toInformation.do')"><spring:message
-                                code="INFORMATION_MANAGE"/></a></li>
+                        <li class=""><a href="javascript:void(0)"
+                                        onclick="openNewUrl('${ctx}/basic/toRawMaterial.do')"><spring:message
+                                code="RAW_MATERIAL_MANAGE"/></a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -91,6 +92,22 @@
                         <li class=""><a href="javascript:void(0)"
                                         onclick="openNewUrl('${ctx}/basic/toUserCustomer.do')"><spring:message
                                 code="USER_CUSTOMER_MANAGE"/></a></li>
+                        <li class=""><a href="javascript:void(0)"
+                                        onclick="openNewUrl('${ctx}/basic/toProvider.do')"><spring:message
+                                code="PROVIDER_MANAGE"/></a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="fa  fa-info"></i>
+                        <span><spring:message code="INFORMATION_FUN"/></span>
+                    </a>
+                    <ul class="sub">
+
+                        <li class=""><a href="javascript:void(0)" onclick="openNewUrl('${ctx}/basic/toInformation.do')"><spring:message
+                                code="INFORMATION_MANAGE"/></a></li>
+                        <li class=""><a href="javascript:void(0)" onclick="openNewUrl('${ctx}/basic/toFeedback.do')"><spring:message
+                                code="FEEDBACK_MANAGE"/></a></li>
                     </ul>
                 </li>
             </ul>
@@ -98,7 +115,7 @@
         </div>
     </aside>
     <!--sidebar end-->
-    <iframe id="main-content" src="${ctx}/basic/toFood.do"
+    <iframe id="main-content" src="${ctx}/basic/toOrder.do"
             frameborder="0" border="0" marginwidth="0" marginheight="0"></iframe>
     <!--footer start-->
     <footer class="site-footer">

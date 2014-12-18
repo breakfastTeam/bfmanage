@@ -1,12 +1,9 @@
 package com.bean.breakfast.basic.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 /**
  * TBfRawMaterial entity.
@@ -62,6 +59,8 @@ public class TBfRawMaterial implements java.io.Serializable {
 
 	// Property accessors
 	@Id
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "uuid")
 	@Column(name = "raw_material_id", unique = true, nullable = false, insertable = true, updatable = true, length = 32)
 	public String getRawMaterialId() {
 		return this.rawMaterialId;

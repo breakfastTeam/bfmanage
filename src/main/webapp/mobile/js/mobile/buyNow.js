@@ -261,6 +261,9 @@ var BelOrderNow = function() {
 				var seven = 7*60;
 				var fiftyAndHalf = 15*60+30;
 				var twentySecond = 22*60;
+				var eleven = 11*60;
+				var elevenAndHalf=11*60+30;
+
 				var preSendTimeObj = $("#preSendTime");
 				if(now<seven){
 					$("#buyNowButton").text("马上开门");
@@ -269,7 +272,13 @@ var BelOrderNow = function() {
 
 					var info = '<option value = "-1">马上开门</option>';
 					preSendTimeObj.append(info);
-				}else if(now >= seven && now <fiftyAndHalf){
+				}else if(now >= seven && now <eleven){
+					var info = '<option value = "-1">请选择</option><option value = "11:30-11:50">11:30-11:50</option><option value = "11:50-12:10">11:50-12:10</option><option value = "12:10-12:30">12:10-12:30</option><option value = "12:30-12:50">12:30-12:50</option><option value = "12:50-13:10">12:50-13:10</option><option value = "13:10-13:30">13:10-13:30</option><option value = "17:30-18:00">17:30-18:00</option><option value = "18:00-18:30">18:00-18:30</option><option value = "18:30-19:00">18:30-19:00</option><option value = "19:00-19:30">19:00-19:30</option><option value = "19:30-20:00">19:30-20:00</option><option value = "07:00-07:30">07:00-07:30(次日)</option><option value = "07:30-08:00">07:30-08:00(次日)</option><option value = "08:00-08:30">08:00-08:30(次日)</option><option value = "08:30-09:00">08:30-09:00(次日)</option><option value = "09:00-09:30">09:00-09:30(次日)</option><option value = "09:30-10:00">09:30-10:00(次日)</option>'
+					preSendTimeObj.append(info);
+				}else if(now >= eleven && now <elevenAndHalf){
+					var info = '<option value = "-1">请选择</option><option value = "11:50-12:10">11:50-12:10</option><option value = "12:10-12:30">12:10-12:30</option><option value = "12:30-12:50">12:30-12:50</option><option value = "12:50-13:10">12:50-13:10</option><option value = "13:10-13:30">13:10-13:30</option><option value = "17:30-18:00">17:30-18:00</option><option value = "18:00-18:30">18:00-18:30</option><option value = "18:30-19:00">18:30-19:00</option><option value = "19:00-19:30">19:00-19:30</option><option value = "19:30-20:00">19:30-20:00</option><option value = "07:00-07:30">07:00-07:30(次日)</option><option value = "07:30-08:00">07:30-08:00(次日)</option><option value = "08:00-08:30">08:00-08:30(次日)</option><option value = "08:30-09:00">08:30-09:00(次日)</option><option value = "09:00-09:30">09:00-09:30(次日)</option><option value = "09:30-10:00">09:30-10:00(次日)</option>'
+					preSendTimeObj.append(info);
+				}else if(now >= elevenAndHalf && now <fiftyAndHalf){
 					var info = '<option value = "-1">请选择</option><option value = "17:30-18:00">17:30-18:00</option><option value = "18:00-18:30">18:00-18:30</option><option value = "18:30-19:00">18:30-19:00</option><option value = "19:00-19:30">19:00-19:30</option><option value = "19:30-20:00">19:30-20:00</option><option value = "07:00-07:30">07:00-07:30(次日)</option><option value = "07:30-08:00">07:30-08:00(次日)</option><option value = "08:00-08:30">08:00-08:30(次日)</option><option value = "08:30-09:00">08:30-09:00(次日)</option><option value = "09:00-09:30">09:00-09:30(次日)</option><option value = "09:30-10:00">09:30-10:00(次日)</option>'
 					preSendTimeObj.append(info);
 				}else if(now >= fiftyAndHalf && now < twentySecond){
