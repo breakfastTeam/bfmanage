@@ -54,6 +54,10 @@ public class SystemInterceptor extends HandlerInterceptorAdapter{
 					break;
 				}
 			}
+			if(uri.endsWith(".jpg")||uri.endsWith(".JPEG")||uri.endsWith(".png")||uri.endsWith(".PNG")
+					||uri.endsWith(".bmp")||uri.endsWith(".BMP")||uri.endsWith(".gif")||uri.endsWith(".GIF")){
+				beFilter = false;
+			}
 
 		}
 		if (beFilter) {

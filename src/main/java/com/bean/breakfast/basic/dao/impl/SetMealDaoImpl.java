@@ -23,8 +23,8 @@ public class SetMealDaoImpl extends BaseDaoImpl<TBfSetMeal,String>  implements S
     @Override
     public Page<TBfSetMeal> findSetMeal(Page<TBfSetMeal> page, TBfSetMeal setMeal) {
         List<Object> params = new ArrayList<Object>();
-        String hql = "from TBfSetMeal t where t.status=?";
-        params.add(IConstants.ENABLE);
+        String hql = "from TBfSetMeal t where t.status<>?";
+        params.add(IConstants.DISABLE);
         if(IStringUtil.isNotBlank(setMeal.getSetName())){
             hql = hql + " and t.setName like ?";
             params.add("%"+setMeal.getSetName()+"%");

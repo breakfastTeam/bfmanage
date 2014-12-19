@@ -1,5 +1,6 @@
 package com.bean.breakfast.basic.controller;
 
+import com.bean.breakfast.basic.dto.RawMaterialDTO;
 import com.bean.breakfast.basic.model.TBfProvider;
 import com.bean.breakfast.basic.model.TBfRawMaterial;
 import com.bean.breakfast.basic.service.ProviderService;
@@ -15,13 +16,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/basic")
 public class RawMaterialController {
     @Autowired
     private RawMaterialService rawMaterialService;
+    @Autowired
+    private ProviderService providerService;
+
+
     Page<TBfRawMaterial> page = new Page<TBfRawMaterial>(IConstants.DEFAULT_PAGE_SIZE);
+    Page<RawMaterialDTO> pageDTO = new Page<RawMaterialDTO>(IConstants.DEFAULT_PAGE_SIZE);
 
     /**
      * 保存原材料信息
@@ -36,6 +43,7 @@ public class RawMaterialController {
         String rawMaterialId = request.getParameter("rawMaterialId");
         String rawMaterialName = request.getParameter("rawMaterialName");
         String priceStr = request.getParameter("price");
+        String providerId = request.getParameter("providerId");
         Double price = IStringUtil.isNotBlank(priceStr)?Double.parseDouble(priceStr):0;
         String unit = request.getParameter("unit");
 
@@ -56,6 +64,7 @@ public class RawMaterialController {
         rawMaterial.setRawMaterialName(rawMaterialName);
         rawMaterial.setUnit(unit);
         rawMaterial.setPrice(price);
+        rawMaterial.setProviderId(providerId);
         rawMaterial.setStatus(IConstants.ENABLE);
 
         rawMaterialService.saveOrUpdate(rawMaterial);
@@ -85,8 +94,8 @@ public class RawMaterialController {
         if (IStringUtil.isNotBlank(pageSizeStr) && IStringUtil.isNotBlank(pageNoStr)) {
             page.setPageNo(Integer.parseInt(pageNoStr));
         }
-        page = rawMaterialService.findRawMaterial(page, rawMaterial);
-        model.addObject("page", page);
+        pageDTO = rawMaterialService.findRawMaterial(page, rawMaterial);
+        model.addObject("page", pageDTO);
         model.addObject("rawMaterialName",rawMaterialName);
 
         return model;
@@ -103,8 +112,8 @@ public class RawMaterialController {
     public ModelAndView jumpToProvider() {
         ModelAndView model = new ModelAndView("basic/rawMaterial");
         TBfRawMaterial rawMaterial = new TBfRawMaterial();
-        page = rawMaterialService.findRawMaterial(page, rawMaterial);
-        model.addObject("page", page);
+        pageDTO = rawMaterialService.findRawMaterial(page, rawMaterial);
+        model.addObject("page", pageDTO);
         return model;
     }
 
@@ -121,7 +130,9 @@ public class RawMaterialController {
     @RequestMapping(value = "/toRawMaterialAdd")
     public ModelAndView toRawMaterialAdd(final HttpServletRequest request) {
         ModelAndView model = new ModelAndView("/basic/rawMaterialAdd");
-
+        TBfProvider provider = new TBfProvider();
+        List<TBfProvider> providers = providerService.findProvider(provider);
+        model.addObject("providers", providers);
         return model;
     }
     @RequestMapping(value = "/toRawMaterialEdit")

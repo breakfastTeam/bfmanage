@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface ProviderDao extends BaseDao<TBfProvider, String> {
     public Page<TBfProvider> findProvider(Page<TBfProvider> providerPage, TBfProvider provider);
+    public List<TBfProvider> findProvider(TBfProvider provider);
 }

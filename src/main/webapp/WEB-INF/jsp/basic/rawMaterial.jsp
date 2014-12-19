@@ -76,6 +76,9 @@
                                     <th>
                                         <spring:message code="RAW_MATERIAL_PRICE"/>
                                     </th>
+                                    <th>
+                                        <spring:message code="PROVIDER_NAME"/>
+                                    </th>
 
                                     <th>
                                         <spring:message code="STAT"/>
@@ -90,25 +93,27 @@
                                     <tr class="">
                                         <td>
                                             <label class="label_check">
-                                                <input value="${item.rawMaterialId}" name="rawMaterialId"
-                                                       id="checkbox${item.rawMaterialId}" type="checkbox">
+                                                <input value="${item.rawMaterial.rawMaterialId}" name="rawMaterialId"
+                                                       id="checkbox${item.rawMaterial.rawMaterialId}" type="checkbox">
                                             </label>
                                         </td>
                                         <td>
-                                                ${item.rawMaterialName }
+                                                ${item.rawMaterial.rawMaterialName }
                                         </td>
                                         <td>
-                                                ${item.price }${item.unit }
+                                                ${item.rawMaterial.price }${item.rawMaterial.unit }
                                         </td>
-
+                                        <td>
+                                                ${item.provider.providerName }
+                                        </td>
                                         <td>
                                             <c:choose>
-                                                <c:when test="${item.status eq 'ENABLE'}">
+                                                <c:when test="${item.rawMaterial.status eq 'ENABLE'}">
                                                     <a style="color:#00CC00">
                                                         <spring:message code="ENABLE" />
                                                     </a>
                                                 </c:when>
-                                                <c:when test="${item.status eq 'DISABLE'}">
+                                                <c:when test="${item.rawMaterial.status eq 'DISABLE'}">
                                                     <a style="color:#CC3300">
                                                         <spring:message code="DISABLE" />
                                                     </a>
@@ -121,7 +126,7 @@
                                             </c:choose>
                                         </td>
                                         <td>
-                                            <input type = "hidden" value = "${item.rawMaterialId}">
+                                            <input type = "hidden" value = "${item.rawMaterial.rawMaterialId}">
                                             <button class="btn btn-primary btn-xs" name = "rawMaterialEdit">
                                                 <i class="fa fa-pencil"></i>
                                             </button>

@@ -11,4 +11,5 @@ public interface ProviderService extends BaseService<TBfProvider, String> {
 	public void saveOrUpdate(TBfProvider provider);
 	public Page<TBfProvider> findProvider(Page<TBfProvider> providerPage, TBfProvider provider);
 	public TBfProvider getProvider(String providerId);
+	public List<TBfProvider> findProvider(TBfProvider provider);
 }

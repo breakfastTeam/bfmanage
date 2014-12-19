@@ -36,4 +36,13 @@ public class ProviderDaoImpl extends BaseDaoImpl<TBfProvider, String> implements
         hql = hql + " order by createTime desc";
         return this.findByHql(page, hql, params);
     }
+
+    @Override
+    public List<TBfProvider> findProvider(TBfProvider provider) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from TBfProvider t where t.status=?";
+        params.add(IConstants.ENABLE);
+        hql = hql + " order by createTime desc";
+        return this.find(hql, params);
+    }
 }

@@ -50,7 +50,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="col-lg-6 control-label"><spring:message code="PROVIDER_NAME"/>：</label>
+                                    <label class="col-lg-6 control-label"><spring:message code="RAW_MATERIAL_NAME"/>：</label>
                                     <div class="col-lg-18">
                                         <input type="text" placeholder="" id="rawMaterialName" name="rawMaterialName"
                                                class="form-control" value="${rawMaterial.rawMaterialName}">
@@ -59,7 +59,18 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="PROVIDER_NAME"/>：</label>
+                                    <div class="col-lg-18">
+                                        <select class="form-control" id = "providerId" name = "providerId">
+                                            <c:forEach items="${providers}" var="item" varStatus="status">
+                                            <option value = "${item.providerId}">${item.providerName}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">

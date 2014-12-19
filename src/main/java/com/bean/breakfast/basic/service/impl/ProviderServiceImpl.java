@@ -50,4 +50,9 @@ public class ProviderServiceImpl extends BaseServiceImpl<TBfProvider,String> imp
 		}
 	}
 
+	@Override
+	public List<TBfProvider> findProvider(TBfProvider provider) {
+		return providerDao.findProvider(provider);
+	}
+
 }
