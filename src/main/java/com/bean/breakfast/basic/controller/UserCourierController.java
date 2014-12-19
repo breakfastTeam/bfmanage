@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/basic")
@@ -88,7 +89,6 @@ public class UserCourierController {
         return jumpToCourier();
     }
 
-
     /**
      * 跳转到添加快递员的页面
      *
@@ -145,6 +145,32 @@ public class UserCourierController {
         page = userCourierService.findUserCourierDTO(page, userCourierDTO);
         model.addObject("page", page);
         model.addObject("mobile",mobile );
+        return model;
+    }
+    /**
+     * 跳转到公告管理页面
+     *
+     * @param request HttpServletRequest request请求
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+
+    @RequestMapping(value = "/toOrderCourier")
+    public ModelAndView toOrderCourier(final HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("basic/orderCourier");
+        String orderId = request.getParameter("orderId");
+        TBfUser user = new TBfUser();
+
+        TBfUserCourier userCourier = new TBfUserCourier();
+        UserCourierDTO userCourierDTO = new UserCourierDTO();
+        userCourierDTO.setUser(user);
+        userCourierDTO.setCourier(userCourier);
+
+        List<UserCourierDTO> userCouriers = userCourierService.findUserCourierDTO(userCourierDTO);
+        model.addObject("userCouriers", userCouriers);
+        model.addObject("orderId", orderId);
         return model;
     }
     /**

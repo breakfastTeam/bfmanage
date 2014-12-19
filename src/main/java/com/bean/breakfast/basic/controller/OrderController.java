@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.dto.OrderDTO;
 import com.bean.breakfast.basic.dto.OrderDetailDTO;
+import com.bean.breakfast.basic.model.TBfExpress;
 import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.model.TBfOrder;
+import com.bean.breakfast.basic.service.ExpressService;
 import com.bean.breakfast.basic.service.FoodService;
 import com.bean.breakfast.basic.service.OrderService;
 import com.bean.breakfast.constants.IConstants;
@@ -30,6 +32,10 @@ import java.util.*;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private ExpressService expressService;
+
 
     Page<TBfOrder> page = new Page<TBfOrder>(IConstants.DEFAULT_PAGE_SIZE);
     Page<OrderDTO> pageDTO = new Page<OrderDTO>(IConstants.DEFAULT_PAGE_SIZE);
@@ -119,7 +125,6 @@ public class OrderController {
 
     /**
      * 修改订单状态
-     *
      * @param reqData String 请求的报文字符串
      * @return model ModelAndView 基本返回对象
      * @author Felix
@@ -137,10 +142,26 @@ public class OrderController {
             json = JSONObject.parseObject(reqData);
             bodyObj = json.getJSONObject("body");
             String orderId = bodyObj.getString("orderId");
+            String courierId = bodyObj.getString("userId");
             String status = bodyObj.getString("status");
             TBfOrder order = orderService.getOrder(orderId);
             order.setStatus(status);
-            orderService.saveOrUpdate(order);
+            if(IStringUtil.isNotBlank(courierId)){
+                TBfExpress express = expressService.getExpressByOrderId(orderId);
+                if(express == null){
+                    express = new TBfExpress();
+                    express.setCourierId(courierId);
+                    express.setOrderId(orderId);
+                    express.setStatus(IConstants.ENABLE);
+                    express.setCreateTime(IDateUtil.getCurrentTimeDate());
+                }else{
+                    express.setCourierId(courierId);
+                    express.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+                }
+                orderService.saveOrUpdateOrderAndExpress(order, express);
+            }else {
+                orderService.saveOrUpdate(order);
+            }
             return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
         } catch (Exception e) {
             e.printStackTrace();

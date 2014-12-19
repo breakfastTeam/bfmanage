@@ -1,12 +1,9 @@
 package com.bean.breakfast.basic.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 /**
  * TBfExpress entity.
@@ -66,6 +63,8 @@ public class TBfExpress implements java.io.Serializable {
 
 	// Property accessors
 	@Id
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "uuid")
 	@Column(name = "express_id", unique = true, nullable = false, insertable = true, updatable = true, length = 32)
 	public String getExpressId() {
 		return this.expressId;
@@ -140,7 +139,7 @@ public class TBfExpress implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getCreateTime() {
 		return this.createTime;
@@ -159,7 +158,7 @@ public class TBfExpress implements java.io.Serializable {
 		this.createBy = createBy;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "last_modify_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getLastModifyTime() {
 		return this.lastModifyTime;

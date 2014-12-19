@@ -10,5 +10,6 @@ import java.util.List;
 public interface ExpressService extends BaseService<TBfExpress, String> {
 	public void saveOrUpdate(TBfExpress express);
 	public List<TBfExpress> getExpressByCourierId(String courierId);
+	public TBfExpress getExpressByOrderId(String orderId);
 	public void updateCourierPostion(String courierId, String longitude, String latitude) throws Exception;
 }

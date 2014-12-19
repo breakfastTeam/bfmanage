@@ -84,6 +84,18 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
         return this.findByHql(page, hql, params);
     }
     @Override
+    public List<TBfUser> findUserCourier(TBfUser user) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from TBfUser t where t.status=? and t.userId in (select t1.userId from TBfUserCourier t1)  ";
+        params.add(IConstants.ENABLE);
+        if (IStringUtil.isNotBlank(user.getMobile())) {
+            hql = hql + " and t.mobile like ?";
+            params.add("%" + user.getMobile() + "%");
+        }
+        hql = hql + " order by t.createTime desc";
+        return this.find(hql, params);
+    }
+    @Override
     public Page<TBfUser> findUserCustomer(Page<TBfUser> page, TBfUser user) {
         List<Object> params = new ArrayList<Object>();
         String hql = "from TBfUser t where t.status=? and t.userId in ( select t1.userId from TBfUserCustomer t1) ";

@@ -55,4 +55,9 @@ public class ExpressServiceImpl extends BaseServiceImpl<TBfExpress,String> imple
 	public List<TBfExpress> getExpressByCourierId(String courierId) {
 		return expressDao.getExpressByCourierId(courierId);
 	}
+
+	@Override
+	public TBfExpress getExpressByOrderId(String orderId) {
+		return expressDao.getExpressByOrderId(orderId);
+	}
 }

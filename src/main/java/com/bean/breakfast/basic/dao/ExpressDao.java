@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface ExpressDao extends BaseDao<TBfExpress, String> {
     public List<TBfExpress> getExpressByCourierId(String courierId);
+    public TBfExpress getExpressByOrderId(String orderId);
 }

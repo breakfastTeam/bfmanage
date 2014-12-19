@@ -9,6 +9,7 @@
 	var ORDER_DETAIL = '<spring:message code="ORDER_DETAIL" />'
 	var PRINT = '<spring:message code="PRINT" />';
 	var FOOD_LIST='<spring:message code="FOOD_LIST" />';
+	var EXPRESS_LIST = '<spring:message code="EXPRESS_LIST" />';
 </script>
 
 <script src="${ctx }/manage/skin/default/js/jquery-1.8.3.js"></script>

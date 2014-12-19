@@ -105,4 +105,25 @@ public class UserCourierServiceImpl extends BaseServiceImpl<TBfUserCourier,Strin
 		page.setPageNo(pageUser.getPageNo());
 		return page;
 	}
+
+	@Override
+	public List<UserCourierDTO> findUserCourierDTO(UserCourierDTO userCourierDTO) {
+		List<TBfUser> users = userDao.findUserCourier(userCourierDTO.getUser());
+		List<UserCourierDTO> userCourierDTOs = new ArrayList<UserCourierDTO>();
+		int userSize = users.size();
+		for (int i = 0; i< userSize; i++){
+			UserCourierDTO uc = new UserCourierDTO();
+			uc.setUser(users.get(i));
+			try {
+				TBfUserCourier userCourier = userCourierDao.get(users.get(i).getUserId());
+				uc.setCourier(userCourier);
+
+			} catch (Exception e) {
+				uc.setCourier(new TBfUserCourier());
+				e.printStackTrace();
+			}
+			userCourierDTOs.add(uc);
+		}
+		return userCourierDTOs;
+	}
 }

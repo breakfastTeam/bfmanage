@@ -11,6 +11,6 @@ public interface UserCourierService extends BaseService<TBfUserCourier, String> 
 	public TBfUserCourier getUserCourier(String userId);
 	public UserCourierDTO getUserCourierDTO(String userId);
 	public void saveOrUpdate(UserCourierDTO userCourierDTO);
-
+	public List<UserCourierDTO> findUserCourierDTO(UserCourierDTO userCourierDTO);
 	public Page<UserCourierDTO> findUserCourierDTO(Page<UserCourierDTO> page, UserCourierDTO userCourierDTO);
 }

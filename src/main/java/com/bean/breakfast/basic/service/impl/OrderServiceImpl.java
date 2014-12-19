@@ -1,15 +1,13 @@
 package com.bean.breakfast.basic.service.impl;
 
+import com.bean.breakfast.basic.dao.ExpressDao;
 import com.bean.breakfast.basic.dao.FoodDao;
 import com.bean.breakfast.basic.dao.OrderDao;
 import com.bean.breakfast.basic.dao.OrderDetailDao;
 import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.dto.OrderDTO;
 import com.bean.breakfast.basic.dto.OrderDetailDTO;
-import com.bean.breakfast.basic.model.TBfFile;
-import com.bean.breakfast.basic.model.TBfFood;
-import com.bean.breakfast.basic.model.TBfOrder;
-import com.bean.breakfast.basic.model.TBfOrderDetail;
+import com.bean.breakfast.basic.model.*;
 import com.bean.breakfast.basic.service.OrderService;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.service.impl.BaseServiceImpl;
@@ -31,6 +29,10 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 
 	@Autowired
 	private OrderDetailDao orderDetailDao;
+
+	@Autowired
+	private ExpressDao expressDao;
+
 
 	@Autowired
 	private FoodDao foodDao;
@@ -171,5 +173,9 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 	}
 	public void saveOrUpdate(TBfOrder order){
 		orderDao.saveOrUpdate(order);
+	}
+	public void saveOrUpdateOrderAndExpress(TBfOrder order, TBfExpress express){
+		orderDao.saveOrUpdate(order);
+		expressDao.saveOrUpdate(express);
 	}
 }

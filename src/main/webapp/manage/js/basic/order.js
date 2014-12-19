@@ -28,7 +28,7 @@ var BelOrder = function () {
             $("button[name='orderAccept']").click(function (e) {
                 e.preventDefault();
                 var orderId = $(this).parent().find("input").val();
-                updateOrderStatus(orderId, "DISTRIBUTION");
+                showOrderCourier(orderId);
             });
             $("button[name='orderCancel']").click(function (e) {
                 e.preventDefault();
@@ -68,6 +68,9 @@ var BelOrder = function () {
             }
             function showOrderPrint(orderId) {
                 iDialog.iWindow("toOrderPrint.do?orderId="+orderId, PRINT);
+            }
+            function showOrderCourier(orderId) {
+                iDialog.iWindow("toOrderCourier.do?orderId="+orderId, EXPRESS_LIST);
             }
         }
     };

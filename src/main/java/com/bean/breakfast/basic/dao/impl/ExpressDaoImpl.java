@@ -25,4 +25,19 @@ public class ExpressDaoImpl extends BaseDaoImpl<TBfExpress,String> implements Ex
         hql = hql + " order by createTime desc";
         return this.find(hql, params);
     }
+
+    @Override
+    public TBfExpress getExpressByOrderId(String orderId) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from TBfExpress t where t.status=? and t.orderId=?";
+        params.add(IConstants.ENABLE);
+        params.add(orderId);
+        hql = hql + " order by createTime desc";
+        List<TBfExpress> express = this.find(hql, params);
+        if(express!= null && express.size()>0){
+            return express.get(0);
+        }else {
+            return null;
+        }
+    }
 }
