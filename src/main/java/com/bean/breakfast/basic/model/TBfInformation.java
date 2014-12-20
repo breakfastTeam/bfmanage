@@ -19,6 +19,8 @@ public class TBfInformation implements java.io.Serializable {
 	private String informationId;
 	private String title;
 	private String content;
+	private String smallPicId;
+	private String briefIntro;
 	private String informationType;
 	private Date postTime;
 	private String postBy;
@@ -72,6 +74,24 @@ public class TBfInformation implements java.io.Serializable {
 		this.informationId = informationId;
 	}
 
+	@Column(name = "small_pic_Id", unique = false, nullable = true, insertable = true, updatable = true, length = 32)
+	public String getSmallPicId() {
+		return this.smallPicId;
+	}
+
+	public void setSmallPicId(String smallPicId) {
+		this.smallPicId = smallPicId;
+	}
+
+	@Column(name = "brief_intro", unique = false, nullable = true, insertable = true, updatable = true, length = 200)
+	public String getBriefIntro() {
+		return this.briefIntro;
+	}
+
+	public void setBriefIntro(String briefIntro) {
+		this.briefIntro = briefIntro;
+	}
+
 	@Column(name = "title", unique = false, nullable = true, insertable = true, updatable = true, length = 100)
 	public String getTitle() {
 		return this.title;
@@ -80,6 +100,7 @@ public class TBfInformation implements java.io.Serializable {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 
 	@Column(name = "content", unique = false, nullable = true, insertable = true, updatable = true)
 	public String getContent() {

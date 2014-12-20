@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12" style = "display: none;">
+                            <!--<div class="col-lg-12" style = "display: none;">
                                 <div class="form-group">
                                     <label class="col-lg-6 control-label"><spring:message code="SALE_TIME"/>：</label>
 
@@ -110,7 +110,7 @@
                                                class="form-control default-date-picker" value="${food.saleTime }">
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="col-lg-6 control-label"><spring:message code="ORDER_NUM"/>：</label>
@@ -121,8 +121,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message
+                                            code="EXCHANGE_MONEY"/>：</label>
+
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="exchangePrice" name="exchangePrice"
+                                               class="form-control" value="${food.exchangeCount}">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="rowle" style = "display: none">
+                        <div class="row" style = "display: none">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="col-lg-6 control-label"><spring:message
@@ -182,7 +193,7 @@
                                             code="EXCHANGE_MONEY"/>：</label>
 
                                     <div class="col-lg-18">
-                                        <input type="text" placeholder="" id="exchangePrice" name="exchangePrice"
+                                        <input type="text" placeholder=""
                                                class="form-control" value="" disabled>
                                     </div>
                                 </div>

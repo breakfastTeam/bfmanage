@@ -140,6 +140,38 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="ADDRESS_ONE"/>：</label>
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="address1" name="address1"
+                                               class="form-control" value="${userCustomerDTO.customer.address1}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="ADDRESS_TWO"/>：</label>
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="address2" name="address2"
+                                               class="form-control" value="${userCustomerDTO.customer.address2}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="ADDRESS_THREE"/>：</label>
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="address3" name="address3"
+                                               class="form-control" value="${userCustomerDTO.customer.address3}">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
                                     <label class="col-lg-6 control-label"><spring:message code="CUSTOMER_LEVEL"/>：</label>
                                     <div class="col-lg-18">
                                         <input type="text" placeholder="" id="customerLevel" name="customerLevel"

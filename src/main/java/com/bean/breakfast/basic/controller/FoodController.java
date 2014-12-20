@@ -80,7 +80,7 @@ public class FoodController {
      * 变更记录:
      */
     @RequestMapping(value = "/saveFood", method = RequestMethod.POST)
-    public ModelAndView saveFood(final HttpServletRequest request) {
+    public ModelAndView saveCookBook(final HttpServletRequest request) {
         String diskPath = request.getParameter("diskPath");
         String orginPicPath = request.getParameter("orginPicPath");
         String smallPicPath =  request.getParameter("smallPicPath");
@@ -112,7 +112,7 @@ public class FoodController {
         String showOrderStr = request.getParameter("showOrder");
         int showOrder = Integer.parseInt(showOrderStr);
         String briefIntro = request.getParameter("briefIntro");
-        String saleTime = request.getParameter("saleTime");
+//        String saleTime = request.getParameter("saleTime");
         TBfFood food;
         if(IStringUtil.isNotBlank(foodId)){
             try {
@@ -136,7 +136,7 @@ public class FoodController {
         food.setShowOrder(showOrder);//排序号
         food.setBriefIntro(briefIntro);
         food.setCreateTime(IDateUtil.getCurrentTimeDate());
-        food.setSaleTime(IDateUtil.parseDate(saleTime, 1));
+//        food.setSaleTime(IDateUtil.parseDate(saleTime, 1));
 
         foodService.saveOrUpdate(food, smallPicId, smallPicPath, orginPicId, orginPicPath);
         return jumpToFood();

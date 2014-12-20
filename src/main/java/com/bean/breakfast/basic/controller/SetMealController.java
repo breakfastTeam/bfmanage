@@ -69,7 +69,7 @@ public class SetMealController {
         String showOrderStr = request.getParameter("showOrder");
         int showOrder = Integer.parseInt(showOrderStr);
         String introduce = request.getParameter("introduce");
-        String saleTime = request.getParameter("saleTime");
+//        String saleTime = request.getParameter("saleTime");
         String startTime = request.getParameter("startTime");
         String endTime = request.getParameter("endTime");
 
@@ -103,7 +103,7 @@ public class SetMealController {
         setMeal.setShowOrder(showOrder);//排序号
         setMeal.setIntroduce(introduce);
         setMeal.setCreateTime(IDateUtil.getCurrentTimeDate());
-        setMeal.setSaleTime(IDateUtil.parseDate(saleTime, 1));
+//        setMeal.setSaleTime(IDateUtil.parseDate(saleTime, 1));
         setMeal.setStartTime(IDateUtil.parseDate(startTime, 1));
         setMeal.setEndTime(IDateUtil.parseDate(endTime, 1));
         if(IDateUtil.parseDate(endTime, 1).compareTo(IDateUtil.getCurrentTimeDate()) >= 0 && IDateUtil.parseDate(startTime, 1).compareTo(IDateUtil.getCurrentTimeDate()) <= 0){

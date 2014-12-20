@@ -71,7 +71,43 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="BRIEF_INTRO"/>：</label>
 
+                                    <div class="col-lg-18">
+                                        <input type="text" placeholder="" id="briefIntro" name="briefIntro"
+                                               class="form-control"
+                                               value="${information.postTime}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="col-lg-6 control-label"><spring:message code="PIC"/>：</label>
+
+                                    <div class="col-lg-18">
+                                        <span class="btn btn-success fileinput-button pull-left">
+										       				<i class="glyphicon glyphicon-plus"></i>
+										       				<span><spring:message code="SELECT_FILE"/></span>
+										       				<input id="infoPicUpload" type="file" name="files"
+                                                                   multiple>
+										  				</span>
+                                        <div id="infoPicName" class="control-label pull-left"></div>
+                                        <button id="infoPicDelButton" type="button"
+                                                class="btn btn-danger display-none">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                            <span><spring:message code="DELETE"/></span>
+                                        </button>
+                                        <input type = "hidden" id = "smallPicId" name = "smallPicId"/>
+                                        <div id="infoPicProgress" class="progress control-label white-bg col-lg-10">
+                                            <div class="progress-bar progress-bar-success"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-24">
                                 <div class="form-group">

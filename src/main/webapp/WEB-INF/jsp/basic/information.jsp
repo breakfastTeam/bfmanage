@@ -125,6 +125,9 @@
                                             <button class="btn btn-primary btn-xs" name = "informationEdit">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
+                                            <button class="btn btn-danger btn-xs" title="<spring:message code="DELETE" />" name = "infoDiscard">
+                                                <i class="fa fa-times-circle"></i>
+                                            </button>
 
                                         </td>
                                     </tr>

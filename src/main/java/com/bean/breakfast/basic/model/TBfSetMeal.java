@@ -28,6 +28,9 @@ public class TBfSetMeal implements java.io.Serializable {
 	private Integer realFoodCount;
 	private String smallPicId;
 	private String orginPicId;
+	private Byte supportSnapUp;
+	private Byte supportExchange;
+	private Integer exchangeCount;
 	private Integer showOrder;
 	private Date createTime;
 	private String createBy;
@@ -186,7 +189,32 @@ public class TBfSetMeal implements java.io.Serializable {
 	public void setOrginPicId(String orginPicId) {
 		this.orginPicId = orginPicId;
 	}
+	@Column(name = "support_snap_up", unique = false, nullable = true, insertable = true, updatable = true)
+	public Byte getSupportSnapUp() {
+		return this.supportSnapUp;
+	}
 
+	public void setSupportSnapUp(Byte supportSnapUp) {
+		this.supportSnapUp = supportSnapUp;
+	}
+
+	@Column(name = "support_exchange", unique = false, nullable = true, insertable = true, updatable = true)
+	public Byte getSupportExchange() {
+		return this.supportExchange;
+	}
+
+	public void setSupportExchange(Byte supportExchange) {
+		this.supportExchange = supportExchange;
+	}
+
+	@Column(name = "exchange_count", unique = false, nullable = true, insertable = true, updatable = true)
+	public Integer getExchangeCount() {
+		return this.exchangeCount;
+	}
+
+	public void setExchangeCount(Integer exchangeCount) {
+		this.exchangeCount = exchangeCount;
+	}
 	@Column(name = "show_order", unique = false, nullable = true, insertable = true, updatable = true)
 	public Integer getShowOrder() {
 		return this.showOrder;

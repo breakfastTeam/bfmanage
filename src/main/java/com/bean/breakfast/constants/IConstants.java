@@ -59,12 +59,17 @@ public class IConstants {
 	/***********上传信息配置*************/
     public static final String FOOD_PIC_PATH = "upload\\food";
 	public static final String SET_MEAL_PIC_PATH = "upload\\setmeal";
+	public static final String INFO_PIC_PATH = "upload\\info";
+
 
 	public static final int FOOD_BIG_PIC_WIDTH = 320;
     public static final int FOOD_BIG_PIC_HEIGHT = 200;
     public static final int FOOD_SMALL_PIC_WIDTH = 160;
     public static final int FOOD_SMALL_PIC_HEIGHT = 100;
-    public static final double HALF = 0.5;
+	public static final int INFO_SMALL_PIC_HEIGHT = 100;
+	public static final int INFO_SMALL_PIC_WIDTH  = 160;
+
+	public static final double HALF = 0.5;
 
 	/************用户************/
 	public static final String IS_LOGINED = "yes";//是否登录

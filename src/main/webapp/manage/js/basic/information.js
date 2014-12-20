@@ -22,6 +22,32 @@ var BelInformation = function () {
                 var informationId = $(this).parent().find("input").val();
                 openNewUrl('basic/toInformationEdit.do?informationId='+informationId);
             });
+            $("button[name='infoDiscard']").click(function(e){
+                e.preventDefault();
+                var infoId = $(this).parent().find("input").val();
+                iDialog.iConfirm(SURE_DELETE, {callBackHandler:function(){
+                    updateInfoStatus(infoId, "DISCARD");
+                }});
+            });
+            function updateInfoStatus(infoId, status){
+                var map = new Map();
+                map.put("infoId", infoId);
+                map.put("status", status);
+                var reqData = iReqMsg.getReqMsg(map);
+                $.ajax({
+                    url: "updateInfoStatus.do",
+                    type: "POST",
+                    data: reqData,
+                    dataType: "json",
+                    contentType: "text/plain",
+                    success: function (data) {
+                        var rtnCode = data.head.rtnCode;
+                        if(rtnCode == "888888"){
+                            $("#iForm").submit();
+                        }
+                    }
+                });
+            }
         }
     };
 }();
