@@ -1,5 +1,6 @@
 package com.bean.breakfast.basic.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bean.breakfast.basic.dto.UserCourierDTO;
 import com.bean.breakfast.basic.dto.UserCustomerDTO;
 import com.bean.breakfast.basic.model.TBfUser;
@@ -9,14 +10,17 @@ import com.bean.breakfast.basic.service.UserCourierService;
 import com.bean.breakfast.basic.service.UserCustomerService;
 import com.bean.breakfast.basic.service.UserService;
 import com.bean.breakfast.constants.IConstants;
+import com.bean.breakfast.utils.MsgUtil;
 import com.bean.core.page.Page;
 import com.bean.core.utils.IDateUtil;
 import com.bean.core.utils.ISecurityUtil;
 import com.bean.core.utils.IStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -94,7 +98,7 @@ public class UserCustomerController {
         user.setStatus(IConstants.ENABLE);
         user.setCreateTime(IDateUtil.getCurrentTimeDate());
         user.setRegisterTime(IDateUtil.getCurrentTimeDate());
-
+        user.setUserType(IConstants.USER_TYPE_CUSTOMER);
         userCustomer.setCreateTime(IDateUtil.getCurrentTimeDate());
         userCustomer.setCredits(credits);
         userCustomer.setRecommendTime(recommendTime);
@@ -108,7 +112,45 @@ public class UserCustomerController {
 
         return jumpToCustomer();
     }
+    /**
+     * 更改用户状态
+     * @author 李庆飞
+     * @return User
+     * @since 2014-04-19 10:45
+     * 变更记录：chy 2014-04-22
+     */
 
+    @ResponseBody
+    @RequestMapping(value = "/updateUserCustomerStatus")
+    public String updateUserCustomerStatus(@RequestBody final String reqData){
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json = JSONObject.parseObject(reqData);
+            bodyObj = json.getJSONObject("body");
+            String userId = bodyObj.getString("userId");
+            String status = bodyObj.getString("status");
+            TBfUser user = userService.getUser(userId);
+            TBfUserCustomer userCustomer = userCustomerService.getUserCustomer(userId);
+            if(userCustomer != null){
+                userCustomer.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+            }
+            if(user != null){
+                user.setStatus(status);
+                user.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+            }
+            UserCustomerDTO userCustomerDTO = new UserCustomerDTO();
+            userCustomerDTO.setCustomer(userCustomer);
+            userCustomerDTO.setUser(user);
+            userCustomerService.saveOrUpdate(userCustomerDTO);
+            return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
+    }
 
     /**
      * 跳转到添加快递员的页面

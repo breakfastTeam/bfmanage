@@ -23,9 +23,9 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
     @Override
     public TBfUser getUserByLoginName(String loginName) {
         List<String> params = new ArrayList<String>();
-        String hql = "from TBfUser t where t.status=? and t.loginName=?";
-        params.add(IConstants.ENABLE);
-        List<TBfUser> users = this.find(hql, IConstants.ENABLE, loginName);
+        String hql = "from TBfUser t where t.status=? and t.loginName=? and t.userType=?";
+
+        List<TBfUser> users = this.find(hql, IConstants.ENABLE, loginName, IConstants.USER_TYPE_ADMIN);
         if(users.size()>0){
             return users.get(0);
         }else{
@@ -68,6 +68,8 @@ public class UserDaoImpl extends BaseDaoImpl<TBfUser, String> implements UserDao
                 hql = hql + " and t.mobile like ?";
                 params.add("%" + user.getMobile() + "%");
             }
+            hql = hql + " and t.userType=?";
+            params.add(user.getUserType());
             hql = hql + " order by createTime desc";
             return this.findByHql(page, hql, params);
     }

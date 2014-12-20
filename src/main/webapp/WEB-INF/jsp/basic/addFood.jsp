@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12" style = "display: none;">
                                 <div class="form-group">
                                     <label class="col-lg-6 control-label"><spring:message code="SALE_TIME"/>：</label>
 

@@ -31,6 +31,7 @@ public class TBfUser implements java.io.Serializable {
 	private Date lastModifyTime;
 	private String lastModifyBy;
 	private Long optTime;
+	private String userType;
 
 	// Constructors
 
@@ -77,6 +78,15 @@ public class TBfUser implements java.io.Serializable {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	@Column(name = "user_type", unique = false, nullable = true, insertable = true, updatable = true, length = 20)
+	public String getUserType() {
+		return this.userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
 	@Column(name = "login_name", unique = false, nullable = true, insertable = true, updatable = true, length = 50)

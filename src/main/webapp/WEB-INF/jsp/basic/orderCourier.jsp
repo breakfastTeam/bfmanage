@@ -83,9 +83,9 @@
                                                 <spring:message code="ENABLE" />
                                             </a>
                                         </c:when>
-                                        <c:when test="${item.user.status eq 'DISABLE'}">
+                                        <c:when test="${item.user.status eq 'DISCARD'}">
                                             <a style="color:#CC3300">
-                                                <spring:message code="DISABLE" />
+                                                <spring:message code="DISCARD" />
                                             </a>
                                         </c:when>
                                         <c:otherwise>

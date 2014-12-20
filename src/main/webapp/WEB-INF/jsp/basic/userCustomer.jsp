@@ -131,9 +131,9 @@
                                                         <spring:message code="ENABLE" />
                                                     </a>
                                                 </c:when>
-                                                <c:when test="${item.user.status eq 'DISABLE'}">
+                                                <c:when test="${item.user.status eq 'DISCARD'}">
                                                     <a style="color:#CC3300">
-                                                        <spring:message code="DISABLE" />
+                                                        <spring:message code="DISCARD" />
                                                     </a>
                                                 </c:when>
                                                 <c:otherwise>
@@ -148,7 +148,9 @@
                                             <button class="btn btn-primary btn-xs" name = "userCustomerEdit">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
-
+                                            <button class="btn btn-danger btn-xs" title="<spring:message code="DELETE" />" name = "userDiscard">
+                                                <i class="fa fa-times-circle"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 </c:forEach>

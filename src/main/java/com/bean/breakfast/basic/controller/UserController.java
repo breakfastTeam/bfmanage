@@ -1,5 +1,6 @@
 package com.bean.breakfast.basic.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bean.breakfast.basic.model.TBfInformation;
 import com.bean.breakfast.basic.model.TBfUser;
 import com.bean.breakfast.basic.service.InformationService;
@@ -12,6 +13,7 @@ import com.bean.core.utils.ISecurityUtil;
 import com.bean.core.utils.IStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -65,7 +67,74 @@ public class UserController {
         }
     }
 
+    /**
+     * 更改用户状态
+     * @author 李庆飞
+     * @return User
+     * @since 2014-04-19 10:45
+     * 变更记录：chy 2014-04-22
+     */
 
+    @ResponseBody
+    @RequestMapping(value = "/updateUserStatus")
+    public String updateUserStatus(@RequestBody final String reqData){
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json = JSONObject.parseObject(reqData);
+            bodyObj = json.getJSONObject("body");
+            String userId = bodyObj.getString("userId");
+            String status = bodyObj.getString("status");
+            TBfUser user = userService.getUser(userId);
+            if(user != null){
+                user.setStatus(status);
+                user.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+                userService.saveOrUpdate(user);
+            }
+            return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
+    }
+    /**
+     * 校验登录名和手机号是否重复
+     * @author 李庆飞
+     * @return User
+     * @since 2014-04-19 10:45
+     * 变更记录：chy 2014-04-22
+     */
+
+    @ResponseBody
+    @RequestMapping(value = "/checkLoginNameAndPhone")
+    public String checkLoginNameAndPhone(@RequestBody final String reqData){
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json = JSONObject.parseObject(reqData);
+            bodyObj = json.getJSONObject("body");
+            String loginName = bodyObj.getString("loginName");
+            String phone = bodyObj.getString("phone");
+            TBfUser user = userService.getUserByLoginName(loginName);
+            if(user != null){
+                return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, "用户名已存在！").generateRtnMsg();
+            }else{
+                user = userService.getUserByPhone(phone);
+                if(user != null){
+                    return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, "手机号码已存在！").generateRtnMsg();
+                }else{
+                    return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
+    }
     /**
      * 保存用户信息
      *
@@ -107,6 +176,7 @@ public class UserController {
         user.setQq(qq);
         user.setWeixin(weixin);
         user.setStatus(IConstants.ENABLE);
+        user.setUserType(IConstants.USER_TYPE_ADMIN);
         user.setCreateTime(IDateUtil.getCurrentTimeDate());
         user.setRegisterTime(IDateUtil.getCurrentTimeDate());
         userService.saveOrUpdate(user);
@@ -157,6 +227,7 @@ public class UserController {
         String pageNoStr = request.getParameter("pageNo");
         String mobile = request.getParameter("mobile");
         TBfUser user = new TBfUser();
+        user.setUserType(IConstants.USER_TYPE_ADMIN);
         if (IStringUtil.isNotBlank(mobile)) {
             user.setMobile(mobile);
         }

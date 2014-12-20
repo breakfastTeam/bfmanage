@@ -106,7 +106,12 @@ public class SetMealController {
         setMeal.setSaleTime(IDateUtil.parseDate(saleTime, 1));
         setMeal.setStartTime(IDateUtil.parseDate(startTime, 1));
         setMeal.setEndTime(IDateUtil.parseDate(endTime, 1));
-        setMeal.setStatus(IConstants.STATUS_PUTAWAY);
+        if(IDateUtil.parseDate(endTime, 1).compareTo(IDateUtil.getCurrentTimeDate()) >= 0 && IDateUtil.parseDate(startTime, 1).compareTo(IDateUtil.getCurrentTimeDate()) <= 0){
+            setMeal.setStatus(IConstants.PUTAWAY);
+        }else{
+            setMeal.setStatus(IConstants.SOLDOUT);
+        }
+
         SetMealDTO setMealDTO = new SetMealDTO();
         setMealDTO.setSetMeal(setMeal);
         setMealDTO.setFoods(foodList);
@@ -117,6 +122,39 @@ public class SetMealController {
 
         setMealService.saveOrUpdate(setMealDTO);
         return jumpToSetMeal();
+    }
+
+
+    /**
+     * 修改套餐状态
+     * @param reqData String 请求的报文字符串
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+    @ResponseBody
+    @RequestMapping(value = "/updateSetMealStatus")
+    public String updateSetMealStatus(@RequestBody final String reqData, final HttpServletRequest request) {
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json = JSONObject.parseObject(reqData);
+            bodyObj = json.getJSONObject("body");
+            String setMealId = bodyObj.getString("setMealId");
+            String status = bodyObj.getString("status");
+            TBfSetMeal setMeal = setMealService.getSetMeal(setMealId);
+            setMeal.setStatus(status);
+            setMeal.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+            setMealService.saveOrUpdate(setMeal);
+
+            return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
     }
     public void dealThePic(String filePath, String orginPicPath, String smallPicPath){
         IImageUtil.scaleImage(filePath, orginPicPath, IConstants.FOOD_BIG_PIC_WIDTH, IConstants.FOOD_BIG_PIC_HEIGHT);

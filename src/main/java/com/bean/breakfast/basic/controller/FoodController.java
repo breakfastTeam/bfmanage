@@ -38,6 +38,39 @@ public class FoodController {
 
     Page<TBfFood> page = new Page<TBfFood>(IConstants.DEFAULT_PAGE_SIZE);
     Page<FoodDTO> pageDTO = new Page<FoodDTO>(IConstants.DEFAULT_PAGE_SIZE);
+
+
+    /**
+     * 修改套餐状态
+     * @param reqData String 请求的报文字符串
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+    @ResponseBody
+    @RequestMapping(value = "/updateFoodStatus")
+    public String updateFoodStatus(@RequestBody final String reqData, final HttpServletRequest request) {
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json = JSONObject.parseObject(reqData);
+            bodyObj = json.getJSONObject("body");
+            String foodId = bodyObj.getString("foodId");
+            String status = bodyObj.getString("status");
+            TBfFood food = foodService.getFood(foodId);
+            food.setStatus(status);
+            food.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+            foodService.saveOrUpdate(food);
+            return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
+    }
+
     /**
      * 保存菜谱信息
      *
@@ -47,7 +80,7 @@ public class FoodController {
      * 变更记录:
      */
     @RequestMapping(value = "/saveFood", method = RequestMethod.POST)
-    public ModelAndView saveCookBook(final HttpServletRequest request) {
+    public ModelAndView saveFood(final HttpServletRequest request) {
         String diskPath = request.getParameter("diskPath");
         String orginPicPath = request.getParameter("orginPicPath");
         String smallPicPath =  request.getParameter("smallPicPath");

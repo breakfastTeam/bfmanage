@@ -81,7 +81,7 @@ public class TBfInformation implements java.io.Serializable {
 		this.title = title;
 	}
 
-	@Column(name = "content", unique = false, nullable = true, insertable = true, updatable = true, length = 1000)
+	@Column(name = "content", unique = false, nullable = true, insertable = true, updatable = true)
 	public String getContent() {
 		return this.content;
 	}

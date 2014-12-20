@@ -12,4 +12,6 @@ public interface SetMealService extends BaseService<TBfSetMeal, String> {
     public int getShowOrder();
     public TBfSetMeal getSetMeal(String setMealId);
     public void saveOrUpdate(SetMealDTO setMealDTO);
+    public void saveOrUpdate(TBfSetMeal setMeal);
+
 }

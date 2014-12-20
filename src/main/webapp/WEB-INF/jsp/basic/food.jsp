@@ -86,9 +86,7 @@
                                     <th>
                                         <spring:message code="REAL_FOOD_COUNT"/>
                                     </th>
-                                    <th>
-                                        <spring:message code="SALE_TIME"/>
-                                    </th>
+
                                     <th>
                                         <spring:message code="STAT"/>
                                     </th>
@@ -119,9 +117,7 @@
                                                 ${item.realFoodCount}
                                         </td>
 
-                                        <td>
-                                                ${item.saleTime}
-                                        </td>
+
                                         <td>
                                             <c:choose>
                                                 <c:when test="${item.status eq 'PUTAWAY'}">
@@ -129,9 +125,9 @@
                                                         <spring:message code="PUTAWAY" />
                                                     </a>
                                                 </c:when>
-                                                <c:when test="${item.status eq 'SOLD_PUT'}">
+                                                <c:when test="${item.status eq 'SOLDOUT'}">
                                                     <a style="color:#CC3300">
-                                                        <spring:message code="SOLD_PUT" />
+                                                        <spring:message code="SOLDOUT" />
                                                     </a>
                                                 </c:when>
                                                 <c:when test="${item.status eq 'DISCARD'}">
@@ -149,6 +145,18 @@
                                         </td>
                                         <td>
                                             <input type = "hidden" value = "${item.foodId}">
+                                            <c:choose>
+                                                <c:when test="${item.status eq 'PUTAWAY'}">
+                                                    <button class="btn btn-danger btn-xs" name = "soldout">
+                                                        <i class="fa fa-arrow-down"></i>
+                                                    </button>
+                                                </c:when>
+                                                <c:when test="${item.status eq 'SOLDOUT'}">
+                                                    <button class="btn btn-success btn-xs" name = "putaway">
+                                                        <i class="fa fa-arrow-up"></i>
+                                                    </button>
+                                                </c:when>
+                                            </c:choose>
                                             <button class="btn btn-primary btn-xs" name = "editFood">
                                                 <i class="fa fa-pencil"></i>
                                             </button>

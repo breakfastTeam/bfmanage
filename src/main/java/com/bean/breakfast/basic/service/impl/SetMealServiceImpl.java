@@ -87,9 +87,6 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 
 	@Override
 	public void saveOrUpdate(SetMealDTO setMealDTO) {
-
-
-
 		TBfFile smallPic, bigPic;
 		if(IStringUtil.isNotBlank(setMealDTO.getSmallPicId())){
 			try {
@@ -138,5 +135,8 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 		}
 
 
+	}
+	public void saveOrUpdate(TBfSetMeal setMeal){
+		setMealDao.saveOrUpdate(setMeal);
 	}
 }

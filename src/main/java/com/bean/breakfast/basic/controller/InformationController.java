@@ -60,7 +60,7 @@ public class InformationController {
         information.setContent(content);
         information.setCreateTime(IDateUtil.getCurrentTimeDate());
         information.setStatus(IConstants.ENABLE);
-        information.setPostTime(postTime);
+        information.setPostTime(IDateUtil.getCurrentTimeDate());
         informationService.saveOrUpdate(information);
         return jumpToFood();
     }

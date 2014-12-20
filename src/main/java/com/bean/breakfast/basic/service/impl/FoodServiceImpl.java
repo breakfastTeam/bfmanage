@@ -47,6 +47,9 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 		List<TBfFood> foods = new ArrayList<TBfFood>();
 		return foodDao.findFood(food);
 	}
+	public void saveOrUpdate(TBfFood food){
+		foodDao.saveOrUpdate(food);
+	}
 	public void saveOrUpdate(TBfFood food,String smallPicId, String smallPicPath,String orginPicId, String bigPicPath){
 		TBfFile smallPic, bigPic;
 		if(IStringUtil.isNotBlank(smallPicId)){
@@ -79,7 +82,7 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 
 		food.setSmallPicId(smallPic.getFileId());
 		food.setOrginPicId(bigPic.getFileId());
-		food.setStatus(IConstants.ENABLE);
+		food.setStatus(IConstants.PUTAWAY);
 		foodDao.saveOrUpdate(food);
 	}
 	public Page<FoodDTO> findFood(Page<TBfFood> page, TBfFood food) {
@@ -163,5 +166,8 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 			e.printStackTrace();
 		}
 		return foodDTO;
+	}
+	public void updateFoodStatus(){
+		System.out.println("-----------------");
 	}
 }

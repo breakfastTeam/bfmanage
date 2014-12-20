@@ -95,7 +95,7 @@ public class TBfSetMeal implements java.io.Serializable {
 		this.setName = setName;
 	}
 
-	@Column(name = "introduce", unique = false, nullable = true, insertable = true, updatable = true, length = 200)
+	@Column(name = "introduce", unique = false, nullable = true, insertable = true, updatable = true)
 	public String getIntroduce() {
 		return this.introduce;
 	}

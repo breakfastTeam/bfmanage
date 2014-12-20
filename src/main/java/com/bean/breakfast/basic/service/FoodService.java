@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface FoodService extends BaseService<TBfFood, String> {
 	public void saveOrUpdate(TBfFood food,String smallPicId, String smallPicPath,String orginPicId, String bigPicPath);
+	public void saveOrUpdate(TBfFood food);
 	public int getOrderNum();
 	public Page<FoodDTO> findFood(Page<TBfFood> page, TBfFood food);
 	public Page<FoodDTO> findFoodWithSaleTime(Page<TBfFood> page, TBfFood food);
@@ -15,4 +16,5 @@ public interface FoodService extends BaseService<TBfFood, String> {
 	public TBfFood getFood(String foodId);
 	public int getFoodCount(String foodId);
 	public List<TBfFood> findFood(TBfFood food);
+	public void updateFoodStatus();
 }

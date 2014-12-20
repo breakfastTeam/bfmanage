@@ -27,18 +27,24 @@ public class IConstants {
 	public static final String OPERATE_ERROR = "error";
 	public static final String SERVER_EXCEPTION = "exception";
 	public static final String INFO = "info";
-	public static final String ENABLE = "ENABLE";
-	public static final String DISABLE  = "DISABLE";
-	public static final String FORBIDDEN  = "FORBIDDEN";
 
-	public static final String STATUS_PUTAWAY = "PUTAWAY";
-	public static final String STATUS_SOLD_PUT = "SOLD_PUT";
-	public static final String STATUS_DISCARD = "DISCARD";
 
-	public static final String STATUS_DRAFT = "DRAFT";
-	public static final String STATUS_DISTRIBUTION = "DISTRIBUTION";
-	public static final String STATUS_CANCEL="CANCEL";
-	public static final String STATUS_FINISH = "FINISH";
+
+	public static final String USER_TYPE_ADMIN = "ADMIN";
+	public static final String USER_TYPE_CUSTOMER = "CUSTOMER";
+	public static final String USER_TYPE_COURIER = "COURIER";
+	public static final String USER_TYPE_CUSTOMER_SERVICE = "CUSTOMER_SERVICE";
+
+
+	public static final String ENABLE = "ENABLE";//可用
+	public static final String DISCARD  = "DISCARD";//废弃
+	public static final String PUTAWAY = "PUTAWAY";//上架
+	public static final String SOLDOUT = "SOLDOUT";//下架
+
+	public static final String DRAFT = "DRAFT";//草稿
+	public static final String DISTRIBUTION = "DISTRIBUTION";//配送中
+	public static final String CANCEL="CANCEL";//取消
+	public static final String FINISH = "FINISH";//完成
 
 	public static final String ACTIVE  = "1";
 	public static final String ACCESS_CODE = "accessCode";

@@ -1,19 +1,23 @@
 package com.bean.breakfast.basic.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bean.breakfast.basic.dto.UserCourierDTO;
 import com.bean.breakfast.basic.model.TBfUser;
 import com.bean.breakfast.basic.model.TBfUserCourier;
 import com.bean.breakfast.basic.service.UserCourierService;
 import com.bean.breakfast.basic.service.UserService;
 import com.bean.breakfast.constants.IConstants;
+import com.bean.breakfast.utils.MsgUtil;
 import com.bean.core.page.Page;
 import com.bean.core.utils.IDateUtil;
 import com.bean.core.utils.ISecurityUtil;
 import com.bean.core.utils.IStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,6 +62,8 @@ public class UserCourierController {
                 if(!IStringUtil.equals(user.getPassword(), password)){
                     password = ISecurityUtil.getMD5String(password);
                 }
+                user.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+                userCourier.setLastModifyTime(IDateUtil.getCurrentTimeDate());
             } catch (Exception e) {
                 e.printStackTrace();
                 user = new TBfUser();
@@ -77,6 +83,7 @@ public class UserCourierController {
         user.setStatus(IConstants.ENABLE);
         user.setCreateTime(IDateUtil.getCurrentTimeDate());
         user.setRegisterTime(IDateUtil.getCurrentTimeDate());
+        user.setUserType(IConstants.USER_TYPE_COURIER);
 
         userCourier.setSource(source);
         userCourier.setCreateTime(IDateUtil.getCurrentTimeDate());
@@ -87,6 +94,46 @@ public class UserCourierController {
         userCourierService.saveOrUpdate(userCourierDTO);
 
         return jumpToCourier();
+    }
+
+    /**
+     * 更改用户状态
+     * @author 李庆飞
+     * @return User
+     * @since 2014-04-19 10:45
+     * 变更记录：chy 2014-04-22
+     */
+
+    @ResponseBody
+    @RequestMapping(value = "/updateUserCourierStatus")
+    public String updateUserCourierStatus(@RequestBody final String reqData){
+        MsgUtil msgUtil = new MsgUtil();//声明报文工具类
+        JSONObject json;
+        JSONObject bodyObj;
+        try {
+            /**解析处理请求报文**/
+            json = JSONObject.parseObject(reqData);
+            bodyObj = json.getJSONObject("body");
+            String userId = bodyObj.getString("userId");
+            String status = bodyObj.getString("status");
+            TBfUser user = userService.getUser(userId);
+            TBfUserCourier userCourier = userCourierService.getUserCourier(userId);
+            if(userCourier != null){
+                userCourier.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+            }
+            if(user != null){
+                user.setStatus(status);
+                user.setLastModifyTime(IDateUtil.getCurrentTimeDate());
+            }
+            UserCourierDTO userCourierDTO = new UserCourierDTO();
+            userCourierDTO.setCourier(userCourier);
+            userCourierDTO.setUser(user);
+            userCourierService.saveOrUpdate(userCourierDTO);
+            return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return msgUtil.generateHeadMsg(IConstants.ERROR_CODE, IConstants.OPERATE_ERROR).generateRtnMsg();
+        }
     }
 
     /**

@@ -170,7 +170,7 @@ public class MobileOrderController {
         MsgUtil msgUtil = new MsgUtil();//声明报文工具类
         try {
             TBfOrder order = new TBfOrder();
-            order.setStatus(IConstants.STATUS_DRAFT);
+            order.setStatus(IConstants.DRAFT);
             pageDTO = orderService.findOrders(pageDTO, order);
             if(pageDTO.getResult() != null && pageDTO.getResult().size() > 0){
                 return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
