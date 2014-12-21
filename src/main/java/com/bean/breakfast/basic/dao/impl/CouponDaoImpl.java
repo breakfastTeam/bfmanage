@@ -28,4 +28,14 @@ public class CouponDaoImpl extends BaseDaoImpl<TBfCoupon,String> implements Coup
         hql = hql + " order by createTime desc";
         return this.findByHql(page, hql, params);
     }
+
+    @Override
+    public List<TBfCoupon> findCoupon(TBfCoupon coupon) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from TBfCoupon t where t.status<>?";
+        params.add(IConstants.DISCARD);
+
+        hql = hql + " order by createTime desc";
+        return this.find(hql, params);
+    }
 }

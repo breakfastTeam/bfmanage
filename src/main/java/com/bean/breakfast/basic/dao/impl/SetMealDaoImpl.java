@@ -36,7 +36,22 @@ public class SetMealDaoImpl extends BaseDaoImpl<TBfSetMeal,String>  implements S
         hql = hql + " order by showOrder desc, createTime desc";
         return this.findByHql(page, hql, params);
     }
+    /**
+     * 获取套餐的主要信息
+     * */
+    @Override
+    public List<TBfSetMeal> findSetMeal(TBfSetMeal setMeal) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from TBfSetMeal t where t.status<>?";
+        params.add(IConstants.DISCARD);
+        if(IStringUtil.isNotBlank(setMeal.getSetName())){
+            hql = hql + " and t.setName like ?";
+            params.add("%"+setMeal.getSetName()+"%");
+        }
 
+        hql = hql + " order by showOrder desc, createTime desc";
+        return this.find(hql, params);
+    }
     @Override
     public int getShowOrder() {
         String hql = "select count(t.setMealId) from TBfSetMeal t where t.status<>?";

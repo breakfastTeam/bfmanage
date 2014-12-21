@@ -31,6 +31,8 @@ public class TBfFood implements java.io.Serializable {
 	private Byte supportExchange;
 	private Integer exchangeCount;
 	private Integer showOrder;
+	private Date startTime;
+	private Date endTime;
 	private Date saleTime;
 	private Date createTime;
 	private String createBy;
@@ -54,7 +56,7 @@ public class TBfFood implements java.io.Serializable {
 			String unit, String briefIntro, String status, Integer foodCount,
 			Integer realFoodCount, String smallPicId, String orginPicId,
 			Byte supportSnapUp, Byte supportExchange, Integer exchangeCount,
-			Integer showOrder, Date createTime, String createBy,
+			Integer showOrder, Date createTime, String createBy,Date startTime, Date endTime,
 			Date lastModifyTime, String lastModifyBy, Long optTime) {
 		this.foodId = foodId;
 		this.foodName = foodName;
@@ -63,6 +65,8 @@ public class TBfFood implements java.io.Serializable {
 		this.unit = unit;
 		this.briefIntro = briefIntro;
 		this.status = status;
+		this.startTime = startTime;
+		this.endTime = endTime;
 		this.foodCount = foodCount;
 		this.realFoodCount = realFoodCount;
 		this.smallPicId = smallPicId;
@@ -225,7 +229,23 @@ public class TBfFood implements java.io.Serializable {
 	public void setSaleTime(Date saleTime) {
 		this.saleTime = saleTime;
 	}
+	@Temporal(TemporalType.DATE)
+	@Column(name = "start_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
+	public Date getStartTime() {
+		return this.startTime;
+	}
 
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+	@Temporal(TemporalType.DATE)
+	@Column(name = "end_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
+	public Date getEndTime() {
+		return this.endTime;
+	}
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_time", unique = false, nullable = true, insertable = true, updatable = true, length = 19)
 	public Date getCreateTime() {

@@ -101,7 +101,7 @@ http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 			<tx:method name="*" propagation="SUPPORTS" />
 		</tx:attributes>
 	</tx:advice>
-
+	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<aop:config><!--事务的 -->
 		<aop:advisor pointcut="execution(* com.bean.breakfast.*.service.*Service.*(..))" advice-ref="transactionAdvice" />
 		<aop:advisor pointcut="execution(* com.bean.core.orm.service.*Service.*(..))" advice-ref="transactionAdvice" />

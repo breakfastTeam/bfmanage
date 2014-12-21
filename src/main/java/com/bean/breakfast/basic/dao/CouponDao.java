@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface CouponDao extends BaseDao<TBfCoupon, String> {
     public Page<TBfCoupon> findCoupon(Page<TBfCoupon> page, TBfCoupon coupon);
+    public List<TBfCoupon> findCoupon(TBfCoupon coupon);
 }

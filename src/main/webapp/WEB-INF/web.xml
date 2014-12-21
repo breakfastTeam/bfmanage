@@ -23,6 +23,7 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
     <listener>
         <description>springListener</description>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

@@ -12,8 +12,10 @@ import com.bean.breakfast.basic.model.TBfUser;
 import com.bean.breakfast.basic.model.TBfUserCustomer;
 import com.bean.breakfast.basic.service.CouponService;
 import com.bean.breakfast.basic.service.ExpressService;
+import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.service.impl.BaseServiceImpl;
 import com.bean.core.page.Page;
+import com.bean.core.utils.IDateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -91,6 +93,19 @@ public class CouponServiceImpl extends BaseServiceImpl<TBfCoupon,String> impleme
 		couponCustomerDTOPage.setTotalCount(couponPage.getTotalCount());
 		couponCustomerDTOPage.setResult(couponCustomerDTOs);
 		return couponCustomerDTOPage;
+	}
+
+	public void updateCouponStatus(){
+		TBfCoupon coupon = new TBfCoupon();
+		List<TBfCoupon> coupons = couponDao.findCoupon(coupon);
+		for(TBfCoupon c : coupons){
+			if(IDateUtil.parseDate(c.getEndTime().toString(), 1).compareTo(IDateUtil.getCurrentTimeDate()) >= 0){
+				c.setStatus(IConstants.ENABLE);
+			}else{
+				c.setStatus(IConstants.DISCARD);
+			}
+			couponDao.saveOrUpdate(c);
+		}
 	}
 
 }

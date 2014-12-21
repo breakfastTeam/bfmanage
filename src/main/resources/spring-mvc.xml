@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/mvc
-http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-4.0.xsd"
+        >
 
     <mvc:resources mapping="/upload/**" location="/upload/"/>
 
@@ -63,8 +68,19 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
     <!-- 国际化 end -->
+
+
     <!-- 配置系统拦截器 -->
     <mvc:interceptors>
         <bean class="com.bean.breakfast.interceptor.SystemInterceptor" />
     </mvc:interceptors>
+
+<!-- 调度任务-->
+    <task:annotation-driven />
+    <task:scheduled-tasks>
+        <task:scheduled ref="foodService" method="updateFoodStatus" cron="0 01 0 * * ?"/>
+        <task:scheduled ref="setMealService" method="updateSetMealStatus" cron="0 01 0 * * ?"/>
+        <task:scheduled ref="couponService" method="updateCouponStatus" cron="0 01 0 * * ?"/>
+
+    </task:scheduled-tasks>
 </beans>

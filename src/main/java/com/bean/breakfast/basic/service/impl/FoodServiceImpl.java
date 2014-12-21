@@ -168,6 +168,15 @@ public class FoodServiceImpl extends BaseServiceImpl<TBfFood,String> implements 
 		return foodDTO;
 	}
 	public void updateFoodStatus(){
-		System.out.println("-----------------");
+		TBfFood food = new TBfFood();
+		List<TBfFood> foods = foodDao.findFood(food);
+		for(TBfFood f : foods){
+			if(IDateUtil.parseDate(f.getEndTime().toString(), 1).compareTo(IDateUtil.getCurrentTimeDate()) >= 0 && IDateUtil.parseDate(f.getStartTime().toString(), 1).compareTo(IDateUtil.getCurrentTimeDate()) <= 0){
+				f.setStatus(IConstants.PUTAWAY);
+			}else{
+				f.setStatus(IConstants.SOLDOUT);
+			}
+			foodDao.saveOrUpdate(f);
+		}
 	}
 }

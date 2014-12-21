@@ -139,4 +139,17 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 	public void saveOrUpdate(TBfSetMeal setMeal){
 		setMealDao.saveOrUpdate(setMeal);
 	}
+
+	public void updateSetMealStatus(){
+		TBfSetMeal setMeal = new TBfSetMeal();
+		List<TBfSetMeal> setMeals = setMealDao.findSetMeal(setMeal);
+		for(TBfSetMeal s : setMeals){
+			if(IDateUtil.parseDate(s.getEndTime().toString(), 1).compareTo(IDateUtil.getCurrentTimeDate()) >= 0 && IDateUtil.parseDate(s.getStartTime().toString(), 1).compareTo(IDateUtil.getCurrentTimeDate()) <= 0){
+				s.setStatus(IConstants.PUTAWAY);
+			}else{
+				s.setStatus(IConstants.SOLDOUT);
+			}
+			setMealDao.saveOrUpdate(s);
+		}
+	}
 }
