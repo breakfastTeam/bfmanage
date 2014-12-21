@@ -75,6 +75,9 @@
                         <li class=""><a href="javascript:void(0)"
                                         onclick="openNewUrl('${ctx}/basic/toRawMaterial.do')"><spring:message
                                 code="RAW_MATERIAL_MANAGE"/></a></li>
+                        <li class=""><a href="javascript:void(0)"
+                                        onclick="openNewUrl('${ctx}/basic/toCoupon.do')"><spring:message
+                                code="COUPON_MANAGE"/></a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
