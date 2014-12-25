@@ -61,6 +61,8 @@ public class IImageUtil {
 	public static void scaleImage(String imgSrc, String imgDest, int distImgWidth, int distImgHeight){
 		try {
 			File srcImgFile = new File(imgSrc);
+			File destImgFile = new File(imgDest);
+
 			BufferedImage srcImage = ImageIO.read(new FileInputStream(imgSrc));
 
 			BufferedImage target=new BufferedImage(distImgWidth,distImgHeight,srcImage.getType());
@@ -70,12 +72,13 @@ public class IImageUtil {
 			g.dispose();
 			String srcImgFileName = srcImgFile.getName();
 			String suffix = srcImgFileName.substring(srcImgFileName.lastIndexOf(".") + 1);
-			String imgDests[] = imgDest.split("\\\\");
-			String imgDestTemp = "";
-			for(int i = 0; i<imgDests.length-1; i++){
-				imgDestTemp = imgDestTemp +imgDests[i]+"\\";
-			}
-			File distImgFilePath = new File(imgDestTemp);
+
+//			String imgDests[] = imgDest.split(File.separator);
+//			String imgDestTemp = "";
+//			for(int i = 0; i<imgDests.length-1; i++){
+//				imgDestTemp = imgDestTemp +imgDests[i]+File.separator;
+//			}
+			File distImgFilePath = new File(destImgFile.getAbsolutePath());
 			if(!distImgFilePath.exists()){
 				distImgFilePath.mkdirs();
 			}
