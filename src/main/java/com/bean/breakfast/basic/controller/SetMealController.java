@@ -106,7 +106,8 @@ public class SetMealController {
 //        setMeal.setSaleTime(IDateUtil.parseDate(saleTime, 1));
         setMeal.setStartTime(IDateUtil.parseDate(startTime, 1));
         setMeal.setEndTime(IDateUtil.parseDate(endTime, 1));
-        if(IDateUtil.parseDate(endTime, 1).compareTo(IDateUtil.getCurrentTimeDate()) >= 0 && IDateUtil.parseDate(startTime, 1).compareTo(IDateUtil.getCurrentTimeDate()) <= 0){
+        Date now = new Date();
+        if (IDateUtil.diffDays(setMeal.getEndTime(),now)>=0 && IDateUtil.diffDays(setMeal.getStartTime(),now)<= 0) {
             setMeal.setStatus(IConstants.PUTAWAY);
         }else{
             setMeal.setStatus(IConstants.SOLDOUT);

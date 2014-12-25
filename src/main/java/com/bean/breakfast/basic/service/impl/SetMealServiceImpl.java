@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service("setMealService")
@@ -143,10 +144,11 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 	public void updateSetMealStatus(){
 		TBfSetMeal setMeal = new TBfSetMeal();
 		List<TBfSetMeal> setMeals = setMealDao.findSetMeal(setMeal);
-		for(TBfSetMeal s : setMeals){
-			if(IDateUtil.parseDate(s.getEndTime().toString(), 1).compareTo(IDateUtil.getCurrentTimeDate()) >= 0 && IDateUtil.parseDate(s.getStartTime().toString(), 1).compareTo(IDateUtil.getCurrentTimeDate()) <= 0){
+		Date now = new Date();
+		for(TBfSetMeal s : setMeals) {
+			if (IDateUtil.diffDays(setMeal.getEndTime(), now)>=0 && IDateUtil.diffDays(setMeal.getStartTime(), now)<= 0) {
 				s.setStatus(IConstants.PUTAWAY);
-			}else{
+			} else {
 				s.setStatus(IConstants.SOLDOUT);
 			}
 			setMealDao.saveOrUpdate(s);

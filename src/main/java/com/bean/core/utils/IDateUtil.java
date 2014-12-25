@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.lang.time.DurationFormatUtils;
 import org.springframework.expression.ParseException;
 
 public class IDateUtil extends DateUtils{
@@ -235,5 +236,9 @@ public static int getYear(){
 			 return null;
 		 }
 	 }
+
+	public static int diffDays(Date date1,Date date2) {
+		return Integer.valueOf(DurationFormatUtils.formatPeriod(date1.getTime(), date2.getTime(), "d"));
+	}
 
 }
