@@ -1,5 +1,6 @@
 package com.bean.breakfast.constants;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -57,9 +58,9 @@ public class IConstants {
 	public static final String WEIXIN_USER_NOT_EXIST = "User Not Exist";
 	
 	/***********上传信息配置*************/
-    public static final String FOOD_PIC_PATH = "upload\\food";
-	public static final String SET_MEAL_PIC_PATH = "upload\\setmeal";
-	public static final String INFO_PIC_PATH = "upload\\info";
+    public static final String FOOD_PIC_PATH = "upload"+ File.separator+"food";
+	public static final String SET_MEAL_PIC_PATH = "upload"+File.separator+"setmeal";
+	public static final String INFO_PIC_PATH = "upload"+File.separator+"info";
 
 
 	public static final int FOOD_BIG_PIC_WIDTH = 320;

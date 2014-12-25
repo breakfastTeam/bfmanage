@@ -1,5 +1,6 @@
 package com.bean.breakfast.basic.controller;
 
+import java.io.File;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -105,8 +106,8 @@ public class FoodController {
         byte isSupportSnapUp = IStringUtil.equals(IConstants.ON, isSupportSnapUpStr) ? IConstants.YES : IConstants.NO;
         String snapUpPriceStr = request.getParameter("snapUpPrice");
         Double snapUpPrice = IStringUtil.isNotBlank(snapUpPriceStr) ? Double.parseDouble(snapUpPriceStr):0;
-        String isSupportExchangeStr = request.getParameter("isSupportExchange");
-        byte isSupportExchange = IStringUtil.equals(IConstants.ON, isSupportExchangeStr) ? IConstants.YES : IConstants.NO;
+//        String isSupportExchangeStr = request.getParameter("isSupportExchange");
+//        byte isSupportExchange = IStringUtil.equals(IConstants.ON, isSupportExchangeStr) ? IConstants.YES : IConstants.NO;
         String exchangePriceStr = request.getParameter("exchangePrice");
         int exchangePrice =  IStringUtil.isNotBlank(exchangePriceStr) ? Integer.parseInt(exchangePriceStr):0;
         String showOrderStr = request.getParameter("showOrder");
@@ -131,7 +132,7 @@ public class FoodController {
         food.setFoodCount(foodCount);
         food.setRealFoodCount(realFoodCount);
         food.setSupportSnapUp(isSupportSnapUp);
-        food.setSupportExchange(isSupportExchange);
+//        food.setSupportExchange(isSupportExchange);
         food.setExchangeCount(exchangePrice);
         food.setShowOrder(showOrder);//排序号
         food.setBriefIntro(briefIntro);
@@ -163,19 +164,22 @@ public class FoodController {
         int month = cal.get(Calendar.MONTH) + 1;//得到月，因为从搜索0开始的，所以要加1
         int day = cal.get(Calendar.DAY_OF_MONTH);//得到天
         String time = year + "-" + month + "-" + day;
-        String filePath = request.getSession().getServletContext().getRealPath(IConstants.FOOD_PIC_PATH) + "\\" + time;
+        String filePath = request.getSession().getServletContext().getRealPath(IConstants.FOOD_PIC_PATH) + File.separator + time;
         String originalFileName = file.getOriginalFilename();
-        int length = originalFileName.split("\\.").length;
-        String suffix = originalFileName.split("\\.")[length - 1];
+        int dot = originalFileName.lastIndexOf('.');
+        String suffix = ".jpg";
+        if ((dot >-1) && (dot < (originalFileName.length() - 1))) {
+            suffix = originalFileName.substring(dot + 1);
+        }
         String fileName = cal.getTimeInMillis() + "." + suffix;
         boolean isCreate = IFileUtil.createUploadFile(filePath, fileName, file);
         Map<String, Object> map = new HashMap<String, Object>();
         if (isCreate) {
-            map.put("filePath", IConstants.FOOD_PIC_PATH + "\\" + time+"\\"+fileName);
+            map.put("filePath", IConstants.FOOD_PIC_PATH + File.separator + time+File.separator+fileName);
             map.put("originalFileName", originalFileName);
-            map.put("orginPicPath", IConstants.FOOD_PIC_PATH + "\\" + time+"\\orginal\\"+fileName);
-            map.put("smallPicPath", IConstants.FOOD_PIC_PATH + "\\" + time+"\\small\\"+fileName);
-            map.put("diskPath", filePath+"\\"+fileName);
+            map.put("orginPicPath", IConstants.FOOD_PIC_PATH + File.separator + time+File.separator+"original"+File.separator+fileName);
+            map.put("smallPicPath", IConstants.FOOD_PIC_PATH + File.separator + time+File.separator+"small"+File.separator+fileName);
+            map.put("diskPath", filePath+File.separator+fileName);
 
         } else {
             map.put("fileName", IConstants.ERROR);
@@ -245,13 +249,13 @@ public class FoodController {
             String orginPicPath = bodyObj.getString("orginPicPath");
             String orginPicPathAbsolute = request.getSession().getServletContext().getRealPath(orginPicPath);
 
-            String orginPicPathAbsolutes[] = orginPicPathAbsolute.split("\\\\");
+            String orginPicPathAbsolutes[] = orginPicPathAbsolute.split(File.separator);
             String filePath = "";
             int lgh = orginPicPathAbsolutes.length;
             for(int i = 0; i<lgh-2; i++){
-                filePath = filePath +orginPicPathAbsolutes[i]+"\\";
+                filePath = filePath +orginPicPathAbsolutes[i]+File.separator;
             }
-            filePath = filePath +"\\"+orginPicPathAbsolutes[lgh-1];
+            filePath = filePath +File.separator+orginPicPathAbsolutes[lgh-1];
             boolean isDelete = IFileUtil.deleteFile(filePath);
             if (isDelete) {
                 return msgUtil.generateHeadMsg(IConstants.SUCCESS_CODE, IConstants.OPERATE_SUCCESS).generateRtnMsg();
