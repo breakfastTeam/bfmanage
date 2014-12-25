@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.*;
 
 @Controller
@@ -179,19 +180,22 @@ public class SetMealController {
         int month = cal.get(Calendar.MONTH) + 1;//得到月，因为从搜索0开始的，所以要加1
         int day = cal.get(Calendar.DAY_OF_MONTH);//得到天
         String time = year + "-" + month + "-" + day;
-        String filePath = request.getSession().getServletContext().getRealPath(IConstants.SET_MEAL_PIC_PATH) + "\\" + time;
+        String filePath = request.getSession().getServletContext().getRealPath(IConstants.SET_MEAL_PIC_PATH) + File.separator + time;
         String originalFileName = file.getOriginalFilename();
-        int length = originalFileName.split("\\.").length;
-        String suffix = originalFileName.split("\\.")[length - 1];
+        String suffix = ".jpg";
+        int dot = originalFileName.lastIndexOf('.');
+        if ((dot >-1) && (dot < (originalFileName.length() - 1))) {
+            suffix = originalFileName.substring(dot + 1);
+        }
         String fileName = cal.getTimeInMillis() + "." + suffix;
         boolean isCreate = IFileUtil.createUploadFile(filePath, fileName, file);
         Map<String, Object> map = new HashMap<String, Object>();
         if (isCreate) {
-            map.put("filePath", IConstants.SET_MEAL_PIC_PATH + "\\" + time+"\\"+fileName);
+            map.put("filePath", IConstants.SET_MEAL_PIC_PATH +  File.separator + time+ File.separator+fileName);
             map.put("originalFileName", originalFileName);
-            map.put("orginPicPath", IConstants.SET_MEAL_PIC_PATH + "\\" + time+"\\orginal\\"+fileName);
-            map.put("smallPicPath", IConstants.SET_MEAL_PIC_PATH + "\\" + time+"\\small\\"+fileName);
-            map.put("diskPath", filePath+"\\"+fileName);
+            map.put("orginPicPath", IConstants.SET_MEAL_PIC_PATH +  File.separator + time+ File.separator+"orginal"+ File.separator+fileName);
+            map.put("smallPicPath", IConstants.SET_MEAL_PIC_PATH +  File.separator + time+ File.separator+"small"+ File.separator+fileName);
+            map.put("diskPath", filePath+ File.separator+fileName);
 
         } else {
             map.put("fileName", IConstants.ERROR);
