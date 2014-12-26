@@ -53,7 +53,7 @@
                                     <label class="col-lg-6 control-label"><spring:message code="SET_MEAL_NAME"/>：</label>
 
                                     <div class="col-lg-18">
-
+                                        <input type = "hidden" id = "setMealId" name = "setMealId" value ="${setMealDTO.setMeal.setMealId}">
                                         <input type="text" placeholder="" id="setName" name="setName"
                                                class="form-control" value="${setMealDTO.setMeal.setName}">
                                     </div>
