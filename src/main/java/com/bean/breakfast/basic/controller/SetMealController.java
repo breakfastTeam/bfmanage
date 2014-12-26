@@ -60,7 +60,7 @@ public class SetMealController {
 
         String smallPicId = request.getParameter("smallPicId");
         String orginPicId = request.getParameter("orginPicId");
-        String foodId = request.getParameter("setMealId");
+        String setMealId = request.getParameter("setMealId");
         String setName = request.getParameter("setName");
         String priceStr = request.getParameter("price");
         Double price = Double.parseDouble(priceStr);
@@ -89,9 +89,9 @@ public class SetMealController {
 
 
         TBfSetMeal setMeal;
-        if(IStringUtil.isNotBlank(foodId)){
+        if(IStringUtil.isNotBlank(setMealId)){
             try {
-                setMeal = setMealService.getSetMeal(foodId);
+                setMeal = setMealService.getSetMeal(setMealId);
             } catch (Exception e) {
                 e.printStackTrace();
                 setMeal = new TBfSetMeal();
@@ -204,7 +204,7 @@ public class SetMealController {
         boolean isCreate = IFileUtil.createUploadFile(filePath, fileName, file);
         Map<String, Object> map = new HashMap<String, Object>();
         if (isCreate) {
-            map.put("filePath", IConstants.SET_MEAL_PIC_PATH +  File.separator + time+ File.separator+fileName);
+            map.put("filePath", IConstants.SET_MEAL_PIC_PATH + File.separator + time+ File.separator+fileName);
             map.put("originalFileName", originalFileName);
             map.put("orginPicPath", IConstants.SET_MEAL_PIC_PATH +  File.separator + time+ File.separator+"orginal"+ File.separator+fileName);
             map.put("smallPicPath", IConstants.SET_MEAL_PIC_PATH +  File.separator + time+ File.separator+"small"+ File.separator+fileName);

@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.*;
 
 @Controller
@@ -92,17 +93,20 @@ public class InformationController {
         int month = cal.get(Calendar.MONTH) + 1;//得到月，因为从搜索0开始的，所以要加1
         int day = cal.get(Calendar.DAY_OF_MONTH);//得到天
         String time = year + "-" + month + "-" + day;
-        String filePath = request.getSession().getServletContext().getRealPath(IConstants.INFO_PIC_PATH) + "\\" + time;
+        String filePath = request.getSession().getServletContext().getRealPath(IConstants.INFO_PIC_PATH) + File.separator + time;
         String originalFileName = file.getOriginalFilename();
-        int length = originalFileName.split("\\.").length;
-        String suffix = originalFileName.split("\\.")[length - 1];
+        String suffix = ".jpg";
+        int dot = originalFileName.lastIndexOf('.');
+        if ((dot >-1) && (dot < (originalFileName.length() - 1))) {
+            suffix = originalFileName.substring(dot + 1);
+        }
         String fileName = cal.getTimeInMillis() + "." + suffix;
         boolean isCreate = IFileUtil.createUploadFile(filePath, fileName, file);
-        String orginPicPath = request.getSession().getServletContext().getRealPath(IConstants.INFO_PIC_PATH)+"\\" + time+"\\small\\"+fileName;
-        IImageUtil.scaleImage(filePath+"\\"+fileName, orginPicPath, IConstants.INFO_SMALL_PIC_WIDTH, IConstants.INFO_SMALL_PIC_HEIGHT);
+        String orginPicPath = request.getSession().getServletContext().getRealPath(IConstants.INFO_PIC_PATH)+File.separator + time+File.separator+"small"+File.separator+fileName;
+        IImageUtil.scaleImage(filePath+File.separator+fileName, orginPicPath, IConstants.INFO_SMALL_PIC_WIDTH, IConstants.INFO_SMALL_PIC_HEIGHT);
 
         TBfFile picFile = new TBfFile();
-        picFile.setFilePath(IConstants.INFO_PIC_PATH+"\\" + time+"\\small\\"+fileName);
+        picFile.setFilePath(IConstants.INFO_PIC_PATH+ File.separator + time+File.separator+"small"+File.separator+fileName);
         picFile.setCreateTime(IDateUtil.getCurrentTimeDate());
         fileService.saveOrUpdate(picFile);
         Map<String, String> map = new HashMap<String, String>();
