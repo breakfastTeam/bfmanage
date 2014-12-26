@@ -72,13 +72,10 @@ public class IImageUtil {
 			g.dispose();
 			String srcImgFileName = srcImgFile.getName();
 			String suffix = srcImgFileName.substring(srcImgFileName.lastIndexOf(".") + 1);
+			File imgDestFile = new File(imgDest);
+			String imgDestTemp = imgDest.substring(0, imgDest.length() - imgDestFile.getName().length());
 
-//			String imgDests[] = imgDest.split(File.separator);
-//			String imgDestTemp = "";
-//			for(int i = 0; i<imgDests.length-1; i++){
-//				imgDestTemp = imgDestTemp +imgDests[i]+File.separator;
-//			}
-			File distImgFilePath = new File(destImgFile.getAbsolutePath());
+			File distImgFilePath = new File(imgDestTemp);
 			if(!distImgFilePath.exists()){
 				distImgFilePath.mkdirs();
 			}

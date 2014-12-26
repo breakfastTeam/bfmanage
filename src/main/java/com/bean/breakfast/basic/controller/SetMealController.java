@@ -23,6 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -107,11 +110,21 @@ public class SetMealController {
 //        setMeal.setSaleTime(IDateUtil.parseDate(saleTime, 1));
         setMeal.setStartTime(IDateUtil.parseDate(startTime, 1));
         setMeal.setEndTime(IDateUtil.parseDate(endTime, 1));
+
+        Calendar cal = Calendar.getInstance();
+        String nowStr =cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DAY_OF_MONTH);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date now = new Date();
-        if (IDateUtil.diffDays(setMeal.getEndTime(),now)>=0 && IDateUtil.diffDays(setMeal.getStartTime(),now)<= 0) {
-            setMeal.setStatus(IConstants.PUTAWAY);
-        }else{
+        try {
+            now = df.parse(nowStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if (IDateUtil.diffDays(setMeal.getEndTime(),now)<0 || IDateUtil.diffDays(setMeal.getStartTime(),now)> 0) {
             setMeal.setStatus(IConstants.SOLDOUT);
+        }else{
+            setMeal.setStatus(IConstants.PUTAWAY);
         }
 
         SetMealDTO setMealDTO = new SetMealDTO();

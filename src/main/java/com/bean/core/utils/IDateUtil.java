@@ -236,9 +236,27 @@ public static int getYear(){
 			 return null;
 		 }
 	 }
-
+/**d
+ * date1晚于date2返回1
+ * date1等于date2返回0
+ * date早于date2返回-1
+ * ***/
 	public static int diffDays(Date date1,Date date2) {
-		return Integer.valueOf(DurationFormatUtils.formatPeriod(date1.getTime(), date2.getTime(), "d"));
+//		return Integer.valueOf(DurationFormatUtils.formatPeriod(date1.getTime(), date2.getTime(), "d"));
+		try {
+
+			if (date1.getTime() > date2.getTime()) {
+				return 1;
+			} else if (date1.getTime() < date2.getTime()) {
+				return -1;
+			} else {
+				return 0;
+			}
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+		return 0;
 	}
+
 
 }
