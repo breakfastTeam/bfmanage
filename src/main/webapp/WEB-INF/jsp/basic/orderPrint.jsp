@@ -12,14 +12,21 @@
 
         <div class="col-lg-24" style="margin:5px;">
             <div class="row">
-                <label class="col-lg-24" style="font-size: 15pt">粥妹（公众号：izhoumei）</label>
+                <label class="col-lg-24" style="font-size: 25pt">&nbsp;&nbsp;&nbsp;&nbsp;#${index}</label>
             </div>
             <div class="row">
-                <label class="col-lg-24"  style="font-size: 13pt">&nbsp;&nbsp;&nbsp;寒冬下的那一抹温度</label>
+                <label class="col-lg-24" style="font-size: 15pt">&nbsp;&nbsp;&nbsp;&nbsp;豆点餐吧</label>
+            </div>
+            <div class="row">
+                <label class="col-lg-24"  style="font-size: 13pt">&nbsp;&nbsp;&nbsp;让生活更便捷</label>
             </div>
             <div class="row">
                 <label class="col-lg-24 control-label" style="font-size: xx-small"><spring:message code="ORDER_TIME"/>：${order.createTime}</label>
             </div>
+            <div class="row">
+                <label class="col-lg-24 control-label" style="font-size: xx-small"><spring:message code="ORDER_NO"/>：${order.orderNo}</label>
+            </div>
+
             <div class="row">
                 <label class="col-lg-24 control-label">*************************************</label>
             </div>
@@ -34,10 +41,29 @@
                     </tr>
                     <c:forEach items="${orderDetails}" var="item" varStatus="status">
                     <tr >
-                        <td style="padding-left: 15px;padding-top:5px;">${item.food.foodName }</td>
-                        <td style = "padding-top:5px;">${item.food.price }</td>
+                        <c:choose>
+                        <c:when test="${item.food.foodName eq null}">
+                            <td style="padding-left: 15px;padding-top:5px;">${item.setMeal.setName }</td>
+                        </c:when><c:otherwise>
+                            <td style="padding-left: 15px;padding-top:5px;">${item.food.foodName }</td>
+                        </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                        <c:when test="${item.food.price eq null}">
+                            <td style = "padding-top:5px;">${item.setMeal.price }</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td style = "padding-top:5px;">${item.food.price }</td>
+                        </c:otherwise>
+                        </c:choose>
                         <td style = "padding-top:5px;">${item.orderDetail.foodObjCount}</td>
+                        <c:choose>
+                        <c:when test="${item.food.price eq null}">
+                            <td style = "padding-top:5px;"><a  name="partSum">${item.setMeal.price*item.orderDetail.foodObjCount}</a></td>
+                        </c:when><c:otherwise>
                         <td style = "padding-top:5px;"><a  name="partSum">${item.food.price*item.orderDetail.foodObjCount}</a></td>
+                        </c:otherwise>
+                        </c:choose>
                     </tr>
                     </c:forEach>
                 </table>
@@ -63,7 +89,7 @@
                             code="ADDRESS"/>：${order.consigneeAddress}</label>
             </div>
             <div class="row">
-                <img src = "${ctx}/manage/img/zhoumeiweixin.jpg">
+                <img src = "${ctx}/manage/img/weixin.jpg">
             </div>
         </div>
     </div>

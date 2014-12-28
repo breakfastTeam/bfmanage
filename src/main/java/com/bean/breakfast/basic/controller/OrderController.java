@@ -87,8 +87,10 @@ public class OrderController {
     public ModelAndView toOrderDetail(final HttpServletRequest request) {
         ModelAndView model = new ModelAndView("basic/orderDetail");
         String orderId = request.getParameter("orderId");
+        String orderNo = request.getParameter("orderNo");
         List<OrderDetailDTO> orderDetails = orderService.getOrderDetail(orderId);
         model.addObject("orderDetails", orderDetails);
+        model.addObject("orderNo", orderNo);
         return model;
     }
     /**
@@ -102,6 +104,7 @@ public class OrderController {
     public ModelAndView toOrderPrint(final HttpServletRequest request) {
         ModelAndView model = new ModelAndView("basic/orderPrint");
         String orderId = request.getParameter("orderId");
+        String index = request.getParameter("index");
         TBfOrder order = null;
         if(IStringUtil.isNotBlank(orderId)){
             order = orderService.getOrder(orderId);
@@ -114,12 +117,13 @@ public class OrderController {
         String address = order.getConsigneeAddress();
         String addresses[] = address.split("-");
         String tempAdd = "";
-        for(int i = 1; i <addresses.length; i++){
+        for(int i = 0; i <addresses.length; i++){
             tempAdd = tempAdd + addresses[i];
         }
         order.setConsigneeAddress(tempAdd);
         model.addObject("orderDetails", orderDetails);
         model.addObject("order", order);
+        model.addObject("index", index);
         return model;
     }
 

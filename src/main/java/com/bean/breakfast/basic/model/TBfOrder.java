@@ -23,6 +23,7 @@ public class TBfOrder implements java.io.Serializable {
 	private String consigneeName;
 	private String consigneeAddress;
 	private String consigneeMobile;
+	private String orderNo;
 	private Double orderPrice;
 	private Integer exccreaditCount;
 	private String usedCoupons;
@@ -50,7 +51,7 @@ public class TBfOrder implements java.io.Serializable {
 	public TBfOrder(String orderId, String customerId, String orderType,
 			String status, String consigneeName, String consigneeAddress,
 			String consigneeMobile, Double orderPrice, Integer exccreaditCount,
-			String usedCoupons, String comments, Date createTime,
+			String usedCoupons, String comments, Date createTime,String orderNo,
 			String createBy, Date lastModifyTime, String lastModifyBy,
 			Integer optTime) {
 		this.orderId = orderId;
@@ -60,6 +61,7 @@ public class TBfOrder implements java.io.Serializable {
 		this.consigneeName = consigneeName;
 		this.consigneeAddress = consigneeAddress;
 		this.consigneeMobile = consigneeMobile;
+		this.orderNo = orderNo;
 		this.orderPrice = orderPrice;
 		this.exccreaditCount = exccreaditCount;
 		this.usedCoupons = usedCoupons;
@@ -127,6 +129,15 @@ public class TBfOrder implements java.io.Serializable {
 
 	public void setConsigneeAddress(String consigneeAddress) {
 		this.consigneeAddress = consigneeAddress;
+	}
+
+	@Column(name = "order_no", unique = false, nullable = true, insertable = true, updatable = true, length = 32)
+	public String getOrderNo() {
+		return this.orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
 	}
 
 	@Column(name = "consignee_mobile", unique = false, nullable = true, insertable = true, updatable = true, length = 20)

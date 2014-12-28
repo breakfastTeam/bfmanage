@@ -26,7 +26,7 @@
                 <!-- user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <img
-                            alt="" src="img/head.png"/> <span class="username">Bel</span> <b
+                            alt="" src="manage/img/head.png"/> <span class="username">Bel</span> <b
                             class="caret"></b> </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>

@@ -20,6 +20,9 @@
                             id="orderDetailTable">
                         <thead>
                         <tr>
+                            <th>
+                                <spring:message code="ORDER_NO"/>
+                            </th>
 
                             <th>
                                 <spring:message code="FOOD_NAME"/>
@@ -34,25 +37,60 @@
                             <th>
                                 <spring:message code="SUM"/>
                             </th>
-
+                            <th>
+                                <spring:message code="ORDER_TIME"/>
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${orderDetails}" var="item" varStatus="status">
                             <tr class="">
+                                <td>${orderNo}</td>
+                                <c:choose>
+                                <c:when test="${item.food.foodName eq null}">
+                                    <td>
+                                                    ${item.setMeal.setName }
+                                    </td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>
+                                            ${item.food.foodName }
+                                    </td>
+                                </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${item.food.price eq null}">
+                                        <td>
 
-                                <td>
-                                        ${item.food.foodName }
-                                </td>
-                                <td>
-                                        ${item.food.price }
-                                </td>
+                                                        ${item.setMeal.price }
+                                        </td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td>
+                                                ${item.food.price }
+                                        </td>
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <td>
                                         ${item.orderDetail.foodObjCount}
                                 </td>
 
+                                <c:choose>
+                                    <c:when test="${item.food.price eq null}">
+                                        <td>
+                                                ${item.setMeal.price*item.orderDetail.foodObjCount}
+                                        </td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td>
+                                                ${item.food.price*item.orderDetail.foodObjCount}
+                                        </td>
+
+                                    </c:otherwise>
+                                </c:choose>
                                 <td>
-                                        ${item.food.price*item.orderDetail.foodObjCount}
+                                    ${item.orderDetail.createTime}
                                 </td>
 
                             </tr>

@@ -16,6 +16,7 @@ public class OrderDTO implements java.io.Serializable {
 	private String consigneeAddr;
 	private String consigneePhone;
 	private String preSendTime;
+	private String orderNo;
 	private Date preSendDate;
 	private double exccreaditCount;
 	private double money;
@@ -133,5 +134,13 @@ public class OrderDTO implements java.io.Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
 	}
 }

@@ -15,30 +15,33 @@ var BelOrder = function () {
 
             $("button[name='showDetail']").click(function (e) {
                 e.preventDefault();
-                var orderId = $(this).parent().find("input").val();
-                showOrderDetail(orderId);
+                var orderId = $(this).parent().find("input[name='orderId']").val();
+                var orderNo = $(this).parent().find("input[name='orderNo']").val();
+                showOrderDetail(orderId, orderNo);
             });
 
             $("button[name='showPrint']").click(function (e) {
                 e.preventDefault();
-                var orderId = $(this).parent().find("input").val();
-                showOrderPrint(orderId);
+                var orderId = $(this).parent().find("input[name='orderId']").val();
+                var index= $(this).parent().find("input[name='index']").val();
+
+                showOrderPrint(orderId, index);
             });
 
             $("button[name='orderAccept']").click(function (e) {
                 e.preventDefault();
-                var orderId = $(this).parent().find("input").val();
+                var orderId = $(this).parent().find("input[name='orderId']").val();
                 showOrderCourier(orderId);
             });
             $("button[name='orderCancel']").click(function (e) {
                 e.preventDefault();
-                var orderId = $(this).parent().find("input").val();
+                var orderId = $(this).parent().find("input[name='orderId']").val();
                 updateOrderStatus(orderId, "CANCEL");
             });
 
             $("button[name='orderFinish']").click(function (e) {
                 e.preventDefault();
-                var orderId = $(this).parent().find("input").val();
+                var orderId = $(this).parent().find("input[name='orderId']").val();
                 updateOrderStatus(orderId, "FINISH");
             });
 
@@ -63,11 +66,11 @@ var BelOrder = function () {
                 });
             }
 
-            function showOrderDetail(orderId) {
-                iDialog.iWindow("toOrderDetail.do?orderId="+orderId, ORDER_DETAIL);
+            function showOrderDetail(orderId, orderNo) {
+                iDialog.iWindow("toOrderDetail.do?orderId="+orderId+"&orderNo="+orderNo, ORDER_DETAIL);
             }
-            function showOrderPrint(orderId) {
-                iDialog.iWindow("toOrderPrint.do?orderId="+orderId, PRINT);
+            function showOrderPrint(orderId, index) {
+                iDialog.iWindow("toOrderPrint.do?orderId="+orderId+"&index="+index, PRINT);
             }
             function showOrderCourier(orderId) {
                 iDialog.iWindow("toOrderCourier.do?orderId="+orderId, EXPRESS_LIST);

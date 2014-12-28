@@ -19,7 +19,7 @@ public class IConstants {
 	public static final String RANDOM_ENABLEATE_CODE_KEY = "RandomValidateCode";//验证码随机码的key
 	
 	/**************搜索*************/
-	public static int DEFAULT_PAGE_SIZE = 10;
+	public static int DEFAULT_PAGE_SIZE = 18;
 	
 	/***********公共消息************/
 	public static final String DESC = "desc";

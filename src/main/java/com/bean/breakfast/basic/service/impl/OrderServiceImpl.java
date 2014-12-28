@@ -1,14 +1,12 @@
 package com.bean.breakfast.basic.service.impl;
 
-import com.bean.breakfast.basic.dao.ExpressDao;
-import com.bean.breakfast.basic.dao.FoodDao;
-import com.bean.breakfast.basic.dao.OrderDao;
-import com.bean.breakfast.basic.dao.OrderDetailDao;
+import com.bean.breakfast.basic.dao.*;
 import com.bean.breakfast.basic.dto.FoodDTO;
 import com.bean.breakfast.basic.dto.OrderDTO;
 import com.bean.breakfast.basic.dto.OrderDetailDTO;
 import com.bean.breakfast.basic.model.*;
 import com.bean.breakfast.basic.service.OrderService;
+import com.bean.breakfast.basic.service.SetMealService;
 import com.bean.breakfast.constants.IConstants;
 import com.bean.core.orm.service.impl.BaseServiceImpl;
 import com.bean.core.page.Page;
@@ -36,6 +34,9 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 
 	@Autowired
 	private FoodDao foodDao;
+
+	@Autowired
+	private SetMealDao setMealDao;
 
 	public OrderDao getOrderDao() {
 		return orderDao;
@@ -115,6 +116,8 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 				OrderDetailDTO orderDetailDTO = new OrderDetailDTO();
 				TBfFood food = foodDao.get(orderDetail.getFoodObjId());
 				orderDetailDTO.setFood(food);
+				TBfSetMeal setMeal = setMealDao.get(orderDetail.getFoodObjId());
+				orderDetailDTO.setSetMeal(setMeal);
 				orderDetailDTO.setOrderDetail(orderDetail);
 				orderDetailDTOs.add(orderDetailDTO);
 			} catch (Exception e) {
@@ -148,6 +151,7 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 			orderDTO.setStatus(order.getStatus());
 			orderDTO.setPreSendTime(order.getPreSendTime());
 			orderDTO.setPreSendDate(order.getPreSendDate());
+			orderDTO.setOrderNo(order.getOrderNo());
 			orderDTO.setCreateTime(IDateUtil.dateToString(order.getCreateTime()));
 			List<FoodDTO> foodDTOs = new ArrayList<FoodDTO>();
 			List<TBfOrderDetail> orderDetails = orderDetailDao.getOrderDetailByOrderId(order.getOrderId());

@@ -60,7 +60,7 @@ public class OrderDaoImpl extends BaseDaoImpl<TBfOrder,String> implements OrderD
                 params.add(order.getStatus());
             }
         }
-        hql.append(" order by t.createTime desc");
+        hql.append(" order by t.consigneeAddress desc, t.createTime desc");
         return this.findByHql(page, hql.toString(), params);
     }
 

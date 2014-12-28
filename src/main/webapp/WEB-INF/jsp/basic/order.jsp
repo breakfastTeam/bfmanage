@@ -89,6 +89,9 @@
                                         </label>
                                     </th>
                                     <th>
+                                        <spring:message code="INDEX"/>
+                                    </th>
+                                    <th>
                                         <spring:message code="PHONE"/>
                                     </th>
                                     <th>
@@ -122,6 +125,9 @@
                                                 <input value="${item.orderId}" name="foodId"
                                                        id="checkbox${item.orderId}" type="checkbox">
                                             </label>
+                                        </td>
+                                        <td>
+                                            ${status.index+1}
                                         </td>
                                         <td>
                                                 ${item.consigneePhone }
@@ -159,7 +165,10 @@
                                             </c:choose>
                                         </td>
                                         <td>
-                                            <input type = "hidden" value = "${item.orderId}"/>
+                                            <input type = "hidden" name = "orderId" value = "${item.orderId}"/>
+                                            <input type = "hidden" name = "index" value  = "${status.index+1}" />
+                                            <input type = "hidden" name = "orderNo" value  = "${item.orderNo}" />
+
                                             <c:choose>
                                                 <c:when test="${item.status eq 'DRAFT'}">
                                                     <button title="<spring:message code="ORDER_ACCEPT"/>" class="btn btn-success btn-xs" name="orderAccept">

@@ -2,6 +2,7 @@ package com.bean.breakfast.basic.dto;
 
 import com.bean.breakfast.basic.model.TBfFood;
 import com.bean.breakfast.basic.model.TBfOrderDetail;
+import com.bean.breakfast.basic.model.TBfSetMeal;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 public class OrderDetailDTO implements java.io.Serializable {
 	private TBfOrderDetail orderDetail;
 	private TBfFood food;
+	private TBfSetMeal setMeal;
 
 	public TBfOrderDetail getOrderDetail() {
 		return orderDetail;
@@ -29,5 +31,13 @@ public class OrderDetailDTO implements java.io.Serializable {
 
 	public void setFood(TBfFood food) {
 		this.food = food;
+	}
+
+	public TBfSetMeal getSetMeal() {
+		return setMeal;
+	}
+
+	public void setSetMeal(TBfSetMeal setMeal) {
+		this.setMeal = setMeal;
 	}
 }
