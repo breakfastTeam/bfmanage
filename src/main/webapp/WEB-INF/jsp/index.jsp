@@ -78,6 +78,9 @@
                         <li class=""><a href="javascript:void(0)"
                                         onclick="openNewUrl('${ctx}/basic/toCoupon.do')"><spring:message
                                 code="COUPON_MANAGE"/></a></li>
+                        <li class=""><a href="javascript:void(0)"
+                                        onclick="openNewUrl('${ctx}/basic/toSendCoupon.do')"><spring:message
+                                code="SEND_COUPON_MANAGE"/></a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">

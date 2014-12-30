@@ -146,7 +146,7 @@ public class SetMealServiceImpl extends BaseServiceImpl<TBfSetMeal,String> imple
 		List<TBfSetMeal> setMeals = setMealDao.findSetMeal(setMeal);
 		Date now = new Date();
 		for(TBfSetMeal s : setMeals) {
-			if (IDateUtil.diffDays(setMeal.getEndTime(), now)>=0 && IDateUtil.diffDays(setMeal.getStartTime(), now)<= 0) {
+			if (IDateUtil.diffDays(s.getEndTime(), now)>=0 && IDateUtil.diffDays(s.getStartTime(), now)<= 0) {
 				s.setStatus(IConstants.PUTAWAY);
 			} else {
 				s.setStatus(IConstants.SOLDOUT);

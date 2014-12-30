@@ -26,7 +26,7 @@ public class ProviderController {
     Page<TBfProvider> page = new Page<TBfProvider>(IConstants.DEFAULT_PAGE_SIZE);
 
     /**
-     * 保存公告信息
+     * 保存供应商信息
      *
      * @return model ModelAndView 基本返回对象
      * @author Felix

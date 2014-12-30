@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li class="active">
-                    <spring:message code="COUPON_MANAGE"/>
+                    <spring:message code="SEND_COUPON_MANAGE"/>
                 </li>
             </ul>
             <!--位置指示标志 结束 -->
@@ -28,13 +28,24 @@
             <!-- 通知消息类效果 开始-->
             <section class="panel">
                 <header class="panel-heading">
-                    <spring:message code="COUPON_LIST"/>
+                    <spring:message code="SEND_COUPON_LIST"/>
                 </header>
                 <div class="panel-body">
                     <div class="adv-table editable-table ">
-                        <form action="toCoupon.do" id="iForm" method="GET">
+                        <form action="toSendCoupon.do" id="iForm" method="GET">
+                            <div class="row">
+                                <div class="col-lg-24">
+                                    <div class="pull-right">
+                                        <button class="btn btn-success" type="button" id="toSendCouponAdd">
+                                            <i class="fa fa-plus"></i>
+                                            <spring:message code="ADD"/>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            </br>
                             <table class="table table-striped table-hover table-bordered table-advance"
-                                    id="couponTable">
+                                    id="sendCouponTable">
                                 <thead>
                                 <tr>
                                     <th class="first-td">
@@ -49,10 +60,14 @@
                                         <spring:message code="MONEY_NUM"/>
                                     </th>
                                     <th>
-                                        <spring:message code="END_TIME"/>
+                                        <spring:message code="NUM"/>
                                     </th>
                                     <th>
-                                        <spring:message code="SENDER"/>
+                                        <spring:message code="AVERAGE_MONEY"/>
+                                    </th>
+
+                                    <th>
+                                        <spring:message code="END_TIME"/>
                                     </th>
                                     <th>
                                         <spring:message code="STAT"/>
@@ -67,30 +82,35 @@
                                     <tr class="">
                                         <td>
                                             <label class="label_check">
-                                                <input value="${item.coupon.couponId}" name="couponId"
-                                                       id="checkbox${item.coupon.couponId}" type="checkbox">
+                                                <input value="${item.sendCoupon.sendCouponId}" name="sendCouponId"
+                                                       id="checkbox${item.sendCoupon.sendCouponId}" type="checkbox">
                                             </label>
                                         </td>
                                         <td>
                                                 ${item.customerDTO.user.userName }
                                         </td>
                                         <td>
-                                                ${item.coupon.price }
+                                                ${item.sendCoupon.price }
                                         </td>
                                         <td>
-                                                ${item.coupon.endTime }
+                                                ${item.sendCoupon.num }
                                         </td>
                                         <td>
-                                                ${item.sender.userName }
+                                                ${item.sendCoupon.price/item.sendCoupon.num }
                                         </td>
+
+                                        <td>
+                                                ${item.sendCoupon.endTime }
+                                        </td>
+
                                         <td>
                                             <c:choose>
-                                                <c:when test="${item.coupon.status eq 'ENABLE'}">
+                                                <c:when test="${item.sendCoupon.status eq 'ENABLE'}">
                                                     <a style="color:#00CC00">
                                                         <spring:message code="ENABLE" />
                                                     </a>
                                                 </c:when>
-                                                <c:when test="${item.coupon.status eq 'DISCARD'}">
+                                                <c:when test="${item.sendCoupon.status eq 'DISCARD'}">
                                                     <a style="color:#CC3300">
                                                         <spring:message code="DISCARD" />
                                                     </a>
@@ -103,9 +123,9 @@
                                             </c:choose>
                                         </td>
                                         <td>
-                                            <input type = "hidden" value = "${item.coupon.couponId}">
+                                            <input type = "hidden" value = "${item.sendCoupon.sendCouponId}">
 
-                                            <button class="btn btn-danger btn-xs" title="<spring:message code="DELETE" />" name = "couponDiscard">
+                                            <button class="btn btn-danger btn-xs" title="<spring:message code="DELETE" />" name = "sendCouponDiscard">
                                                 <i class="fa fa-times-circle"></i>
                                             </button>
 
@@ -128,12 +148,12 @@
 <!--script for this page only-->
 <script src="${ctx }/manage/skin/default/js/table/jquery.dataTables.js"></script>
 <script src="${ctx }/manage/skin/default/js/table/DT_bootstrap.js"></script>
-<script src="${ctx }/manage/js/basic/coupon.js"></script>
+<script src="${ctx }/manage/js/basic/sendCoupon.js"></script>
 
 <!-- END JAVASCRIPTS -->
 <script>
     jQuery(document).ready(function () {
-        BelCoupon.init();
+        BelSendCoupon.init();
     });
 </script>
 </body>

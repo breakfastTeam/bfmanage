@@ -99,4 +99,25 @@ public class UserCustomerServiceImpl extends BaseServiceImpl<TBfUserCustomer,Str
 		page.setPageNo(pageUser.getPageNo());
 		return page;
 	}
+
+	@Override
+	public List<UserCustomerDTO> findUserCustomerDTO(UserCustomerDTO userCustomerDTO) {
+		List<TBfUser> users = userDao.findUserCustomer(userCustomerDTO.getUser());
+		List<UserCustomerDTO> userCustomerDTOs = new ArrayList<UserCustomerDTO>();
+		int userSize = users.size();
+		for (int i = 0; i< userSize; i++){
+			UserCustomerDTO uc = new UserCustomerDTO();
+			uc.setUser(users.get(i));
+			try {
+				TBfUserCustomer userCustomer = userCustomerDao.get(users.get(i).getUserId());
+				uc.setCustomer(userCustomer);
+
+			} catch (Exception e) {
+				uc.setCustomer(new TBfUserCustomer());
+				e.printStackTrace();
+			}
+			userCustomerDTOs.add(uc);
+		}
+		return userCustomerDTOs;
+	}
 }

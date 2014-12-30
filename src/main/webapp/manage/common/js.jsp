@@ -10,7 +10,10 @@
 	var PRINT = '<spring:message code="PRINT" />';
 	var FOOD_LIST='<spring:message code="FOOD_LIST" />';
 	var EXPRESS_LIST = '<spring:message code="EXPRESS_LIST" />';
-	var SURE_DELETE = '<spring:message code="SURE_DELETE" />'
+	var SURE_DELETE = '<spring:message code="SURE_DELETE" />';
+	var SEND_COUPON_LIST = '<spring:message code="SEND_COUPON_LIST" />'
+	var CUSTOMER_LIST = '<spring:message code="CUSTOMER_LIST" />'
+
 </script>
 
 <script src="${ctx }/manage/skin/default/js/jquery-1.8.3.js"></script>

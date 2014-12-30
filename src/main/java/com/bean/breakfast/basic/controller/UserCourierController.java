@@ -195,7 +195,7 @@ public class UserCourierController {
         return model;
     }
     /**
-     * 跳转到公告管理页面
+     * 跳转到配送员选择页面
      *
      * @param request HttpServletRequest request请求
      * @return model ModelAndView 基本返回对象

@@ -19,5 +19,6 @@ public interface UserDao extends BaseDao<TBfUser, String> {
     public Page<TBfUser> findUserCourier(Page<TBfUser> page, TBfUser user);
     public List<TBfUser> findUserCourier(TBfUser user);
     public Page<TBfUser> findUserCustomer(Page<TBfUser> page, TBfUser user);
+    public List<TBfUser> findUserCustomer(TBfUser user);
     public List<TBfUser> findUser(TBfUser user);
 }

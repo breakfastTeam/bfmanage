@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/basic")
@@ -228,6 +229,31 @@ public class UserCustomerController {
         userCustomerDTO.setCustomer(userCustomer);
         page = userCustomerService.findUserCustomerDTO(page, userCustomerDTO);
         model.addObject("page", page);
+        return model;
+    }
+
+    /**
+     * 跳转到配送员选择页面
+     *
+     * @param request HttpServletRequest request请求
+     * @return model ModelAndView 基本返回对象
+     * @author Felix
+     * @since 2014-04-19 9:59
+     * 变更记录:
+     */
+
+    @RequestMapping(value = "/toSendCouponCustomer")
+    public ModelAndView toSendCouponCustomer(final HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("basic/sendCouponCustomer");
+        TBfUser user = new TBfUser();
+
+        TBfUserCustomer userCustomer = new TBfUserCustomer();
+        UserCustomerDTO userCustomerDTO = new UserCustomerDTO();
+        userCustomerDTO.setUser(user);
+        userCustomerDTO.setCustomer(userCustomer);
+
+        List<UserCustomerDTO> sendCouponCustomers = userCustomerService.findUserCustomerDTO(userCustomerDTO);
+        model.addObject("sendCouponCustomers", sendCouponCustomers);
         return model;
     }
 }
