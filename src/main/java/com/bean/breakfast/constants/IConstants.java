@@ -61,6 +61,8 @@ public class IConstants {
     public static final String FOOD_PIC_PATH = "upload"+ File.separator+"food";
 	public static final String SET_MEAL_PIC_PATH = "upload"+File.separator+"setmeal";
 	public static final String INFO_PIC_PATH = "upload"+File.separator+"info";
+	public static final String PHOTO_SHOW_PATH = "upload"+File.separator+"photoshow";
+
 
 
 	public static final int FOOD_BIG_PIC_WIDTH = 320;
@@ -69,6 +71,8 @@ public class IConstants {
     public static final int FOOD_SMALL_PIC_HEIGHT = 100;
 	public static final int INFO_SMALL_PIC_HEIGHT = 100;
 	public static final int INFO_SMALL_PIC_WIDTH  = 160;
+	public static final int PHOTO_SMALL_PIC_HEIGHT = 48;
+	public static final int PHOTO_SMALL_PIC_WIDTH  = 85;
 
 	public static final double HALF = 0.5;
 
