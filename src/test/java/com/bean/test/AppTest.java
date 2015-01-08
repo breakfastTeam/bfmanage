@@ -4,7 +4,7 @@ import org.mortbay.jetty.webapp.WebAppContext;
 
 public class AppTest {
     public static void main(String[] args) {
-        Server jettyServer = new Server(8080);
+        Server jettyServer = new Server(8081);
 
         WebAppContext wah = new WebAppContext();
         wah.setContextPath("/bfmanage");
