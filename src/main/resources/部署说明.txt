@@ -1,0 +1,4 @@
+SAE部署
+1、将javax.servlet.jstl和javax.servlet.servlet-api改为provided
+2、将数据库连接改为新浪的连接
+3、将war包下的xml-api.jar删除

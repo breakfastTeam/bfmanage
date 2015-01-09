@@ -38,6 +38,13 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 	@Autowired
 	private SetMealDao setMealDao;
 
+	@Autowired
+	private UserElementStatisticsDao userElementStatisticsDao;
+
+	@Autowired
+	private ElementContentDao elementContentDao;
+
+
 	public OrderDao getOrderDao() {
 		return orderDao;
 	}
@@ -177,9 +184,27 @@ public class OrderServiceImpl extends BaseServiceImpl<TBfOrder,String> implement
 	}
 	public void saveOrUpdate(TBfOrder order){
 		orderDao.saveOrUpdate(order);
+
+		/**如果订单为结束订单则将用户微量元素进行统计**/
+		if(order.getStatus().equals(IConstants.FINISH)){
+			List<TBfOrderDetail> orderDetails = orderDetailDao.getOrderDetailByOrderId(order.getOrderId());
+			for (TBfOrderDetail orderDetail:orderDetails){
+				String objId = orderDetail.getFoodObjId();
+				List<TBfElementContent> elementContents = elementContentDao.getElementContentByObjId(objId);
+				for(TBfElementContent elementContent:elementContents){
+					TBfUserElementStatistics userElementStatistics = new TBfUserElementStatistics();
+					userElementStatistics.setElementId(elementContent.getElementId());
+					userElementStatistics.setQuantity(elementContent.getQuantity());
+					userElementStatistics.setCreateTime(IDateUtil.getCurrentTimeDate());
+					userElementStatistics.setUserId(order.getCustomerId());
+					userElementStatisticsDao.save(userElementStatistics);
+				}
+			}
+		}
+		/**用户微量元素统计结束**/
 	}
 	public void saveOrUpdateOrderAndExpress(TBfOrder order, TBfExpress express){
-		orderDao.saveOrUpdate(order);
+		saveOrUpdate(order);
 		expressDao.saveOrUpdate(express);
 	}
 }

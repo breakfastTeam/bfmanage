@@ -12,4 +12,5 @@ public interface SetMealDao extends BaseDao<TBfSetMeal, String> {
     public Page<TBfSetMeal> findSetMeal(Page<TBfSetMeal> page, TBfSetMeal setMeal);
     public List<TBfSetMeal> findSetMeal(TBfSetMeal setMeal);
     public int getShowOrder();
+    public TBfSetMeal getSetMeal(String setMealId);
 }

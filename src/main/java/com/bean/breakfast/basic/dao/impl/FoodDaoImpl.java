@@ -63,4 +63,16 @@ public class FoodDaoImpl extends BaseDaoImpl<TBfFood,String>  implements FoodDao
 		Query query = getSession().createQuery(hql);
 		query.executeUpdate();
 	}
+
+	@Override
+	public TBfFood getFood(String foodId) {
+		String hql = "from TBfFood t where t.foodId=?";
+		List<TBfFood> foods = this.find(hql, foodId);
+		if(foods != null && foods.size()>0){
+			return foods.get(0);
+		}else{
+			return null;
+		}
+
+	}
 }

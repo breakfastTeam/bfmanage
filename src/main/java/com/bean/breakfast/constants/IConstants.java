@@ -29,7 +29,8 @@ public class IConstants {
 	public static final String SERVER_EXCEPTION = "exception";
 	public static final String INFO = "info";
 
-
+    public static final String SET_MEAL = "SETMEAL";
+	public static final String FOOD = "FOOD";
 
 	public static final String USER_TYPE_ADMIN = "ADMIN";
 	public static final String USER_TYPE_CUSTOMER = "CUSTOMER";

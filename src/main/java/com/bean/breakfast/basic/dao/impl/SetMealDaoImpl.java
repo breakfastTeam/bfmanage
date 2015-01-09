@@ -59,4 +59,15 @@ public class SetMealDaoImpl extends BaseDaoImpl<TBfSetMeal,String>  implements S
         query.setParameter(0, IConstants.DISCARD);
         return ((Number) query.iterate().next()).intValue();
     }
+
+    @Override
+    public TBfSetMeal getSetMeal(String setMealId) {
+        String hql = "from TBfSetMeal t where t.setMealId=?";
+        List<TBfSetMeal> setMeals = this.find(hql, setMealId);
+        if(setMeals != null && setMeals.size()>0){
+            return setMeals.get(0);
+        }else{
+            return null;
+        }
+    }
 }

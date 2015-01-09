@@ -14,4 +14,5 @@ public interface FoodDao extends BaseDao<TBfFood, String> {
 	public Page<TBfFood> findFood(Page<TBfFood> page, TBfFood food);
 	public Page<TBfFood> findFoodWithSaleTime(Page<TBfFood> page, TBfFood food);
 	public void minusFoodCount(String foodId, int foodCount, int realFoodCount);
+	public TBfFood getFood(String foodId);
 }
